@@ -1,0 +1,15 @@
+C:\Users\simeo\source\repos\1erMars\1erMars\bin\Debug\net8.0\1erMars.exe
+C:\Users\simeo\source\repos\1erMars\1erMars\bin\Debug\net8.0\1erMars.deps.json
+C:\Users\simeo\source\repos\1erMars\1erMars\bin\Debug\net8.0\1erMars.runtimeconfig.json
+C:\Users\simeo\source\repos\1erMars\1erMars\bin\Debug\net8.0\1erMars.dll
+C:\Users\simeo\source\repos\1erMars\1erMars\bin\Debug\net8.0\1erMars.pdb
+C:\Users\simeo\source\repos\1erMars\1erMars\obj\Debug\net8.0\1erMars.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\simeo\source\repos\1erMars\1erMars\obj\Debug\net8.0\1erMars.AssemblyInfoInputs.cache
+C:\Users\simeo\source\repos\1erMars\1erMars\obj\Debug\net8.0\1erMars.AssemblyInfo.cs
+C:\Users\simeo\source\repos\1erMars\1erMars\obj\Debug\net8.0\1erMars.csproj.CoreCompileInputs.cache
+C:\Users\simeo\source\repos\1erMars\1erMars\obj\Debug\net8.0\1erMars.dll
+C:\Users\simeo\source\repos\1erMars\1erMars\obj\Debug\net8.0\refint\1erMars.dll
+C:\Users\simeo\source\repos\1erMars\1erMars\obj\Debug\net8.0\1erMars.pdb
+C:\Users\simeo\source\repos\1erMars\1erMars\obj\Debug\net8.0\1erMars.genruntimeconfig.cache
+C:\Users\simeo\source\repos\1erMars\1erMars\obj\Debug\net8.0\ref\1erMars.dll
+C:\Users\simeo\source\repos\1erMars\1erMars\obj\Debug\net8.0\1erMars.csproj.ResolveComReference.cache
