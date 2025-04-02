@@ -35,6 +35,7 @@ namespace WinFormsApp1
             bindingSource1 = new BindingSource(components);
             button2 = new Button();
             button3 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
@@ -65,25 +66,35 @@ namespace WinFormsApp1
             button2.Name = "button2";
             button2.Size = new Size(383, 58);
             button2.TabIndex = 2;
-            button2.Text = "Trier par nom ";
+            button2.Text = "Afficher client servi ";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
             // button3
             // 
-            button3.Location = new Point(749, 616);
+            button3.Location = new Point(768, 616);
             button3.Name = "button3";
             button3.Size = new Size(351, 58);
             button3.TabIndex = 3;
-            button3.Text = "Trier par rue ";
+            button3.Text = "Mets mis en ligne ";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(1147, 616);
+            button4.Name = "button4";
+            button4.Size = new Size(264, 58);
+            button4.TabIndex = 4;
+            button4.Text = "Met du jour proposé ";
+            button4.UseVisualStyleBackColor = true;
             // 
             // CuisinierPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1708, 865);
+            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -104,5 +115,6 @@ namespace WinFormsApp1
         private BindingSource bindingSource1;
         private Button button2;
         private Button button3;
+        private Button button4;
     }
 }

@@ -4,7 +4,13 @@
     <Compile Update="AddNewClient.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Administrator.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ClientPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Connexion_user.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="CuisinierPage.cs">
@@ -16,7 +22,19 @@
     <Compile Update="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ModeClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Panier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Passer_commande .cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UpdateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Utilisateur.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
