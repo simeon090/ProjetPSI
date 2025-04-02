@@ -1,0 +1,15 @@
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\bin\Debug\net8.0-windows\30Mars.exe
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\bin\Debug\net8.0-windows\30Mars.deps.json
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\bin\Debug\net8.0-windows\30Mars.runtimeconfig.json
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\bin\Debug\net8.0-windows\30Mars.dll
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\bin\Debug\net8.0-windows\30Mars.pdb
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\obj\Debug\net8.0-windows\30Mars.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\obj\Debug\net8.0-windows\30Mars.AssemblyInfoInputs.cache
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\obj\Debug\net8.0-windows\30Mars.AssemblyInfo.cs
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\obj\Debug\net8.0-windows\30Mars.csproj.CoreCompileInputs.cache
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\obj\Debug\net8.0-windows\30Mars.sourcelink.json
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\obj\Debug\net8.0-windows\30Mars.dll
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\obj\Debug\net8.0-windows\refint\30Mars.dll
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\obj\Debug\net8.0-windows\30Mars.pdb
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\obj\Debug\net8.0-windows\30Mars.genruntimeconfig.cache
+C:\Users\simeo\source\repos\ProjetPSI\1erMars\obj\Debug\net8.0-windows\ref\30Mars.dll
