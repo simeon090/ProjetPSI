@@ -55,7 +55,7 @@ namespace WinFormsApp1
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(469, 741);
+            dataGridView1.Size = new Size(756, 741);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -63,7 +63,7 @@ namespace WinFormsApp1
             // 
             button2.Anchor = AnchorStyles.None;
             button2.Font = new Font("Segoe UI", 12F);
-            button2.Location = new Point(-8, 208);
+            button2.Location = new Point(96, 208);
             button2.Name = "button2";
             button2.Size = new Size(345, 70);
             button2.TabIndex = 2;
@@ -75,7 +75,7 @@ namespace WinFormsApp1
             // 
             button3.Anchor = AnchorStyles.None;
             button3.Font = new Font("Segoe UI", 12F);
-            button3.Location = new Point(-8, 107);
+            button3.Location = new Point(96, 107);
             button3.Name = "button3";
             button3.Size = new Size(345, 70);
             button3.TabIndex = 3;
@@ -87,7 +87,7 @@ namespace WinFormsApp1
             // 
             button4.Anchor = AnchorStyles.None;
             button4.Font = new Font("Segoe UI", 12F);
-            button4.Location = new Point(-9, 0);
+            button4.Location = new Point(95, 0);
             button4.Name = "button4";
             button4.Size = new Size(345, 70);
             button4.TabIndex = 4;
@@ -113,26 +113,27 @@ namespace WinFormsApp1
             splitContainer1.Panel2.Controls.Add(button4);
             splitContainer1.Panel2.Controls.Add(button2);
             splitContainer1.Panel2.Controls.Add(button3);
-            splitContainer1.Size = new Size(841, 741);
-            splitContainer1.SplitterDistance = 489;
+            splitContainer1.Size = new Size(1336, 741);
+            splitContainer1.SplitterDistance = 776;
             splitContainer1.TabIndex = 5;
             // 
             // button6
             // 
             button6.Anchor = AnchorStyles.None;
             button6.Font = new Font("Segoe UI", 12F);
-            button6.Location = new Point(-12, 496);
+            button6.Location = new Point(92, 496);
             button6.Name = "button6";
             button6.Size = new Size(345, 70);
             button6.TabIndex = 7;
             button6.Text = "Trier par achats cumulés";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button5
             // 
             button5.Anchor = AnchorStyles.None;
             button5.Font = new Font("Segoe UI", 12F);
-            button5.Location = new Point(-8, 399);
+            button5.Location = new Point(96, 399);
             button5.Name = "button5";
             button5.Size = new Size(345, 70);
             button5.TabIndex = 6;
@@ -144,7 +145,7 @@ namespace WinFormsApp1
             // 
             button1.Anchor = AnchorStyles.None;
             button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(-1, 301);
+            button1.Location = new Point(103, 301);
             button1.Name = "button1";
             button1.Size = new Size(345, 70);
             button1.TabIndex = 5;
@@ -156,7 +157,7 @@ namespace WinFormsApp1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(841, 741);
+            ClientSize = new Size(1336, 741);
             Controls.Add(splitContainer1);
             Name = "ClientPage";
             Text = "Client";

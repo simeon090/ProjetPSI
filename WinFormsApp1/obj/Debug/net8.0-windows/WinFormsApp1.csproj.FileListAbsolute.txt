@@ -38,3 +38,9 @@ C:\Users\hassa\OneDrive\Desktop\ESILV A2\ALGO\WinFormsApp1\obj\Debug\net8.0-wind
 C:\Users\hassa\OneDrive\Desktop\ESILV A2\ALGO\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.DeleteClient.resources
 C:\Users\hassa\OneDrive\Desktop\ESILV A2\ALGO\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.HomePage.resources
 C:\Users\hassa\OneDrive\Desktop\ESILV A2\ALGO\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.UpdateClient.resources
+C:\Users\hassa\OneDrive\Desktop\ESILV A2\ALGO\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Administrator.resources
+C:\Users\hassa\OneDrive\Desktop\ESILV A2\ALGO\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Connexion_user.resources
+C:\Users\hassa\OneDrive\Desktop\ESILV A2\ALGO\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Utilisateur.resources
+C:\Users\hassa\OneDrive\Desktop\ESILV A2\ALGO\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Passer_commande.resources
+C:\Users\hassa\OneDrive\Desktop\ESILV A2\ALGO\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.ModeClient.resources
+C:\Users\hassa\OneDrive\Desktop\ESILV A2\ALGO\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Panier.resources
