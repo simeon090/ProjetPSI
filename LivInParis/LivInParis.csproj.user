@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Partie Interface\AddNewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\Administrator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\ClientPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\Connexion_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\Créer_un_compte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\CuisinierPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\DeleteClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\ModeClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\Panier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\Passer_commande .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\UpdateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\Utilisateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

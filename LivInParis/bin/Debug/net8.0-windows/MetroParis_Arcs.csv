@@ -1,0 +1,331 @@
+Station Id;Station;Pr�c�dent;Suivant;Temps entre 2 stations;Temps de Changement;Status;Ligne_de_metro;Sens
+1;Porte Maillot;;2;0;100;oui;1;double
+2;Argentine;1;3;3;100;oui;1;double
+3;Charles de Gaulle - Etoile;2;4;2;100;oui;1;double
+4;George V;3;5;3;100;oui;1;double
+5;Franklin D. Roosevelt;4;6;2;100;oui;1;double
+6;Champs-Elys�es - Clemenceau;5;7;3;100;oui;1;double
+7;Concorde;6;8;2;100;oui;1;double
+8;Tuileries;7;9;4;100;oui;1;double
+9;Palais Royal - Mus�e du Louvre;8;10;2;100;oui;1;double
+10;Louvre - Rivoli;9;11;3;100;oui;1;double
+11;Ch�telet;10;12;2;100;oui;1;double
+12;H�tel de Ville;11;13;3;100;oui;1;double
+13;Saint-Paul (Le Marais);12;14;2;100;oui;1;double
+14;Bastille;13;15;4;100;oui;1;double
+15;Gare de Lyon;14;16;2;100;oui;1;double
+16;Reuilly - Diderot;15;17;2;100;oui;1;double
+17;Nation;16;18;2;100;oui;1;double
+18;Porte de Vincennes;17;19;2;100;oui;1;double
+19;Ch�teau de Vincennes;18;;1;100;oui;1;double
+20;Porte Dauphine;;21;0;100;oui;2;double
+21;Victor Hugo;20;22;2;100;oui;2;double
+22;Charles de Gaulle - Etoile;21;23;1;100;oui;2;double
+23;Ternes;22;24;2;100;oui;2;double
+24;Courcelles;23;25;1;100;oui;2;double
+25;Monceau;24;26;2;100;oui;2;double
+26;Villiers;25;27;1;100;oui;2;double
+27;Rome;26;28;3;100;oui;2;double
+28;Place de Clichy;27;29;2;100;oui;2;double
+29;Blanche;28;30;1;100;oui;2;double
+30;Pigalle;29;31;2;100;oui;2;double
+31;Anvers;30;32;3;100;oui;2;double
+32;Barb�s - Rochechouart;31;33;2;100;oui;2;double
+33;La Chapelle;32;34;5;100;oui;2;double
+34;Stalingrad;33;35;2;100;oui;2;double
+35;Jaur�s;34;36;2;100;oui;2;double
+36;Colonel Fabien;35;37;2;100;oui;2;double
+37;Belleville;36;38;2;100;oui;2;double
+38;Couronnes;37;39;2;100;oui;2;double
+39;M�nilmontant;38;40;1;100;oui;2;double
+40;P�re Lachaise;39;41;1;100;oui;2;double
+41;Philippe Auguste;40;42;1;100;oui;2;double
+42;Alexandre Dumas;41;43;2;100;oui;2;double
+43;Avron;42;44;1;100;oui;2;double
+44;Nation;43;;2;100;oui;2;double
+45;Porte de Champerret;;46;0;100;oui;3;double
+46;Pereire;45;47;2;100;oui;3;double
+47;Wagram;46;48;2;100;oui;3;double
+48;Malesherbes;47;49;5;100;oui;3;double
+49;Villiers;48;50;1;100;oui;3;double
+50;Europe;49;51;5;100;oui;3;double
+51;Saint-Lazare;50;52;4;100;oui;3;double
+52;Havre-Caumartin;51;53;3;100;oui;3;double
+53;Op�ra;52;54;5;100;oui;3;double
+54;Quatre Septembre;53;55;4;100;oui;3;double
+55;Bourse;54;56;2;100;oui;3;double
+56;Sentier;55;57;3;100;oui;3;double
+57;R�aumur - S�bastopol;56;58;2;100;oui;3;double
+58;Arts et M�tiers;57;59;4;100;oui;3;double
+59;Temple;58;60;3;100;oui;3;double
+60;R�publique;59;61;1;100;oui;3;double
+61;Parmentier;60;62;4;100;oui;3;double
+62;Rue Saint-Maur;61;63;1;100;oui;3;double
+63;P�re Lachaise;62;64;2;100;oui;3;double
+64;Gambetta;63;65;4;100;oui;3;double
+65;Porte de Bagnolet;64;;4;100;oui;3;double
+66;Porte des Lilas;;67;0;100;oui;3b;double
+67;Saint-Fargeau;66;68;1;100;oui;3b;double
+68;Pelleport;67;69;5;100;oui;3b;double
+69;Gambetta;68;;5;100;oui;3b;double
+70;Porte de Clignancourt;;71;0;100;oui;4;double
+71;Simplon;70;72;2;100;oui;4;double
+72;Marcadet - Poissonniers;71;73;2;100;oui;4;double
+73;Ch�teau Rouge;72;74;4;100;oui;4;double
+74;Barb�s - Rochechouart;73;75;4;100;oui;4;double
+75;Gare du Nord;74;76;5;100;oui;4;double
+76;Gare de l'Est;75;77;5;100;oui;4;double
+77;Ch�teau d'Eau;76;78;2;100;oui;4;double
+78;Strasbourg - Saint-Denis;77;79;3;100;oui;4;double
+79;R�aumur - S�bastopol;78;80;3;100;oui;4;double
+80;Etienne Marcel;79;81;4;100;oui;4;double
+81;Les Halles;80;82;4;100;oui;4;double
+82;Ch�telet;81;83;1;100;oui;4;double
+83;Cit�;82;84;1;100;oui;4;double
+84;Saint-Michel;83;85;2;100;oui;4;double
+85;Od�on;84;86;2;100;oui;4;double
+86;Saint-Germain-des-Pr�s;85;87;5;100;oui;4;double
+87;Saint-Sulpice;86;88;5;100;oui;4;double
+88;Saint-Placide;87;89;3;100;oui;4;double
+89;Montparnasse Bienvenue;88;90;4;100;oui;4;double
+90;Vavin;89;91;2;100;oui;4;double
+91;Raspail;90;92;3;100;oui;4;double
+92;Denfert-Rochereau;91;93;3;100;oui;4;double
+93;Mouton-Duvernet;92;94;4;100;oui;4;double
+94;Al�sia;93;95;5;100;oui;4;double
+95;Porte d'Orl�ans;94;;1;100;oui;4;double
+96;Porte de Pantin;;97;0;100;oui;5;double
+97;Ourcq;96;98;4;100;oui;5;double
+98;Laumi�re;97;99;5;100;oui;5;double
+99;Jaur�s;98;100;3;100;oui;5;double
+100;Stalingrad;99;101;2;100;oui;5;double
+101;Gare du Nord;100;102;2;100;oui;5;double
+102;Gare de l'Est;101;103;3;100;oui;5;double
+103;Jacques Bonsergent;102;104;5;100;oui;5;double
+104;R�publique;103;105;5;100;oui;5;double
+105;Oberkampf;104;106;5;100;oui;5;double
+106;Richard-Lenoir;105;107;4;100;oui;5;double
+107;Br�guet-Sabin;106;108;1;100;oui;5;double
+108;Bastille;107;109;2;100;oui;5;double
+109;Quai de la Rap�e;108;110;3;100;oui;5;double
+110;Gare d'Austerlitz;109;111;2;100;oui;5;double
+111;Saint-Marcel;110;112;1;100;oui;5;double
+112;Campo-Formio;111;113;3;100;oui;5;double
+113;Place d'Italie;112;;4;100;oui;5;double
+114;Charles de Gaulle - Etoile;;115;0;100;oui;6;double
+115;Kl�ber;114;116;1;100;oui;6;double
+116;Boissi�re;115;117;3;100;oui;6;double
+117;Trocad�ro;116;118;4;100;oui;6;double
+118;Passy;117;119;4;100;oui;6;double
+119;Bir-Hakeim;118;120;1;100;oui;6;double
+120;Dupleix;119;121;3;100;oui;6;double
+121;La Motte-Picquet - Grenelle;120;122;1;100;oui;6;double
+122;Cambronne;121;123;5;100;oui;6;double
+123;S�vres-Lecourbe;122;124;4;100;oui;6;double
+124;Pasteur;123;125;2;100;oui;6;double
+125;Montparnasse Bienvenue;124;126;5;100;oui;6;double
+126;Edgar Quinet;125;127;1;100;oui;6;double
+127;Raspail;126;128;3;100;oui;6;double
+128;Denfert-Rochereau;127;129;1;100;oui;6;double
+129;Saint-Jacques;128;130;5;100;oui;6;double
+130;Glaci�re;129;131;5;100;oui;6;double
+131;Corvisart;130;132;4;100;oui;6;double
+132;Place d'Italie;131;133;4;100;oui;6;double
+133;Nationale;132;134;4;100;oui;6;double
+134;Chevaleret;133;135;1;100;oui;6;double
+135;Quai de la Gare;134;136;3;100;oui;6;double
+136;Bercy;135;137;2;100;oui;6;double
+137;Dugommier;136;138;2;100;oui;6;double
+138;Daumesnil;137;139;2;100;oui;6;double
+139;Bel-Air;138;140;1;100;oui;6;double
+140;Picpus;139;141;2;100;oui;6;double
+141;Nation;140;;5;100;oui;6;double
+142;Porte de la Villette;;143;0;100;oui;7;double
+143;Corentin Cariou;142;144;5;100;oui;7;double
+144;Crim�e;143;145;1;100;oui;7;double
+145;Riquet;144;146;5;100;oui;7;double
+146;Stalingrad;145;147;1;100;oui;7;double
+147;Louis Blanc;146;148;2;100;oui;7;double
+148;Ch�teau Landon;147;149;5;100;oui;7;double
+149;Gare de l'Est;148;150;1;100;oui;7;double
+150;Poissonni�re;149;151;5;100;oui;7;double
+151;Cadet;150;152;1;100;oui;7;double
+152;Le Peletier;151;153;2;100;oui;7;double
+153;Chauss�e d'Antin - La Fayette;152;154;2;100;oui;7;double
+154;Op�ra;153;155;5;100;oui;7;double
+155;Pyramides;154;156;2;100;oui;7;double
+156;Palais Royal - Mus�e du Louvre;155;157;2;100;oui;7;double
+157;Pont Neuf;156;158;4;100;oui;7;double
+158;Ch�telet;157;159;4;100;oui;7;double
+159;Pont Marie (Cit� des Arts);158;160;5;100;oui;7;double
+160;Sully - Morland;159;161;2;100;oui;7;double
+161;Jussieu;160;162;5;100;oui;7;double
+162;Place Monge;161;163;1;100;oui;7;double
+163;Censier - Daubenton;162;164;2;100;oui;7;double
+164;Les Gobelins;163;165;4;100;oui;7;double
+165;Place d'Italie;164;166;5;100;oui;7;double
+166;Tolbiac;165;167;3;100;oui;7;double
+167;Maison Blanche;166;168;4;100;oui;7;double
+168;Porte d'Italie;167;169;3;100;oui;7;double
+169;Porte de Choisy;168;170;4;100;oui;7;double
+170;Porte d'Ivry;169;;2;100;oui;7;double
+171;Maison Blanche;166;;3;100;oui;7;double
+172;Louis Blanc;;173;0;100;oui;7b;double
+173;Jaur�s;172;174;1;100;oui;7b;double
+174;Bolivar;173;175;1;100;oui;7b;double
+175;Buttes Chaumont;174;176;2;100;oui;7b;double
+176;Botzaris;175;177;2;100;oui;7b;aller
+177;Place des F�tes;176;178;5;100;oui;7b;aller
+178;Pr�-Saint-Gervais;177;179;4;100;oui;7b;retour
+179;Danube;178;176;5;100;oui;7b;retour
+181;Balard;;182;0;100;oui;8;double
+182;Lourmel;181;183;1;100;oui;8;double
+183;Boucicaut;182;184;2;100;oui;8;double
+184;F�lix Faure;183;185;1;100;oui;8;double
+185;Commerce;184;186;3;100;oui;8;double
+186;La Motte-Picquet - Grenelle;185;187;4;100;oui;8;double
+187;Ecole Militaire;186;188;5;100;oui;8;double
+188;La Tour-Maubourg;187;189;3;100;oui;8;double
+189;Invalides;188;190;3;100;oui;8;double
+190;Concorde;189;191;1;100;oui;8;double
+191;Madeleine;190;192;5;100;oui;8;double
+192;Op�ra;191;193;1;100;oui;8;double
+193;Richelieu - Drouot;192;194;5;100;oui;8;double
+194;Grands Boulevards;193;195;1;100;oui;8;double
+195;Bonne Nouvelle;194;196;4;100;oui;8;double
+196;Strasbourg - Saint-Denis;195;197;5;100;oui;8;double
+197;R�publique;196;198;3;100;oui;8;double
+198;Filles du Calvaire;197;199;4;100;oui;8;double
+199;Saint-S�bastien - Froissart;198;200;5;100;oui;8;double
+200;Chemin Vert;199;201;1;100;oui;8;double
+201;Bastille;200;202;2;100;oui;8;double
+202;Ledru-Rollin;201;203;5;100;oui;8;double
+203;Faidherbe - Chaligny;202;204;3;100;oui;8;double
+204;Reuilly - Diderot;203;205;3;100;oui;8;double
+205;Montgallet;204;206;4;100;oui;8;double
+206;Daumesnil;205;207;1;100;oui;8;double
+207;Michel Bizot;206;208;1;100;oui;8;double
+208;Porte Dor�e;207;209;5;100;oui;8;double
+209;Porte de Charenton;208;;2;100;oui;8;double
+210;Porte de Saint-Cloud;;211;0;100;oui;9;double
+211;Exelmans;210;212;4;100;oui;9;double
+212;Michel-Ange - Molitor;211;213;4;100;oui;9;double
+213;Michel-Ange - Auteuil;212;214;2;100;oui;9;double
+214;Jasmin;213;215;5;100;oui;9;double
+215;Ranelagh;214;216;1;100;oui;9;double
+216;La Muette;215;217;2;100;oui;9;double
+217;Rue de la Pompe;216;218;1;100;oui;9;double
+218;Trocad�ro;217;219;1;100;oui;9;double
+219;I�na;218;220;4;100;oui;9;double
+220;Alma - Marceau;219;221;3;100;oui;9;double
+221;Franklin D. Roosevelt;220;222;1;100;oui;9;double
+222;Saint-Philippe du Roule;221;223;5;100;oui;9;double
+223;Miromesnil;222;224;3;100;oui;9;double
+224;Saint-Augustin;223;225;3;100;oui;9;double
+225;Havre-Caumartin;224;226;2;100;oui;9;double
+226;Chauss�e d'Antin - La Fayette;225;227;1;100;oui;9;double
+227;Richelieu - Drouot;226;228;5;100;oui;9;double
+228;Grands Boulevards;227;229;2;100;oui;9;double
+229;Bonne Nouvelle;228;230;2;100;oui;9;double
+230;Strasbourg - Saint-Denis;229;231;3;100;oui;9;double
+231;R�publique;230;232;1;100;oui;9;double
+232;Oberkampf;231;233;3;100;oui;9;double
+233;Saint-Ambroise;232;234;5;100;oui;9;double
+234;Voltaire;233;235;2;100;oui;9;double
+235;Charonne;234;236;5;100;oui;9;double
+236;Rue des Boulets;235;237;1;100;oui;9;double
+237;Nation;236;238;2;100;oui;9;double
+238;Buzenval;237;239;1;100;oui;9;double
+239;Mara�chers;238;240;2;100;oui;9;double
+240;Porte de Montreuil;239;;2;100;oui;9;double
+241;Gare d'Austerlitz;;242;0;100;oui;10;double
+242;Jussieu;241;243;1;100;oui;10;double
+243;Cardinal Lemoine;242;244;4;100;oui;10;double
+244;Maubert - Mutualit�;243;245;3;100;oui;10;double
+245;Cluny - La Sorbonne;244;246;4;100;oui;10;double
+246;Od�on;245;247;3;100;oui;10;double
+247;Mabillon;246;248;2;100;oui;10;double
+248;S�vres - Babylone;247;249;5;100;oui;10;double
+249;Vaneau;248;250;4;100;oui;10;double
+250;Duroc;249;251;1;100;oui;10;double
+251;S�gur;250;252;5;100;oui;10;double
+252;La Motte-Picquet - Grenelle;251;253;1;100;oui;10;double
+253;Avenue Emile Zola;252;254;1;100;oui;10;double
+254;Charles Michels;253;256;1;100;oui;10;double
+255;Javel - Andr� Citro�n;254;256;5;100;oui;10;double
+256;Eglise d'Auteuil;255;257;3;100;oui;10;aller
+257;Michel-Ange - Auteuil;256;258;1;100;oui;10;aller
+258;Porte d'Auteuil;257;259;1;100;oui;10;aller
+259;Michel-Ange - Molitor;258;260;3;100;oui;10;retour
+260;Chardon Lagache;259;261;2;100;oui;10;retour
+261;Mirabeau;260;255;4;100;oui;10;retour
+262;Ch�telet;;263;0;100;oui;11;double
+263;H�tel de Ville;262;264;5;100;oui;11;double
+264;Rambuteau;263;265;4;100;oui;11;double
+265;Arts et M�tiers;264;266;5;100;oui;11;double
+266;R�publique;265;267;1;100;oui;11;double
+267;Goncourt;266;268;4;100;oui;11;double
+268;Belleville;267;269;3;100;oui;11;double
+269;Pyr�n�es;268;270;5;100;oui;11;double
+270;Jourdain;269;271;5;100;oui;11;double
+271;Place des F�tes;270;272;5;100;oui;11;double
+272;T�l�graphe;271;273;3;100;oui;11;double
+273;Porte des Lilas;272;;3;100;oui;11;double
+274;Porte de la Chapelle;;275;0;100;oui;12;double
+275;Marx Dormoy;274;276;5;100;oui;12;double
+276;Marcadet - Poissonniers;275;277;4;100;oui;12;double
+277;Jules Joffrin;276;278;1;100;oui;12;double
+278;Lamarck - Caulaincourt;277;279;4;100;oui;12;double
+279;Abbesses;278;280;3;100;oui;12;double
+280;Pigalle;279;281;4;100;oui;12;double
+281;Saint-Georges;280;282;2;100;oui;12;double
+282;Notre-Dame-de-Lorette;281;283;2;100;oui;12;double
+283;Trinit� - d'Estienne d'Orves;282;284;3;100;oui;12;double
+284;Saint-Lazare;283;285;1;100;oui;12;double
+285;Madeleine;284;286;2;100;oui;12;double
+286;Concorde;285;287;1;100;oui;12;double
+287;Assembl�e Nationale;286;288;5;100;oui;12;double
+288;Solf�rino;287;289;5;100;oui;12;double
+289;Rue du Bac;288;290;4;100;oui;12;double
+290;S�vres - Babylone;289;291;3;100;oui;12;double
+291;Rennes;290;292;2;100;oui;12;double
+292;Notre-Dame des Champs;291;293;1;100;oui;12;double
+293;Montparnasse Bienvenue;292;294;4;100;oui;12;double
+294;Falgui�re;293;295;2;100;oui;12;double
+295;Pasteur;294;296;1;100;oui;12;double
+296;Volontaires;295;297;5;100;oui;12;double
+297;Vaugirard;296;298;1;100;oui;12;double
+298;Convention;297;299;4;100;oui;12;double
+299;Porte de Versailles;298;;5;100;oui;12;double
+300;Porte de Vanves;;301;0;100;oui;13;double
+301;Plaisance;300;302;5;100;oui;13;double
+302;Pernety;301;303;1;100;oui;13;double
+303;Ga�t�;302;304;2;100;oui;13;double
+304;Montparnasse Bienvenue;303;305;4;100;oui;13;double
+305;Duroc;304;306;5;100;oui;13;double
+306;Saint-Fran�ois-Xavier;305;307;4;100;oui;13;double
+307;Varenne;306;308;1;100;oui;13;double
+308;Invalides;307;309;2;100;oui;13;double
+309;Champs-Elys�es - Clemenceau;308;310;1;100;oui;13;double
+310;Miromesnil;309;311;5;100;oui;13;double
+311;Saint-Lazare;310;312;4;100;oui;13;double
+312;Li�ge;311;313;2;100;oui;13;double
+313;Place de Clichy;312;314;1;100;oui;13;double
+314;La Fourche;313;315;1;100;oui;13;double
+315;Guy M�quet;314;316;1;100;oui;13;double
+316;Porte de Saint-Ouen;315;;1;100;oui;13;double
+317;La Fourche;313;318;2;100;oui;13;double
+318;Brochant;317;319;3;100;oui;13;double
+319;Porte de Clichy;318;;4;100;oui;13;double
+320;Porte de Clichy;;321;0;100;oui;14;double
+321;Pont Cardinet;320;322;4;100;oui;14;double
+322;Saint-Lazare;321;323;5;100;oui;14;double
+323;Madeleine;322;324;4;100;oui;14;double
+324;Pyramides;323;325;5;100;oui;14;double
+325;Ch�telet;324;326;1;100;oui;14;double
+326;Gare de Lyon;325;327;1;100;oui;14;double
+327;Bercy;326;328;4;100;oui;14;double
+328;Cour Saint-Emilion;327;329;1;100;oui;14;double
+329;Biblioth�que Fran�ois Mitterrand;328;330;5;100;oui;14;double
+330;Olympiades;329;331;4;100;oui;14;double
+331;Maison Blanche;330;;1;100;oui;14;double
