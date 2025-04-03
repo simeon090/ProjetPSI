@@ -29,8 +29,11 @@ namespace LivInParis
             // 1) Initialisation
             this.List_Noeuds = new List<station_metro>();
             this.List_Liens = new List<Arcs>();
-            string[] lignes_stations = File.ReadAllLines(chemin_fichier_stations);
-            string[] lignes_arcs = File.ReadAllLines(chemin_fichier_arcs);
+
+            // Solution pour résoudre le problème des accents dans un csv trouvé avec chatGPT (voir rapport)
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            string[] lignes_stations = File.ReadAllLines(chemin_fichier_stations, Encoding.GetEncoding("Windows-1252"));
+            string[] lignes_arcs = File.ReadAllLines(chemin_fichier_arcs, Encoding.GetEncoding("Windows-1252"));
 
             // 2) Parcours des stations et leur ajout dans List_Noeuds
             for (int i = 1; i < lignes_stations.Length; i++)
@@ -139,12 +142,10 @@ namespace LivInParis
         #region Plus Court Chemin
         /// <summary>
         /// Méthode d'instance qui calcule le plus court chemin entre deux noeuds grâce à l'algorithme de Dijktra
-        /// La difficulté ici est de stocké la ligne de métro utilisé au fur et à mesure que le chemin se construit pour détécter des changements de lignes et ajouter le temps nécessaires
         /// </summary>
-        /// <param name="départ">Noeud de départ</param>
-        /// <param name="arrivé">Noeud d'arrivé</param>
-        /// <returns>le tuple contenant le chemin le plus cours ainsi que la liste des métros utilisés</returns>
-        public (List<station_metro>, List<string>) Dijkstra(station_metro départ, station_metro arrivé)
+        /// <returns>ex: le trajet Argentine -> George V retournera {Argentine : (1,0), Charle De Gaule Etoile : (1,3), George V : (1,5) </returns>
+        /// Les clés du dictionnaire sont les stations parcourues et les valeurs un tuple contenant la ligne utilisé et la durée en minutes)
+        public Dictionary<station_metro, (string, int)> Dijkstra(station_metro départ, station_metro arrivé)
         {
             // 1) INITIALISATION
             // Stock le poids pour aller à chaque noeud et régulièrement mis à jour si chemin plus court trouvé
@@ -170,9 +171,9 @@ namespace LivInParis
                 // 2) RECHERCHE DU SOMMET AVEC LA PLUS PETITE DISTANCE
                 station_metro u = Stations[0];
                 Stations.Remove(u);
-                
+
                 // On parcours tous les liens à la recherche d'un "enfant" qui peux être successeur comme prédécesseur de notre noeud actuel
-                for (int i=0; i<this.List_Liens.Count; i++)
+                for (int i = 0; i < this.List_Liens.Count; i++)
                 {
                     station_metro enfant = null;
                     if (List_Liens[i].Precedent == u)
@@ -207,27 +208,30 @@ namespace LivInParis
             }
 
             // 3) RECONSTITUTION DU PLUS COURT CHEMIN
-            List<station_metro> chemin_plus_court = new List<station_metro>();
-            List<string> lignes_utilisés = new List<string>();
+            Dictionary<station_metro, (string, int)> resultat = new Dictionary<station_metro, (string, int)> { };
             station_metro station_actuel = arrivé;
             int poid = poids[arrivé];
             while (station_actuel != null)
             {
-                // Comme on reconstruit le parcours à l'envers on insert en 0 au lieu de Add pour la mettre dans le bon sens
-                chemin_plus_court.Insert(0, station_actuel);
                 if (lignePred.ContainsKey(station_actuel))
                 {
-                    lignes_utilisés.Insert(0,lignePred[station_actuel]);
+                    resultat[station_actuel] = (lignePred[station_actuel], poids[station_actuel]);
+                } else
+                {
+                    resultat[station_actuel] = (null, poids[station_actuel]);
                 }
                 station_actuel = parent[station_actuel];
             }
-            return (chemin_plus_court, lignes_utilisés);
+            return (resultat);
         }
+
 
         /// <summary>
         /// Méthode d'instance qui calcule le plus court chemin entre deux noeuds grâce à l'algorithme de BellmanFord
         /// </summary>
-        public (List<station_metro>, List<string>) BellmanFord(station_metro départ, station_metro arrivé)
+        /// <returns> ex: le trajet Argentine -> George V retournera {Argentine : (1,0), Charle De Gaule Etoile : (1,3), George V : (1,5) </returns>
+        /// Les clés du dictionnaire sont les stations parcourues et les valeurs un tuple contenant la ligne utilisé et la durée en minutes)
+        public Dictionary<station_metro, (string, int)> BellmanFord(station_metro départ, station_metro arrivé)
         {
             // 1) INITIALISATION
             // Stock le poids pour aller à chaque noeud et régulièrement mis à jour si chemin plus court trouvé
@@ -273,28 +277,32 @@ namespace LivInParis
             }
 
             // 3) RECONSTITUTION DU PLUS COURT CHEMIN
-            List<station_metro> chemin_plus_court = new List<station_metro>();
-            List<string> lignes_utilisés = new List<string>();
+            Dictionary<station_metro, (string, int)> resultat = new Dictionary<station_metro, (string, int)> { };
             station_metro station_actuel = arrivé;
             int poid = poids[arrivé];
             while (station_actuel != null)
             {
-                // Comme on reconstruit le parcours à l'envers on insert en 0 au lieu de Add pour la mettre dans le bon sens
-                chemin_plus_court.Insert(0, station_actuel);
                 if (lignePred.ContainsKey(station_actuel))
                 {
-                    lignes_utilisés.Insert(0, lignePred[station_actuel]);
+                    resultat[station_actuel] = (lignePred[station_actuel], poids[station_actuel]);
+                }
+                else
+                {
+                    resultat[station_actuel] = (null, poids[station_actuel]);
                 }
                 station_actuel = parent[station_actuel];
             }
-            return (chemin_plus_court, lignes_utilisés);
+            return (resultat);
         }
+
 
         /// <summary>
         /// Méthode d'instance qui calcule le plus court chemin entre deux noeuds grâce à l'algorithme de FloydWarshall
-        /// /!\ Cette méthode n'arrive pas pour l'instant à prendre en compte les temps de changements ! A revoir !
+        /// /!\ Cette méthode n'arrive pas pour l'instant à prendre en compte les temps de changements et ne stocke pas les métros utilisés ! A revoir !
         /// </summary>
-        public (List<station_metro>, List<string>) FloydWarshall(station_metro depart, station_metro arrivee)
+        /// /// <returns>ex: le trajet Argentine -> George V retournera {Argentine : (1,0), Charle De Gaule Etoile : (1,3), George V : (1,5) </returns>
+        /// Les clés du dictionnaire sont les stations parcourues et les valeurs un tuple contenant la ligne utilisé et la durée en minutes)
+        public Dictionary<station_metro, (string, int)> FloydWarshall(station_metro depart, station_metro arrivee)
         {
             // Matrice d'adjacence du graphe nécessaire pour cette algorithme
             int[,] matrice_adjacence = new int[this.List_Noeuds.Count, this.List_Noeuds.Count];
@@ -308,15 +316,15 @@ namespace LivInParis
             {
                 for (int j = 0; j < this.List_Noeuds.Count; j++)
                 {
-                    if (i==j)
+                    if (i == j)
                     {
                         //On fixe la distance entre le même noeud a 0
-                        matrice_adjacence[i,j] = 0;
+                        matrice_adjacence[i, j] = 0;
                     }
                     else
                     {
                         //Sinon on considere la distance infini
-                        matrice_adjacence[i,j] = 99999;
+                        matrice_adjacence[i, j] = 99999;
                     }
                 }
             }
@@ -348,18 +356,18 @@ namespace LivInParis
             //2) ON EFFECTUE LES ITERATIONS A LA RECHERCHE D'UN CHEMIN PLUS COUR
 
             // Les trois boucles Floyd-Warshall vus sur Wikipédia
-            for (int k=0; k < this.List_Noeuds.Count; k++)
+            for (int k = 0; k < this.List_Noeuds.Count; k++)
             {
-                for (int i=0; i < this.List_Noeuds.Count; i++)
+                for (int i = 0; i < this.List_Noeuds.Count; i++)
                 {
-                    for (int j=0; j < this.List_Noeuds.Count; j++)
+                    for (int j = 0; j < this.List_Noeuds.Count; j++)
                     {
                         // On cherche le minimum entre la distance direct (i,j) et (i;k) + (k,j)
-                        if (matrice_adjacence[i,j] > matrice_adjacence[i,k] + matrice_adjacence[k,j])
+                        if (matrice_adjacence[i, j] > matrice_adjacence[i, k] + matrice_adjacence[k, j])
                         {
-                            matrice_adjacence[i,j] = matrice_adjacence[i,k] + matrice_adjacence[k,j];
+                            matrice_adjacence[i, j] = matrice_adjacence[i, k] + matrice_adjacence[k, j];
                             //On met à jour le chemin le plus court ce n'est plus (i,j) mais (k,j) (on passe par un autre noeud pour avoir un chemin plus cour)
-                            chemin_plus_cour[i,j] = chemin_plus_cour[k,j];
+                            chemin_plus_cour[i, j] = chemin_plus_cour[k, j];
                             //lignePred[i,j] = lignePred[k,j];
                         }
                     }
@@ -367,35 +375,31 @@ namespace LivInParis
             }
 
             //3) ON RECONSTITUE LE CHEMIN
-            List<station_metro> chemin = new List<station_metro>();
-            List<string> lignes_utilises = new List<string>();
-
+            Dictionary<station_metro, (string, int)> resultat = new Dictionary<station_metro, (string, int)> { };
             int index_depart = TrouverIndexAvecStation(depart);
             int index_arrivee = TrouverIndexAvecStation(arrivee);
 
-            // Si on a trouvé aucun chemin qui relie les deux stations on retourne null
+            // Si on a pas trouvé de chemin entre le départ et l'arrivé on retourne null;
             if (chemin_plus_cour[index_depart, index_arrivee] == null)
             {
-                return (chemin, lignes_utilises);
+                return resultat;
             }
 
-            station_metro station_actuelle = arrivee;
-            //Depuis l'arrivée on remonte progressivement dans les parents de chaque noeud jusqu'à arriver à la racine
-            while (station_actuelle != null)
+            station_metro station_actuel = arrivee;
+
+            while (station_actuel != null)
             {
-                // Toujours Insert(0) au lieu de Add car on remonte le trajet à l'envers
-                chemin.Insert(0, station_actuelle);
-                int index_actuel = TrouverIndexAvecStation(station_actuelle);
+                int index_actuel = TrouverIndexAvecStation(station_actuel);
+                int poids = matrice_adjacence[index_depart, index_actuel];
+                if (!resultat.ContainsKey(station_actuel))
+                {
+                    // Le numéro de ligne est null tout le temps car on a pas réussi à trouver le moyen de sauvegarder le numéro de ligne ici
+                    resultat[station_actuel] = ("null", poids);
+                }
 
-                //if (lignePred[index_actuel, index_arrivee] != null && station_precedente != null)
-                //{
-                //    lignes_utilises.Insert(0, lignePred[index_actuel, index_arrivee]);
-                //}
-                station_actuelle = chemin_plus_cour[index_depart, index_actuel];
+                station_actuel = chemin_plus_cour[index_depart, index_actuel];
             }
-            chemin.Insert(0, depart);
-
-            return (chemin, lignes_utilises);
+            return resultat;
         }
 
         #endregion
@@ -487,6 +491,45 @@ namespace LivInParis
             };
 
             Application.Run(form);
+        }
+        #endregion
+
+        #region Traitement résultats
+
+        public station_metro[] ToListStations(Dictionary<station_metro, (string, int)> resultats)
+        {
+            station_metro[] chemin = new station_metro[resultats.Count];
+            int i = resultats.Count-1;
+            foreach (var station in resultats.Keys)
+            {
+                chemin[i] = station;
+                i -= 1;
+            }
+            return chemin;
+        }
+
+        public string[] ToListMetrosUtilisés(Dictionary<station_metro, (string, int)> resultats)
+        {
+            string[] chemin = new string[resultats.Count];
+            int i = resultats.Count - 1;
+            foreach (var valeurs in resultats.Values)
+            {
+                chemin[i] = valeurs.Item1;
+                i -= 1;
+            }
+            return chemin;
+        }
+
+        public int[] ToListPoidsStations(Dictionary<station_metro, (string, int)> resultats)
+        {
+            int[] chemin = new int[resultats.Count];
+            int i = resultats.Count - 1;
+            foreach (var valeurs in resultats.Values)
+            {
+                chemin[i] = valeurs.Item2;
+                i -= 1;
+            }
+            return chemin;
         }
         #endregion
     }

@@ -41,6 +41,7 @@ namespace LivInParis
 
             // Afficher le total dans textBox1 avec le format souhaité
             textBox1.Text = $"{totalPrix:0.00} €"; // Affiche le total 
+            textBox1.Text = $"Argentine";
         }
     }
 }
