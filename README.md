@@ -26,6 +26,13 @@ Ce projet utilise deux fichiers CSV indispensables au bon fonctionnement de l'ap
 4. Définir un **"Statut"** pour chaque arc, indiquant s’il est actif ou non.
 5. Préciser la **"Ligne_de_metro"** à laquelle chaque arc appartient.
 6. Indiquer le **"Sens"** pour les cas à sens unique (notamment sur les lignes 10 et 7bis).
+7. Exporter la page Arc du fichier Excel en CSV avec "Enregistrer Sous" Choisir l'option CSV séparateur ;
+   
+<img width="589" alt="image" src="https://github.com/user-attachments/assets/6d9bfa17-4550-4f9b-a158-ecd101a6630a" />
+
+### 🧩 Étapes pour générer le fichier `MetroParis_Noeuds.csv` :
+
+1. Exporter la page Noeud du fichier Excel en CSV avec "Enregistrer Sous" Choisir l'option CSV séparateur ;
 
 ---
 
