@@ -18,7 +18,7 @@ namespace LivInParis
             InitializeComponent();
         }
 
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE";
         private void _admin_text_box_TextChanged(object sender, EventArgs e)
         {
             HomePage admin = new HomePage();

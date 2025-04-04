@@ -28,8 +28,7 @@ namespace LivInParis
             }
         }
 
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;"; // ⚠️ Modifier selon ton setup MySQL
-
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE;";
         private void button1_Click(object sender, EventArgs e)
         {
             string id_client = this._text_box_connexion_id.Text;
@@ -40,26 +39,20 @@ namespace LivInParis
             {
                 try
                 {
-                    // Ouverture de la connexion
                     conn.Open();
 
-                    // Requête SQL pour vérifier l'existence du client
+                    // requete SQL pour vérifier l'existence du client
                     string query = "SELECT COUNT(*) FROM Client WHERE Identifiant_client = @IdentifiantClient AND Mot_de_passe = @MotDePasse";
 
-                    // Création du command pour exécuter la requête
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
-                    // Ajout des paramètres
                     cmd.Parameters.AddWithValue("@IdentifiantClient", id_client);
                     cmd.Parameters.AddWithValue("@MotDePasse", pwd_client);
 
-                    // Exécution de la requête
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    // Vérification du résultat
                     if (count > 0)
                     {
-                        //  MessageBox.Show("Connexion avec succès !");
                         Utilisateur connexion = new Utilisateur();
                         connexion.Show();
                     }

@@ -28,7 +28,7 @@ namespace LivInParis
         {
 
         }
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;";
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE;";
 
 
         void LoadData()
@@ -212,17 +212,17 @@ namespace LivInParis
                 {
                     conn.Open();
                     string query = @"
-SELECT 
-    P.Identifiant_client, 
-    P.nom_particulier, 
-    P.prenom_particulier, 
-    SUM(LC.prix) AS montant_total_achats
-FROM Commande CM
-JOIN Lignes_Commandes LC ON CM.numéro_commande = LC.numéro_commande
-JOIN Particulier P ON CM.Identifiant_client = P.Identifiant_client
-GROUP BY P.Identifiant_client, P.nom_particulier, P.prenom_particulier
-ORDER BY montant_total_achats DESC;
-";
+                        SELECT 
+                            P.Identifiant_client, 
+                            P.nom_particulier, 
+                            P.prenom_particulier, 
+                            SUM(LC.prix) AS montant_total_achats
+                        FROM Commande CM
+                        JOIN Lignes_Commandes LC ON CM.numéro_commande = LC.numéro_commande
+                        JOIN Particulier P ON CM.Identifiant_client = P.Identifiant_client
+                        GROUP BY P.Identifiant_client, P.nom_particulier, P.prenom_particulier
+                        ORDER BY montant_total_achats DESC;
+                        ";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
@@ -244,8 +244,6 @@ ORDER BY montant_total_achats DESC;
                     Console.WriteLine(ex.ToString());
                 }
             }
-
-            // Mise à jour du DataGridView
             bindingSource1.DataSource = clientsAchats;
             dataGridView1.DataSource = bindingSource1;
 
@@ -280,14 +278,13 @@ ORDER BY montant_total_achats DESC;
 
        
 
-        // Constructeur avec paramètres
         public Client(string identifiantClient, string motDePasse)
         {
             IdentifiantClient = identifiantClient;
             MotDePasse = motDePasse;
         }
 
-        // Méthode ToString pour afficher l'objet sous une forme lisible
+        // Methode ToString pour afficher l'objet sous une forme lisible
         public override string ToString()
         {
             return $"Identifiant: {IdentifiantClient}, Mot de passe: {MotDePasse}";

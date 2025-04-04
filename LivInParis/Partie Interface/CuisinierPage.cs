@@ -11,7 +11,7 @@ namespace LivInParis
 
 
         }
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;"; // ⚠️ Modifier selon ton setup MySQL
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE;";
 
 
 
@@ -26,19 +26,19 @@ namespace LivInParis
                 {
                     conn.Open();
                     string query = @"
-SELECT 
-    C.telephone_cuisinier, 
-    C.prenom_cuisinier, 
-    C.nom_cuisinier, 
-    P.nom_particulier, 
-    P.prenom_particulier, 
-    P.Identifiant_client
-FROM Commande CM
-JOIN Lignes_Commandes LC ON CM.numéro_commande = LC.numéro_commande
-JOIN Cuisinier C ON CM.telephone_cuisinier = C.telephone_cuisinier
-JOIN Particulier P ON CM.Identifiant_client = P.Identifiant_client
-ORDER BY C.telephone_cuisinier, P.Identifiant_client;
-";
+                    SELECT 
+                        C.telephone_cuisinier, 
+                        C.prenom_cuisinier, 
+                        C.nom_cuisinier, 
+                        P.nom_particulier, 
+                        P.prenom_particulier, 
+                        P.Identifiant_client
+                    FROM Commande CM
+                    JOIN Lignes_Commandes LC ON CM.numéro_commande = LC.numéro_commande
+                    JOIN Cuisinier C ON CM.telephone_cuisinier = C.telephone_cuisinier
+                    JOIN Particulier P ON CM.Identifiant_client = P.Identifiant_client
+                    ORDER BY C.telephone_cuisinier, P.Identifiant_client;
+                    ";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
@@ -47,7 +47,7 @@ ORDER BY C.telephone_cuisinier, P.Identifiant_client;
                     {
                         clientsCuisiniers.Add(new ClientCuisinier(
                             reader.GetDecimal("telephone_cuisinier"),
-                            reader.GetString("prenom_cuisinier"),  // Assurez-vous que le nom de la colonne est correct
+                            reader.GetString("prenom_cuisinier"),
                             reader.GetString("nom_cuisinier"),
                             reader.GetString("nom_particulier"),
                             reader.GetString("prenom_particulier"),
@@ -63,7 +63,6 @@ ORDER BY C.telephone_cuisinier, P.Identifiant_client;
                 }
             }
 
-            // Mise à jour du DataGridView
             bindingSource1.DataSource = clientsCuisiniers;
             dataGridView1.DataSource = bindingSource1;
 
@@ -138,17 +137,17 @@ ORDER BY C.telephone_cuisinier, P.Identifiant_client;
                 {
                     conn.Open();
                     string query = @"
-            SELECT 
-                Cuisinier.telephone_cuisinier, 
-                Cuisinier.prenom_cuisinier, 
-                Cuisinier.nom_cuisinier, 
-                Lignes_Commandes.type AS plat_type, 
-                Lignes_Commandes.nom_du_mets
-            FROM Cuisinier
-            JOIN Commande ON Cuisinier.telephone_cuisinier = Commande.telephone_cuisinier
-            JOIN Lignes_Commandes ON Commande.numéro_commande = Lignes_Commandes.numéro_commande
-            ORDER BY Cuisinier.nom_cuisinier, Lignes_Commandes.type;
-        ";
+                        SELECT 
+                            Cuisinier.telephone_cuisinier, 
+                            Cuisinier.prenom_cuisinier, 
+                            Cuisinier.nom_cuisinier, 
+                            Lignes_Commandes.type AS plat_type, 
+                            Lignes_Commandes.nom_du_mets
+                        FROM Cuisinier
+                        JOIN Commande ON Cuisinier.telephone_cuisinier = Commande.telephone_cuisinier
+                        JOIN Lignes_Commandes ON Commande.numéro_commande = Lignes_Commandes.numéro_commande
+                        ORDER BY Cuisinier.nom_cuisinier, Lignes_Commandes.type;
+                    ";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
@@ -171,7 +170,6 @@ ORDER BY C.telephone_cuisinier, P.Identifiant_client;
                 }
             }
 
-            // Mise à jour du DataGridView
             bindingSource1.DataSource = cuisiniersPlats;
             dataGridView1.DataSource = bindingSource1;
 

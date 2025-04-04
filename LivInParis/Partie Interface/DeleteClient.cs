@@ -21,7 +21,7 @@ namespace LivInParis
 
         }
 
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;"; // ⚠️ Modifier selon ton setup MySQL
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE;";
 
 
         void LoadClientFrom()
@@ -32,19 +32,14 @@ namespace LivInParis
             {
                 try
                 {
-                    // Ouverture de la connexion
                     conn.Open();
 
-                    // Requête SQL pour récupérer les identifiants des clients
                     string query = "SELECT Identifiant_client FROM Client";
 
-                    // Création de la commande MySQL
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
-                    // Exécution de la commande et récupération des résultats
                     MySqlDataReader reader = cmd.ExecuteReader();
 
-                    // Parcours des résultats et ajout des identifiants à la liste
                     while (reader.Read())
                     {
                         clientIds.Add(reader.GetString("Identifiant_client"));
@@ -72,22 +67,16 @@ namespace LivInParis
             {
                 try
                 {
-                    // Ouverture de la connexion
                     conn.Open();
 
-                    // Requête SQL pour supprimer un client par son identifiant
                     string query = "DELETE FROM Client WHERE Identifiant_client = @IdentifiantClient";
 
-                    // Création du command pour exécuter la requête
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
-                    // Ajouter le paramètre pour éviter les injections SQL
                     cmd.Parameters.AddWithValue("@IdentifiantClient", identifiantClient);
 
-                    // Exécution de la commande
                     int rowsAffected = cmd.ExecuteNonQuery();
 
-                    // Vérification si un client a été supprimé
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show($"Le client avec l'identifiant {identifiantClient} a été supprimé.");

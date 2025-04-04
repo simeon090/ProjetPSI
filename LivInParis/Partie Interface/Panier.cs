@@ -9,7 +9,7 @@ namespace LivInParis
 {
     public partial class Panier : Form
     {
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;";
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE;";
 
         //prend une liste de mets sélectionnés
         public Panier(List<Mets> metsSelectionnes)
@@ -19,10 +19,9 @@ namespace LivInParis
 
             foreach (var mets in metsSelectionnes)
             {
-                _box_resume.Items.Add(mets); // Mets doit avoir une méthode ToString pour l'affichage
+                _box_resume.Items.Add(mets);
             }
 
-            // Calculer immédiatement le total dès l'ajout des mets
             CalculerTotal();
         }
 
@@ -34,14 +33,12 @@ namespace LivInParis
         {
             decimal totalPrix = 0;
 
-            // On parcourt  on calcule le prix total
             foreach (Mets item in _box_resume.Items)
             {
-                totalPrix += item.prix; // Additionner les prix des mets
+                totalPrix += item.prix;
             }
 
-            // Afficher le total dans textBox1 avec le format souhaité
-            textBox1.Text = $"{totalPrix:0.00} €"; // Affiche le total 
+            textBox1.Text = $"{totalPrix:0.00} €";
 
         }
 
