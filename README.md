@@ -11,9 +11,8 @@ Puis dans le code modifier le mot de passe du root avec le votre :
 private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE_A_MODIFIER;";
 
 Nous sommes désolé mais il faut refaire cette procédure pour tous les fichiers suivants (Ceci sera modifié dans la prochaine version, pour le prochain rendu nous allons trouver une solution plus optimale)
----
 
-**AddNewClient.cs
+AddNewClient.cs
 ClientPage.cs
 Connexion_user.cs
 Créeruncompte.cs
