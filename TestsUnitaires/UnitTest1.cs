@@ -9,8 +9,8 @@ namespace LivInParis
         {
             GrapheMetro Test_Graphe = new GrapheMetro("MetroParis_Noeuds.csv", "MetroParis_Arcs.csv");
             station_metro depart = Test_Graphe.TrouverStationAvecNom("Argentine");
-            station_metro arrivée = Test_Graphe.TrouverStationAvecNom("Nation");
-            Assert.AreEqual(12.22, station_metro.CalculDistance(depart, arrivée));
+            station_metro arrivee = Test_Graphe.TrouverStationAvecNom("Nation");
+            Assert.AreEqual(12.22, station_metro.CalculDistance(depart, arrivee));
         }
 
         [TestMethod]
@@ -18,11 +18,11 @@ namespace LivInParis
         {
             GrapheMetro Test_Graphe = new GrapheMetro("MetroParis_Noeuds.csv", "MetroParis_Arcs.csv");
             station_metro depart = Test_Graphe.TrouverStationAvecNom("Argentine");
-            station_metro arrivée = Test_Graphe.TrouverStationAvecNom("Trocadéro");
-            Dictionary<station_metro, (string, int)> resultat_dijkstra = Test_Graphe.Dijkstra(depart, arrivée);
+            station_metro arrivee = Test_Graphe.TrouverStationAvecNom("Trocadï¿½ro");
+            Dictionary<station_metro, (string, int)> resultat_dijkstra = Test_Graphe.Dijkstra(depart, arrivee);
             station_metro[] liste_stations = Test_Graphe.ToListStations(resultat_dijkstra);
             Assert.AreEqual(depart, liste_stations[0]);
-            Assert.AreEqual(arrivée, liste_stations[liste_stations.Length-1]);
+            Assert.AreEqual(arrivee, liste_stations[liste_stations.Length-1]);
             Assert.AreEqual(7, liste_stations.Length);
         }
 
@@ -31,11 +31,11 @@ namespace LivInParis
         {
             GrapheMetro Test_Graphe = new GrapheMetro("MetroParis_Noeuds.csv", "MetroParis_Arcs.csv");
             station_metro depart = Test_Graphe.TrouverStationAvecNom("Argentine");
-            station_metro arrivée = Test_Graphe.TrouverStationAvecNom("Europe");
-            Dictionary<station_metro, (string, int)> resultat_dijkstra = Test_Graphe.BellmanFord(depart, arrivée);
+            station_metro arrivee = Test_Graphe.TrouverStationAvecNom("Europe");
+            Dictionary<station_metro, (string, int)> resultat_dijkstra = Test_Graphe.BellmanFord(depart, arrivee);
             station_metro[] liste_stations = Test_Graphe.ToListStations(resultat_dijkstra);
             Assert.AreEqual(depart, liste_stations[0]);
-            Assert.AreEqual(arrivée, liste_stations[liste_stations.Length - 1]);
+            Assert.AreEqual(arrivee, liste_stations[liste_stations.Length - 1]);
             Assert.AreEqual(7, liste_stations.Length);
         }
 
@@ -44,11 +44,11 @@ namespace LivInParis
         {
             GrapheMetro Test_Graphe = new GrapheMetro("MetroParis_Noeuds.csv", "MetroParis_Arcs.csv");
             station_metro depart = Test_Graphe.TrouverStationAvecNom("Argentine");
-            station_metro arrivée = Test_Graphe.TrouverStationAvecNom("Passy");
-            Dictionary<station_metro, (string, int)> resultat_dijkstra = Test_Graphe.BellmanFord(depart, arrivée);
+            station_metro arrivee = Test_Graphe.TrouverStationAvecNom("Passy");
+            Dictionary<station_metro, (string, int)> resultat_dijkstra = Test_Graphe.BellmanFord(depart, arrivee);
             station_metro[] liste_stations = Test_Graphe.ToListStations(resultat_dijkstra);
             Assert.AreEqual(depart, liste_stations[0]);
-            Assert.AreEqual(arrivée, liste_stations[liste_stations.Length - 1]);
+            Assert.AreEqual(arrivee, liste_stations[liste_stations.Length - 1]);
             Assert.AreEqual(6, liste_stations.Length);
         }
 

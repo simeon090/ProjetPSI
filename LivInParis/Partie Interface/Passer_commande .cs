@@ -9,6 +9,9 @@ namespace LivInParis
     public partial class Passer_commande : Form
     {
 
+        public static string StationDepart { get; private set; }
+        public static string StationArrivee { get; private set; }
+
         public Passer_commande()
         {
             InitializeComponent();
@@ -18,7 +21,7 @@ namespace LivInParis
         }
 
 
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;";
         private void ChargerStations()
         {
             List<string> stationsMetroParis = new List<string>
@@ -278,6 +281,7 @@ namespace LivInParis
         {
             // Cet événement est déclenché lorsque l'utilisateur sélectionne une station
             MessageBox.Show("Vous avez sélectionné : " + _choix_station_commande.SelectedItem);
+            StationDepart = _choix_station_commande.SelectedItem.ToString();
         }
 
 
@@ -290,14 +294,25 @@ namespace LivInParis
                 try
                 {
                     conn.Open();
-                    string query = "SELECT nom_mets, prix FROM Mets";
+
+                    // La nouvelle requête avec le JOIN pour récupérer la station de métro
+                    string query = @"
+            SELECT 
+                m.nom_mets, 
+                m.prix,
+                c.station_métro
+            FROM 
+                Mets m
+            JOIN 
+                Cuisinier c ON m.telephone_cuisinier = c.telephone_cuisinier";
+
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        metsList.Add(new Mets(reader.GetString("nom_mets"), reader.GetDecimal("prix")));
-
+                        // Ajout de la station de métro à l'objet Mets
+                        metsList.Add(new Mets(reader.GetString("nom_mets"),reader.GetDecimal("prix"),reader.GetString("station_métro")));
                     }
                     reader.Close();
                 }
@@ -307,8 +322,10 @@ namespace LivInParis
                 }
             }
 
+            // Mise à jour de l'affichage dans le ListBox
             box_commande.Items.Clear();
             box_commande.Items.AddRange(metsList.ToArray());
+
         }
 
 
@@ -356,19 +373,22 @@ namespace LivInParis
 
             public decimal prix {  get; set; }
 
-            public Mets ( string nom_mets, decimal prix ) 
-            { 
-                this.nom_mets = nom_mets;   
-                this.prix = prix;   
-           
+            public string station_métro { get; set; }
+            public Mets (string nom_mets, decimal prix, string station_métro)
+            {
+                this.nom_mets = nom_mets;
+                this.prix = prix;
+                this.station_métro = station_métro;
             }
             public override string ToString()
             {
-                return $"{nom_mets} - {prix} €";
+                StationArrivee = station_métro;
+                return $"{nom_mets} - {prix} € - Station: {station_métro}";
             }
+            
         }
 
-       
+
 
     }
 }

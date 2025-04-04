@@ -33,6 +33,7 @@
             _box_resume = new ListBox();
             textBox1 = new TextBox();
             label3 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -63,12 +64,13 @@
             _box_resume.Name = "_box_resume";
             _box_resume.Size = new Size(445, 292);
             _box_resume.TabIndex = 5;
+            _box_resume.SelectedIndexChanged += _box_resume_SelectedIndexChanged;
             // 
             // textBox1
             // 
             textBox1.Location = new Point(231, 586);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(262, 23);
+            textBox1.Size = new Size(402, 23);
             textBox1.TabIndex = 3;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -82,11 +84,22 @@
             label3.TabIndex = 4;
             label3.Text = "Prix de la commande ";
             // 
+            // button1
+            // 
+            button1.Location = new Point(897, 228);
+            button1.Name = "button1";
+            button1.Size = new Size(335, 54);
+            button1.TabIndex = 6;
+            button1.Text = "Consulter le trajet de vos lignes de commandes ";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Panier
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1277, 714);
+            Controls.Add(button1);
             Controls.Add(label3);
             Controls.Add(textBox1);
             Controls.Add(_box_resume);
@@ -105,5 +118,6 @@
         private ListBox _box_resume;
         private TextBox textBox1;
         private Label label3;
+        private Button button1;
     }
 }

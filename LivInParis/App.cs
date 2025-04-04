@@ -11,23 +11,23 @@ namespace LivInParis
             GrapheMetro Test_Graphe = new GrapheMetro("MetroParis_Noeuds.csv", "MetroParis_Arcs.csv");
             //Test_Graphe.VisualiserGraphe();
             station_metro depart = Test_Graphe.TrouverStationAvecNom("Argentine");
-            station_metro arrivée = Test_Graphe.TrouverStationAvecNom("Passy");
+            station_metro arrivee = Test_Graphe.TrouverStationAvecNom("Passy");
 
             //Exemple de calcule distance entre deux stations
-            Console.WriteLine(station_metro.CalculDistance(depart, arrivée));
+            Console.WriteLine(station_metro.CalculDistance(depart, arrivee));
 
             //On lance dijkstra
-            Dictionary<station_metro, (string, int)> resultat_dijkstra = Test_Graphe.Dijkstra(depart, arrivée);
-            //Dictionary<station_metro, (string, int)> resultat_bellman = Test_Graphe.BellmanFord(depart, arrivée);
+            Dictionary<station_metro, (string, int)> resultat_dijkstra = Test_Graphe.Dijkstra(depart, arrivee);
+            //Dictionary<station_metro, (string, int)> resultat_bellman = Test_Graphe.BellmanFord(depart, arrivï¿½e);
 
 
-            // Commande pour recuperer les stations dans l'ordre ex : Argentine-->Passy : [Argentine, Charles de Gaule, Kléber ..... , Passy]
+            // Commande pour recuperer les stations dans l'ordre ex : Argentine-->Passy : [Argentine, Charles de Gaule, Klï¿½ber ..... , Passy]
             station_metro[] liste_stations = Test_Graphe.ToListStations(resultat_dijkstra);
             AffcherTab(liste_stations);
 
-            // Commande pour recuperer les lignes empruntés dans l'ordre ex : Argentine-->Passy : [1, 6, 6, 6]
-            string[] liste_métros = Test_Graphe.ToListMetrosUtilisés(resultat_dijkstra);
-            AffcherTab(liste_métros);
+            // Commande pour recuperer les lignes empruntï¿½s dans l'ordre ex : Argentine-->Passy : [1, 6, 6, 6]
+            string[] liste_metros = Test_Graphe.ToListMetrosUtilisÃ©s(resultat_dijkstra);
+            AffcherTab(liste_metros);
 
             // Commande pour recuperer les poids (nb minutes de trajets) dans l'ordre ex : Argentine-->Passy : [0, 2, 5, ..., 14] 14 minutes de trajet totale
             // Le temps de trajet total correspond donc au dernier element de cette liste 

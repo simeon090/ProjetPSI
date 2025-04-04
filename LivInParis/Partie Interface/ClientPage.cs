@@ -28,7 +28,7 @@ namespace LivInParis
         {
 
         }
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;"; // ⚠️ Modifier selon ton setup MySQL
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;";
 
 
         void LoadData()

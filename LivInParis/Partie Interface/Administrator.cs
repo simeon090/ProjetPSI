@@ -29,46 +29,46 @@ namespace LivInParis
         {
             HomePage admi = new HomePage();
             admi.ShowDialog();
-            LoadData();
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-        void LoadData()
-        {
-            List<Client> clients = new List<Client>();
+        //void LoadData()
+        //{
+        //    List<Client> clients = new List<Client>();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = "SELECT * FROM Particulier";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+        //    using (MySqlConnection conn = new MySqlConnection(connectionString))
+        //    {
+        //        try
+        //        {
+        //            conn.Open();
+        //            string query = "SELECT * FROM Particulier";
+        //            MySqlCommand cmd = new MySqlCommand(query, conn);
+        //            MySqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        clients.Add(new Client(
-                            reader.GetString("Identifiant_client"),
-                            reader.GetString("Mot_de_passe")
+        //            while (reader.Read())
+        //            {
+        //                clients.Add(new Client(
+        //                    reader.GetString("Identifiant_client"),
+        //                    reader.GetString("Mot_de_passe")
 
-                        ));
-                    }
+        //                ));
+        //            }
 
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erreur : " + ex.Message);
-                }
-            }
+        //            reader.Close();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("Erreur : " + ex.Message);
+        //        }
+        //    }
 
-            bindingSource1.DataSource = clients;
+        //    bindingSource1.DataSource = clients;
            
-        }
+        //}
 
 
         private void button2_Click(object sender, EventArgs e)

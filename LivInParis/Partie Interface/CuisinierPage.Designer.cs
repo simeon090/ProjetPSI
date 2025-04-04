@@ -35,6 +35,7 @@ namespace LivInParis
             bindingSource1 = new BindingSource(components);
             button2 = new Button();
             button3 = new Button();
+            button5 = new Button();
             button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
@@ -52,7 +53,7 @@ namespace LivInParis
             // 
             // button1
             // 
-            button1.Location = new Point(12, 616);
+            button1.Location = new Point(533, 730);
             button1.Name = "button1";
             button1.Size = new Size(342, 58);
             button1.TabIndex = 1;
@@ -62,7 +63,7 @@ namespace LivInParis
             // 
             // button2
             // 
-            button2.Location = new Point(360, 616);
+            button2.Location = new Point(683, 541);
             button2.Name = "button2";
             button2.Size = new Size(383, 58);
             button2.TabIndex = 2;
@@ -72,7 +73,7 @@ namespace LivInParis
             // 
             // button3
             // 
-            button3.Location = new Point(768, 616);
+            button3.Location = new Point(1108, 542);
             button3.Name = "button3";
             button3.Size = new Size(351, 58);
             button3.TabIndex = 3;
@@ -80,13 +81,22 @@ namespace LivInParis
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // button5
+            // 
+            button5.Location = new Point(26, 542);
+            button5.Name = "button5";
+            button5.Size = new Size(315, 57);
+            button5.TabIndex = 5;
+            button5.Text = "Ajouter un cuisinier";
+            button5.UseVisualStyleBackColor = true;
+            // 
             // button4
             // 
-            button4.Location = new Point(1147, 616);
+            button4.Location = new Point(380, 542);
             button4.Name = "button4";
-            button4.Size = new Size(264, 58);
-            button4.TabIndex = 4;
-            button4.Text = "Met du jour proposé ";
+            button4.Size = new Size(279, 57);
+            button4.TabIndex = 6;
+            button4.Text = "button4";
             button4.UseVisualStyleBackColor = true;
             // 
             // CuisinierPage
@@ -95,6 +105,7 @@ namespace LivInParis
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1708, 865);
             Controls.Add(button4);
+            Controls.Add(button5);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -115,6 +126,7 @@ namespace LivInParis
         private BindingSource bindingSource1;
         private Button button2;
         private Button button3;
+        private Button button5;
         private Button button4;
     }
 }

@@ -33,7 +33,6 @@
             _text_box_con = new TextBox();
             label2 = new Label();
             button1 = new Button();
-            button2 = new Button();
             _button_create_account = new Button();
             SuspendLayout();
             // 
@@ -84,15 +83,6 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button2
-            // 
-            button2.Location = new Point(0, 0);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 5;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // _button_create_account
             // 
             _button_create_account.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -110,7 +100,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1502, 808);
             Controls.Add(_button_create_account);
-            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(_text_box_con);
@@ -129,7 +118,6 @@
         private TextBox _text_box_con;
         private Label label2;
         private Button button1;
-        private Button button2;
         private Button _button_create_account;
     }
 }
