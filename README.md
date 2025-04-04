@@ -4,9 +4,25 @@
 
 Ce projet nécessite **.NET 8.0**.
 
-Après avoir cloné le dépôt via `git clone`, le projet peut être directement exécuté sans configuration supplémentaire.
+Après avoir cloné le dépôt via `git clone`, le projet peut être directement exécuté afin de tester la partie graphe dans la console.
+Pour lancer la db et tester pleinement l'interface, executer le fichier BDD.sql dans le dossier ProjetPSI/BDD en localhost.
+Puis dans le code modifier le mot de passe du root avec le votre : 
 
+private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE_A_MODIFIER;";
+
+Nous sommes désolé mais il faut refaire cette procédure pour tous les fichiers suivants (Ceci sera modifié dans la prochaine version, pour le prochain rendu nous allons trouver une solution plus optimale)
 ---
+
+**AddNewClient.cs
+ClientPage.cs
+Connexion_user.cs
+Créeruncompte.cs
+CuisinierPage.cs
+DeleteClient.cs
+Panier.cs
+Passer_commande.cs
+UpdateClient.cs
+**
 
 ## 📦 2. Dépendances
 
