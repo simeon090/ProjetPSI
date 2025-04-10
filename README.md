@@ -59,6 +59,11 @@ Les choix techniques et les particularités du projet sont détaillés dans le d
 
 ## 👥 4. Informations utiles
 
+**Identifiants clients pour l'interface :**
+
+Identifiant: client1 
+Mot de passe : password1
+
 **Membres du groupe** :
 - Yanis Taibi  
 - Simeon Simeonov  
