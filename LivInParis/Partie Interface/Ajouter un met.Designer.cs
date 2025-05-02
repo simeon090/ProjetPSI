@@ -28,32 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox4 = new TextBox();
+            _nom_met_box = new TextBox();
+            _prix_met_box = new TextBox();
             label1 = new Label();
             label2 = new Label();
             label4 = new Label();
-            textBox5 = new TextBox();
+            _quantité_box = new TextBox();
             label5 = new Label();
             label3 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            _type_met_box = new ComboBox();
+            _regime_alimentaire_box = new ComboBox();
+            button1 = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // _nom_met_box
             // 
-            textBox1.Location = new Point(362, 209);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(745, 23);
-            textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
+            _nom_met_box.Location = new Point(362, 209);
+            _nom_met_box.Name = "_nom_met_box";
+            _nom_met_box.Size = new Size(745, 23);
+            _nom_met_box.TabIndex = 0;
+            _nom_met_box.TextChanged += textBox1_TextChanged;
             // 
-            // textBox4
+            // _prix_met_box
             // 
-            textBox4.Location = new Point(365, 574);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(742, 23);
-            textBox4.TabIndex = 3;
+            _prix_met_box.Location = new Point(365, 574);
+            _prix_met_box.Name = "_prix_met_box";
+            _prix_met_box.Size = new Size(742, 23);
+            _prix_met_box.TabIndex = 3;
             // 
             // label1
             // 
@@ -83,12 +84,12 @@
             label4.TabIndex = 7;
             label4.Text = "Prix ";
             // 
-            // textBox5
+            // _quantité_box
             // 
-            textBox5.Location = new Point(362, 655);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(745, 23);
-            textBox5.TabIndex = 8;
+            _quantité_box.Location = new Point(362, 655);
+            _quantité_box.Name = "_quantité_box";
+            _quantité_box.Size = new Size(745, 23);
+            _quantité_box.TabIndex = 8;
             // 
             // label5
             // 
@@ -108,37 +109,47 @@
             label3.TabIndex = 6;
             label3.Text = "Régime alimentaire ";
             // 
-            // comboBox1
+            // _type_met_box
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(362, 330);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(745, 23);
-            comboBox1.TabIndex = 10;
+            _type_met_box.FormattingEnabled = true;
+            _type_met_box.Location = new Point(362, 330);
+            _type_met_box.Name = "_type_met_box";
+            _type_met_box.Size = new Size(745, 23);
+            _type_met_box.TabIndex = 10;
             // 
-            // comboBox2
+            // _regime_alimentaire_box
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(365, 468);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(742, 23);
-            comboBox2.TabIndex = 11;
+            _regime_alimentaire_box.FormattingEnabled = true;
+            _regime_alimentaire_box.Location = new Point(365, 468);
+            _regime_alimentaire_box.Name = "_regime_alimentaire_box";
+            _regime_alimentaire_box.Size = new Size(742, 23);
+            _regime_alimentaire_box.TabIndex = 11;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(568, 778);
+            button1.Name = "button1";
+            button1.Size = new Size(301, 98);
+            button1.TabIndex = 12;
+            button1.Text = "Confirmer";
+            button1.UseVisualStyleBackColor = true;
             // 
             // Ajouter_un_met
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1490, 991);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            Controls.Add(button1);
+            Controls.Add(_regime_alimentaire_box);
+            Controls.Add(_type_met_box);
             Controls.Add(label5);
-            Controls.Add(textBox5);
+            Controls.Add(_quantité_box);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox1);
+            Controls.Add(_prix_met_box);
+            Controls.Add(_nom_met_box);
             Name = "Ajouter_un_met";
             Text = "Ajouter_un_met";
             ResumeLayout(false);
@@ -147,15 +158,16 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox4;
+        private TextBox _nom_met_box;
+        private TextBox _prix_met_box;
         private Label label1;
         private Label label2;
         private Label label4;
-        private TextBox textBox5;
+        private TextBox _quantité_box;
         private Label label5;
         private Label label3;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private ComboBox _type_met_box;
+        private ComboBox _regime_alimentaire_box;
+        private Button button1;
     }
 }
