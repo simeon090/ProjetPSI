@@ -9,13 +9,12 @@ namespace LivInParis
 {
     public partial class Panier : Form
     {
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
 
         //prend une liste de mets sélectionnés
         public Panier(List<Mets> metsSelectionnes)
         {
             InitializeComponent();
-
+            this.BackColor = Color.LightBlue;
 
             foreach (var mets in metsSelectionnes)
             {
@@ -29,6 +28,67 @@ namespace LivInParis
         {
         }
 
+        private void _box_resume_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_box_resume.SelectedItem is Mets metsSelectionne)
+            {
+                string stationDepart = metsSelectionne.station_métro;
+                string stationArrivee = Passer_commande.StationArrivee;
+
+                GrapheMetro graphe = new GrapheMetro("MetroParis_Noeuds.csv", "MetroParis_Arcs.csv");
+                station_metro depart = graphe.TrouverStationAvecNom(stationDepart);
+                station_metro arrivee = graphe.TrouverStationAvecNom(stationArrivee);
+
+                Dictionary<station_metro, (string, int)> dijkstra = graphe.Dijkstra(depart, arrivee);
+                station_metro[] liste_stations = graphe.ToListStations(dijkstra);
+                string[] liste_metros = graphe.ToListMetrosUtilisés(dijkstra);
+                int[] liste_minutes = graphe.ToListPoidsStations(dijkstra);
+
+                double distance_km = station_metro.CalculDistance(depart, arrivee);
+                int temps_trajet = 0;
+
+                richTextBox1.Clear();
+                richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+                richTextBox1.SelectionFont = new Font("Arial", 16, FontStyle.Bold);
+                richTextBox1.SelectionColor = Color.Blue;
+                richTextBox1.AppendText("🚇 Trajet pour " + stationDepart + " 🚇\n\n");
+
+                for (int i = 0; i < liste_stations.Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        richTextBox1.SelectionColor = Color.Green;
+                    }
+                    else if (i == liste_stations.Length - 1)
+                    {
+                        richTextBox1.SelectionColor = Color.Red;
+                        temps_trajet = liste_minutes[i];
+                    }
+                    else
+                    {
+                        richTextBox1.SelectionColor = Color.Black;
+                    }
+
+                    richTextBox1.SelectionFont = new Font("Arial", 12);
+                    richTextBox1.AppendText(liste_stations[i].Nom);
+
+                    if (i < liste_stations.Length - 1)
+                    {
+                        int index = i + 1;
+                        richTextBox1.SelectionColor = Color.Gray;
+                        richTextBox1.AppendText(" ==> [ligne " + liste_metros[index] + "] (" + liste_minutes[index] + " min) ==> ");
+                    }
+                }
+
+                richTextBox1.AppendText("\n\n");
+                richTextBox1.SelectionColor = Color.Black;
+                richTextBox1.SelectionFont = new Font("Arial", 12, FontStyle.Bold);
+                richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+                richTextBox1.AppendText("Temps de trajet : " + temps_trajet + " minutes\n Distance : " + distance_km + " km");
+            }
+        }
+
+
         private void CalculerTotal()
         {
             decimal totalPrix = 0;
@@ -40,17 +100,6 @@ namespace LivInParis
 
            label_prix.Text = $"{totalPrix:0.00} €";
 
-        }
-
-        private void _box_resume_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Trajet_Ligne_Commandes trajet = new Trajet_Ligne_Commandes();
-            trajet.Show();
         }
 
         private void label4_Click(object sender, EventArgs e)

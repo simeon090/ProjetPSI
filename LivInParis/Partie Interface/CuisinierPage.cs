@@ -5,62 +5,56 @@ namespace LivInParis
 {
     public partial class CuisinierPage : Form
     {
+        public MySqlConnection connexion;
         public CuisinierPage()
         {
             InitializeComponent();
-
-
+            this.BackColor = Color.LightBlue;
+            connexion = Base_Données.Instance.DB;
         }
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
-
-
 
 
         private void button2_Click(object sender, EventArgs e)
         {
             List<ClientCuisinier> clientsCuisiniers = new List<ClientCuisinier>();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    conn.Open();
-                    string query = @"
-                    SELECT 
-                        C.telephone_cuisinier, 
-                        C.prenom_cuisinier, 
-                        C.nom_cuisinier, 
-                        P.nom_particulier, 
-                        P.prenom_particulier, 
-                        P.Identifiant_client
-                    FROM Commande CM
-                    JOIN Lignes_Commandes LC ON CM.numéro_commande = LC.numéro_commande
-                    JOIN Cuisinier C ON CM.telephone_cuisinier = C.telephone_cuisinier
-                    JOIN Particulier P ON CM.Identifiant_client = P.Identifiant_client
-                    ORDER BY C.telephone_cuisinier, P.Identifiant_client;
-                    ";
+                string query = @"
+                SELECT 
+                    C.telephone_cuisinier, 
+                    C.prenom_cuisinier, 
+                    C.nom_cuisinier, 
+                    P.nom_particulier, 
+                    P.prenom_particulier, 
+                    P.Identifiant_client
+                FROM Commande CM
+                JOIN Lignes_Commandes LC ON CM.numéro_commande = LC.numéro_commande
+                JOIN Cuisinier C ON CM.telephone_cuisinier = C.telephone_cuisinier
+                JOIN Particulier P ON CM.Identifiant_client = P.Identifiant_client
+                ORDER BY C.telephone_cuisinier, P.Identifiant_client;
+                ";
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                MySqlCommand cmd = new MySqlCommand(query, connexion);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        clientsCuisiniers.Add(new ClientCuisinier(
-                            reader.GetDecimal("telephone_cuisinier"),
-                            reader.GetString("prenom_cuisinier"),
-                            reader.GetString("nom_cuisinier"),
-                            reader.GetString("nom_particulier"),
-                            reader.GetString("prenom_particulier"),
-                            reader.GetString("Identifiant_client")
-                        ));
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
+                while (reader.Read())
                 {
-                    MessageBox.Show("Erreur : " + ex.Message);
-                    Console.WriteLine(ex.ToString());
+                    clientsCuisiniers.Add(new ClientCuisinier(
+                        reader.GetDecimal("telephone_cuisinier"),
+                        reader.GetString("prenom_cuisinier"),
+                        reader.GetString("nom_cuisinier"),
+                        reader.GetString("nom_particulier"),
+                        reader.GetString("prenom_particulier"),
+                        reader.GetString("Identifiant_client")
+                    ));
                 }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
+                Console.WriteLine(ex.ToString());
             }
 
             bindingSource1.DataSource = clientsCuisiniers;
@@ -71,32 +65,28 @@ namespace LivInParis
         {
             List<Cuisinier> cuisiniers = new List<Cuisinier>();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    conn.Open();
-                    string query = "SELECT * FROM Cuisinier";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                string query = "SELECT * FROM Cuisinier";
+                MySqlCommand cmd = new MySqlCommand(query, connexion);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        cuisiniers.Add(new Cuisinier(
-                            reader.GetDecimal("telephone_cuisinier"),
-                            reader.GetString("prenom_cuisinier"),
-                            reader.GetString("nom_cuisinier"),
-                            reader.GetString("adresse_cuisinier"),
-                            reader.GetString("mail_cuisinier")
-                        ));
-                    }
-
-                    reader.Close();
-                }
-                catch (Exception ex)
+                while (reader.Read())
                 {
-                    MessageBox.Show("Erreur : " + ex.Message);
+                    cuisiniers.Add(new Cuisinier(
+                        reader.GetDecimal("telephone_cuisinier"),
+                        reader.GetString("prenom_cuisinier"),
+                        reader.GetString("nom_cuisinier"),
+                        reader.GetString("adresse_cuisinier"),
+                        reader.GetString("mail_cuisinier")
+                    ));
                 }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
             }
 
             bindingSource1.DataSource = cuisiniers;
@@ -131,43 +121,39 @@ namespace LivInParis
 
             List<CuisinierPlats> cuisiniersPlats = new List<CuisinierPlats>();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    conn.Open();
-                    string query = @"
-                        SELECT 
-                            Cuisinier.telephone_cuisinier, 
-                            Cuisinier.prenom_cuisinier, 
-                            Cuisinier.nom_cuisinier, 
-                            Lignes_Commandes.type AS plat_type, 
-                            Lignes_Commandes.nom_du_mets
-                        FROM Cuisinier
-                        JOIN Commande ON Cuisinier.telephone_cuisinier = Commande.telephone_cuisinier
-                        JOIN Lignes_Commandes ON Commande.numéro_commande = Lignes_Commandes.numéro_commande
-                        ORDER BY Cuisinier.nom_cuisinier, Lignes_Commandes.type;
-                    ";
+                string query = @"
+                    SELECT 
+                        Cuisinier.telephone_cuisinier, 
+                        Cuisinier.prenom_cuisinier, 
+                        Cuisinier.nom_cuisinier, 
+                        Lignes_Commandes.type AS plat_type, 
+                        Lignes_Commandes.nom_du_mets
+                    FROM Cuisinier
+                    JOIN Commande ON Cuisinier.telephone_cuisinier = Commande.telephone_cuisinier
+                    JOIN Lignes_Commandes ON Commande.numéro_commande = Lignes_Commandes.numéro_commande
+                    ORDER BY Cuisinier.nom_cuisinier, Lignes_Commandes.type;
+                ";
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                MySqlCommand cmd = new MySqlCommand(query, connexion);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        cuisiniersPlats.Add(new CuisinierPlats(
-                            reader.GetDecimal("telephone_cuisinier"),
-                            reader.GetString("prenom_cuisinier"),
-                            reader.GetString("nom_cuisinier"),
-                            reader.GetString("plat_type"),
-                            reader.GetString("nom_du_mets")
-                        ));
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
+                while (reader.Read())
                 {
-                    MessageBox.Show("Erreur : " + ex.Message);
+                    cuisiniersPlats.Add(new CuisinierPlats(
+                        reader.GetDecimal("telephone_cuisinier"),
+                        reader.GetString("prenom_cuisinier"),
+                        reader.GetString("nom_cuisinier"),
+                        reader.GetString("plat_type"),
+                        reader.GetString("nom_du_mets")
+                    ));
                 }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
             }
 
             bindingSource1.DataSource = cuisiniersPlats;

@@ -153,7 +153,6 @@ C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PS
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.ModeClient.resources
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Panier.resources
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Passer_commande.resources
-C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.Trajet_Ligne_Commandes.resources
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.UpdateClient.resources
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Utilisateur.resources
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.csproj.GenerateResource.cache
@@ -189,3 +188,6 @@ C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PS
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.csproj.Up2Date
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.genruntimeconfig.cache
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\ref\LivInParis.dll
+C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.Ajouter_un_met.resources
+C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.Cuisinier.resources
+C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.Modifier_un_met.resources

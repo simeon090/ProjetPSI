@@ -15,6 +15,7 @@ namespace LivInParis.Partie_Interface
         public Modifier_un_met()
         {
             InitializeComponent();
+            this.BackColor = Color.LightBlue;
         }
     }
 }

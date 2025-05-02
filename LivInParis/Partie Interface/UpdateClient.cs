@@ -16,6 +16,7 @@ namespace LivInParis
         public UpdateClient()
         {
             InitializeComponent();
+            this.BackColor = Color.LightBlue;
             LoadClientFrom();
         }
 
@@ -23,22 +24,19 @@ namespace LivInParis
         {
 
         }
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*";
 
 
         void LoadClientFrom()
         {
             List<string> clientIds = new List<string>();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection connexion = Base_Données.Instance.DB)
             {
                 try
                 {
-                    conn.Open();
-
                     string query = "SELECT Identifiant_client FROM Client";
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlCommand cmd = new MySqlCommand(query, connexion);
 
                     MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -68,19 +66,17 @@ namespace LivInParis
             string new_id_client = this._text_box_modif_id.Text;
             string new_pwd_client = this._text_box_mdp.Text;
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection connexion = Base_Données.Instance.DB)
             {
                 try
                 {
-                    conn.Open();
-
 
                     string enlever_ctrt = "SET foreign_key_checks = 0;";
-                    MySqlCommand disableFKCommand = new MySqlCommand(enlever_ctrt, conn);
+                    MySqlCommand disableFKCommand = new MySqlCommand(enlever_ctrt, connexion);
                     disableFKCommand.ExecuteNonQuery();
 
                     string pre_query = "Update Particulier Set Identifiant_client = @NewIdentifiantClient where Identifiant_client=@OldIdentifiantClient";
-                    MySqlCommand cmd2 = new MySqlCommand(pre_query, conn);
+                    MySqlCommand cmd2 = new MySqlCommand(pre_query, connexion);
                     cmd2.Parameters.AddWithValue("@OldIdentifiantClient", old_id_client);
                     cmd2.Parameters.AddWithValue("@NewIdentifiantClient", new_id_client);
                     cmd2.ExecuteNonQuery();
@@ -88,7 +84,7 @@ namespace LivInParis
 
                     string query = "UPDATE Client SET Identifiant_client = @NewIdentifiantClient," +
                                    " Mot_de_passe = @NewMotDePasse WHERE Identifiant_client = @OldIdentifiantClient";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlCommand cmd = new MySqlCommand(query, connexion);
                     cmd.Parameters.AddWithValue("@OldIdentifiantClient", old_id_client);
                     cmd.Parameters.AddWithValue("@NewIdentifiantClient", new_id_client);
                     cmd.Parameters.AddWithValue("@NewMotDePasse", new_pwd_client);
@@ -98,7 +94,7 @@ namespace LivInParis
 
                     string remettre_ctrt = "SET foreign_key_checks = 1;";
 
-                    MySqlCommand remettre_crtCommand = new MySqlCommand(remettre_ctrt, conn);
+                    MySqlCommand remettre_crtCommand = new MySqlCommand(remettre_ctrt, connexion);
                     remettre_crtCommand.ExecuteNonQuery();
 
                     if (rowsAffected > 0)

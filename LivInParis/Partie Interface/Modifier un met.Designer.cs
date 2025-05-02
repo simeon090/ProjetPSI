@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Size = new Size(800, 600);
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
             SuspendLayout();
             // 
             // Modifier_un_met

@@ -45,17 +45,17 @@ namespace LivInParis
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(17, 23);
+            dataGridView1.Location = new Point(10, 23);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1413, 465);
+            dataGridView1.Size = new Size(762, 346);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button1
             // 
-            button1.Location = new Point(533, 730);
+            button1.Location = new Point(19, 513);
             button1.Name = "button1";
-            button1.Size = new Size(342, 58);
+            button1.Size = new Size(132, 36);
             button1.TabIndex = 1;
             button1.Text = "Load DataBase";
             button1.UseVisualStyleBackColor = true;
@@ -63,9 +63,9 @@ namespace LivInParis
             // 
             // button2
             // 
-            button2.Location = new Point(683, 541);
+            button2.Location = new Point(391, 387);
             button2.Name = "button2";
-            button2.Size = new Size(383, 58);
+            button2.Size = new Size(130, 42);
             button2.TabIndex = 2;
             button2.Text = "Afficher client servi ";
             button2.UseVisualStyleBackColor = true;
@@ -73,9 +73,9 @@ namespace LivInParis
             // 
             // button3
             // 
-            button3.Location = new Point(1108, 542);
+            button3.Location = new Point(574, 390);
             button3.Name = "button3";
-            button3.Size = new Size(351, 58);
+            button3.Size = new Size(132, 36);
             button3.TabIndex = 3;
             button3.Text = "Mets mis en ligne ";
             button3.UseVisualStyleBackColor = true;
@@ -83,18 +83,18 @@ namespace LivInParis
             // 
             // button5
             // 
-            button5.Location = new Point(26, 542);
+            button5.Location = new Point(10, 385);
             button5.Name = "button5";
-            button5.Size = new Size(315, 57);
+            button5.Size = new Size(141, 44);
             button5.TabIndex = 5;
             button5.Text = "Ajouter un cuisinier";
             button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            button4.Location = new Point(380, 542);
+            button4.Location = new Point(199, 387);
             button4.Name = "button4";
-            button4.Size = new Size(279, 57);
+            button4.Size = new Size(138, 42);
             button4.TabIndex = 6;
             button4.Text = "button4";
             button4.UseVisualStyleBackColor = true;
@@ -103,13 +103,15 @@ namespace LivInParis
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1708, 865);
+            ClientSize = new Size(784, 561);
             Controls.Add(button4);
             Controls.Add(button5);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
+            MaximumSize = new Size(800, 600);
+            MinimumSize = new Size(800, 600);
             Name = "CuisinierPage";
             Text = "Form1";
             Load += CuisinierPage_Load;

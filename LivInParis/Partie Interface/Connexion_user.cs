@@ -16,7 +16,9 @@ namespace LivInParis
         public Connexion_user()
         {
             InitializeComponent();
-
+            this.BackgroundImage = Image.FromFile("fond.jpg");
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+     
             this._text_box_con.KeyDown += _text_box_con_KeyDown;
         }
 
@@ -28,23 +30,20 @@ namespace LivInParis
             }
         }
 
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
         private void button1_Click(object sender, EventArgs e)
         {
             string id_client = this._text_box_connexion_id.Text;
             string pwd_client = this._text_box_con.Text;
 
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection connexion = Base_Données.Instance.DB)
             {
                 try
                 {
-                    conn.Open();
-
                     // requete SQL pour vérifier l'existence du client
                     string query = "SELECT COUNT(*) FROM Client WHERE Identifiant_client = @IdentifiantClient AND Mot_de_passe = @MotDePasse";
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlCommand cmd = new MySqlCommand(query, connexion);
 
                     cmd.Parameters.AddWithValue("@IdentifiantClient", id_client);
                     cmd.Parameters.AddWithValue("@MotDePasse", pwd_client);
@@ -53,10 +52,9 @@ namespace LivInParis
 
                     if (count > 0)
                     {
-                        Utilisateur connexion = new Utilisateur();
+                        Utilisateur connexion_utilisateur = new Utilisateur();
                         this.Hide();
-                        connexion.ShowDialog();
-                        this.Close();
+                        connexion_utilisateur.ShowDialog();
                     }
                     else
                     {
@@ -84,6 +82,23 @@ namespace LivInParis
             this.Hide();
             new_user.ShowDialog();
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HomePage admi = new HomePage();
+            this.Hide();
+            admi.ShowDialog();
+            this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

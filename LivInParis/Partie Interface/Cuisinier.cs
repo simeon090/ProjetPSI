@@ -15,6 +15,7 @@ namespace LivInParis.Partie_Interface
         public Cuisinier()
         {
             InitializeComponent();
+            this.BackColor = Color.LightBlue;
         }
 
         private void button1_Click(object sender, EventArgs e)

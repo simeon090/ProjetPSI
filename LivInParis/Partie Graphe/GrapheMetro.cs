@@ -54,6 +54,7 @@ namespace LivInParis
                 int duree = Convert.ToInt32(lignes_arcs[i].Split(';')[4]);
                 string ligne_de_metro = lignes_arcs[i].Split(';')[7];
                 string sens = lignes_arcs[i].Split(';')[8];
+                string status = lignes_arcs[i].Split(';')[6];
                 // Cette valeure est arbitraire est considéré seulement pour les stations qui ont des correspondances avec d'autres lignes
                 int tps_changement = Convert.ToInt32(lignes_arcs[i].Split(';')[5]);
                 station_metro station_precedente = null;
@@ -65,7 +66,7 @@ namespace LivInParis
                 }
                 if (station_precedente != null)
                 {
-                    this.List_Liens.Add(new Arcs(station_precedente, station_actuelle, duree, ligne_de_metro, sens, tps_changement));
+                    this.List_Liens.Add(new Arcs(station_precedente, station_actuelle, duree, ligne_de_metro, sens, tps_changement, status));
                 }
             }
         }
@@ -267,7 +268,7 @@ namespace LivInParis
                         nouvelle_distance += List_Liens[i].Temps_de_changement;
                     }
                     // Ssi la distance finale est inférieur au poids jusqu'à présent trouvé pour cette enfant alors on met à jour le poid et on boucle à nouveau
-                    if (nouvelle_distance < poids[enfant])
+                    if (nouvelle_distance < poids[enfant] && List_Liens[i].Status == "oui")
                     {
                         poids[enfant] = nouvelle_distance;
                         parent[enfant] = u;

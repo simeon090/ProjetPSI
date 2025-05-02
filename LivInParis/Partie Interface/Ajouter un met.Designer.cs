@@ -43,23 +43,23 @@
             // 
             // _nom_met_box
             // 
-            _nom_met_box.Location = new Point(362, 209);
+            _nom_met_box.Location = new Point(53, 86);
             _nom_met_box.Name = "_nom_met_box";
-            _nom_met_box.Size = new Size(745, 23);
+            _nom_met_box.Size = new Size(653, 23);
             _nom_met_box.TabIndex = 0;
             _nom_met_box.TextChanged += textBox1_TextChanged;
             // 
             // _prix_met_box
             // 
-            _prix_met_box.Location = new Point(365, 574);
+            _prix_met_box.Location = new Point(56, 451);
             _prix_met_box.Name = "_prix_met_box";
-            _prix_met_box.Size = new Size(742, 23);
+            _prix_met_box.Size = new Size(650, 23);
             _prix_met_box.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(362, 191);
+            label1.Location = new Point(53, 68);
             label1.Name = "label1";
             label1.Size = new Size(75, 15);
             label1.TabIndex = 4;
@@ -69,7 +69,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(362, 306);
+            label2.Location = new Point(53, 183);
             label2.Name = "label2";
             label2.Size = new Size(76, 15);
             label2.TabIndex = 5;
@@ -78,7 +78,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(365, 556);
+            label4.Location = new Point(56, 433);
             label4.Name = "label4";
             label4.Size = new Size(29, 15);
             label4.TabIndex = 7;
@@ -103,7 +103,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(365, 450);
+            label3.Location = new Point(56, 327);
             label3.Name = "label3";
             label3.Size = new Size(112, 15);
             label3.TabIndex = 6;
@@ -112,17 +112,17 @@
             // _type_met_box
             // 
             _type_met_box.FormattingEnabled = true;
-            _type_met_box.Location = new Point(362, 330);
+            _type_met_box.Location = new Point(53, 207);
             _type_met_box.Name = "_type_met_box";
-            _type_met_box.Size = new Size(745, 23);
+            _type_met_box.Size = new Size(653, 23);
             _type_met_box.TabIndex = 10;
             // 
             // _regime_alimentaire_box
             // 
             _regime_alimentaire_box.FormattingEnabled = true;
-            _regime_alimentaire_box.Location = new Point(365, 468);
+            _regime_alimentaire_box.Location = new Point(56, 345);
             _regime_alimentaire_box.Name = "_regime_alimentaire_box";
-            _regime_alimentaire_box.Size = new Size(742, 23);
+            _regime_alimentaire_box.Size = new Size(650, 23);
             _regime_alimentaire_box.TabIndex = 11;
             // 
             // button1
@@ -138,7 +138,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1490, 991);
+            ClientSize = new Size(784, 561);
             Controls.Add(button1);
             Controls.Add(_regime_alimentaire_box);
             Controls.Add(_type_met_box);
@@ -150,6 +150,8 @@
             Controls.Add(label1);
             Controls.Add(_prix_met_box);
             Controls.Add(_nom_met_box);
+            MaximumSize = new Size(800, 600);
+            MinimumSize = new Size(800, 600);
             Name = "Ajouter_un_met";
             Text = "Ajouter_un_met";
             ResumeLayout(false);

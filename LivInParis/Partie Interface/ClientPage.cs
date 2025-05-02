@@ -19,7 +19,7 @@ namespace LivInParis
         public ClientPage()
         {
             InitializeComponent();
-
+            this.BackColor = Color.LightBlue;
             LoadData();
         }
 
@@ -28,20 +28,18 @@ namespace LivInParis
         {
 
         }
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
 
 
         void LoadData()
         {
             List<Particulier> particuliers = new List<Particulier>();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            MySqlConnection connexion = Base_Données.Instance.DB;
             {
                 try
                 {
-                    conn.Open();
                     string query = "SELECT * FROM Particulier";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlCommand cmd = new MySqlCommand(query, connexion);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -134,13 +132,12 @@ namespace LivInParis
         {
             List<Particulier> particuliers = new List<Particulier>();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection connexion = Base_Données.Instance.DB)
             {
                 try
                 {
-                    conn.Open();
                     string query = "SELECT * FROM Particulier ORDER BY adresse_particulier"; // Trie par adresse
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlCommand cmd = new MySqlCommand(query, connexion);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -172,13 +169,12 @@ namespace LivInParis
         {
             List<Particulier> particuliers= new List<Particulier>();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection connexion = Base_Données.Instance.DB)
             {
                 try
                 {
-                    conn.Open();
                     string query = "SELECT * FROM Particulier ORDER BY nom_particulier";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlCommand cmd = new MySqlCommand(query, connexion);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -207,11 +203,10 @@ namespace LivInParis
         {
             List<ClientAchats> clientsAchats = new List<ClientAchats>();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection connexion = Base_Données.Instance.DB)
             {
                 try
                 {
-                    conn.Open();
                     string query = @"
                         SELECT 
                             P.Identifiant_client, 
@@ -225,7 +220,7 @@ namespace LivInParis
                         ORDER BY montant_total_achats DESC;
                         ";
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlCommand cmd = new MySqlCommand(query, connexion);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())

@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Size = new Size(800, 600);
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
             button1 = new Button();
             _Id_Box = new TextBox();
             _Pwd_Box = new TextBox();

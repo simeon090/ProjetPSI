@@ -15,6 +15,7 @@ namespace LivInParis.Partie_Interface
         public Ajouter_un_met()
         {
             InitializeComponent();
+            this.BackColor = Color.LightBlue;
         }
 
         private void label1_Click(object sender, EventArgs e)

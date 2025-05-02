@@ -16,8 +16,8 @@ namespace LivInParis
         public Créer_un_compte()
         {
             InitializeComponent();
+            this.BackColor = Color.LightBlue;
         }
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
 
         private void _confirm_button_Click(object sender, EventArgs e)
         {
@@ -34,17 +34,16 @@ namespace LivInParis
                 return;
             }
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection connexion = Base_Données.Instance.DB)
             {
-                conn.Open();
 
-                using (MySqlTransaction transaction = conn.BeginTransaction())
+                using (MySqlTransaction transaction = connexion.BeginTransaction())
                 {
                     try
                     {
                         // requeete 1 
                         string queryClient = "INSERT INTO Client (Identifiant_client, Mot_de_passe) VALUES (@IdentifiantClient, @MotDePasse)";
-                        MySqlCommand cmdClient = new MySqlCommand(queryClient, conn, transaction);
+                        MySqlCommand cmdClient = new MySqlCommand(queryClient, connexion, transaction);
                         cmdClient.Parameters.AddWithValue("@IdentifiantClient", id);
                         cmdClient.Parameters.AddWithValue("@MotDePasse", pwd);
                         cmdClient.ExecuteNonQuery();
@@ -52,7 +51,7 @@ namespace LivInParis
                         // requete 2 
                         string queryParticulier = "INSERT INTO Particulier (Identifiant_client, nom_particulier, prenom_particulier, adresse_particulier, numéro_tel_particulier) " +
                                                   "VALUES (@Identifiant_client, @nom_particulier, @prenom_particulier, @adresse_particulier, @numéro_particulier)";
-                        MySqlCommand cmdParticulier = new MySqlCommand(queryParticulier, conn, transaction);
+                        MySqlCommand cmdParticulier = new MySqlCommand(queryParticulier, connexion, transaction);
                         cmdParticulier.Parameters.AddWithValue("@Identifiant_client", id);
                         cmdParticulier.Parameters.AddWithValue("@nom_particulier", nom);
                         cmdParticulier.Parameters.AddWithValue("@prenom_particulier", prenom);
@@ -75,5 +74,9 @@ namespace LivInParis
             Close();
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

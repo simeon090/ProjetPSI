@@ -35,7 +35,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(536, 218);
+            button1.Location = new Point(198, 91);
             button1.Name = "button1";
             button1.Size = new Size(397, 89);
             button1.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(536, 357);
+            button2.Location = new Point(198, 230);
             button2.Name = "button2";
             button2.Size = new Size(397, 82);
             button2.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(536, 492);
+            button3.Location = new Point(198, 365);
             button3.Name = "button3";
             button3.Size = new Size(397, 83);
             button3.TabIndex = 2;
@@ -65,10 +65,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1484, 954);
+            ClientSize = new Size(784, 561);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            MaximumSize = new Size(800, 600);
+            MinimumSize = new Size(800, 600);
             Name = "Cuisinier";
             Text = "Cuisinier";
             ResumeLayout(false);

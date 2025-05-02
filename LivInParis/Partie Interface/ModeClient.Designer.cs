@@ -35,7 +35,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(422, 269);
+            button1.Location = new Point(91, 129);
             button1.Name = "button1";
             button1.Size = new Size(589, 114);
             button1.TabIndex = 0;
@@ -46,7 +46,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(422, 425);
+            button2.Location = new Point(91, 285);
             button2.Name = "button2";
             button2.Size = new Size(589, 97);
             button2.TabIndex = 1;
@@ -57,9 +57,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1499, 964);
+            ClientSize = new Size(784, 561);
             Controls.Add(button2);
             Controls.Add(button1);
+            MaximumSize = new Size(800, 600);
+            MinimumSize = new Size(800, 600);
             Name = "ModeClient";
             Text = "ModeClient";
             ResumeLayout(false);

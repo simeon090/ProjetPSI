@@ -46,7 +46,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(21, 64);
+            label1.Location = new Point(73, 62);
             label1.Name = "label1";
             label1.Size = new Size(61, 25);
             label1.TabIndex = 1;
@@ -54,11 +54,11 @@
             // 
             // button1
             // 
-            button1.Location = new Point(173, 194);
+            button1.Location = new Point(228, 155);
             button1.Name = "button1";
             button1.Size = new Size(315, 103);
             button1.TabIndex = 2;
-            button1.Text = "Delete";
+            button1.Text = "Supprimer";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -66,10 +66,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(784, 561);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(_ListDesClients);
+            MaximumSize = new Size(800, 600);
+            MinimumSize = new Size(800, 600);
             Name = "DeleteClient";
             Text = "DeleteClient";
             ResumeLayout(false);

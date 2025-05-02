@@ -29,6 +29,9 @@ namespace LivInParis
         /// </summary>
         private void InitializeComponent()
         {
+            this.Size = new Size(800, 600);
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             bindingSource1 = new BindingSource(components);

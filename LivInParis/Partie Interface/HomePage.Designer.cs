@@ -35,7 +35,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(388, 205);
+            button1.Location = new Point(48, 86);
             button1.Name = "button1";
             button1.Size = new Size(685, 187);
             button1.TabIndex = 0;
@@ -46,7 +46,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(388, 398);
+            button2.Location = new Point(48, 279);
             button2.Name = "button2";
             button2.Size = new Size(685, 190);
             button2.TabIndex = 1;
@@ -58,9 +58,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1481, 831);
+            ClientSize = new Size(784, 561);
             Controls.Add(button2);
             Controls.Add(button1);
+            MaximumSize = new Size(800, 600);
+            MinimumSize = new Size(800, 600);
             Name = "HomePage";
             Text = "HomePage";
             Load += HomePage_Load;

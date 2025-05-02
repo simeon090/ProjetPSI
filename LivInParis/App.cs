@@ -1,17 +1,22 @@
+using MySql.Data.MySqlClient;
+using System.Data;
+
 namespace LivInParis
 {
     internal static class App
     {
+        public static string chemin_csv_stations = "MetroParis_Noeuds.csv";
+        public static string chemin_csv_arcs = "MetroParis_Arcs.csv";
         static void Main()
         {
             // Initialisation Partie Graphique
             ApplicationConfiguration.Initialize();
-            Application.Run(new LivInParis.Administrator());
+            Application.Run(new LivInParis.Connexion_user());
 
-            GrapheMetro Test_Graphe = new GrapheMetro("MetroParis_Noeuds.csv", "MetroParis_Arcs.csv");
+            GrapheMetro Test_Graphe = new GrapheMetro(chemin_csv_stations, chemin_csv_arcs);
             //Test_Graphe.VisualiserGraphe();
-            station_metro depart = Test_Graphe.TrouverStationAvecNom("Argentine");
-            station_metro arrivee = Test_Graphe.TrouverStationAvecNom("Passy");
+            station_metro depart = Test_Graphe.TrouverStationAvecNom("Franklin D. Roosevelt");
+            station_metro arrivee = Test_Graphe.TrouverStationAvecNom("Place de Clichy");
 
             //Exemple de calcule distance entre deux stations
             Console.WriteLine(station_metro.CalculDistance(depart, arrivee));
@@ -35,7 +40,7 @@ namespace LivInParis
             AffcherTab(liste_minutes);
         }
 
-        static void AffcherTab(station_metro[] list)
+        public static void AffcherTab(station_metro[] list)
         {
             if (list != null && list.Length - 1 > 0)
             {
@@ -51,7 +56,7 @@ namespace LivInParis
             }
         }
 
-        static void AffcherTab(string[] list)
+        public static void AffcherTab(string[] list)
         {
             if (list != null && list.Length - 1 > 0)
             {
@@ -67,7 +72,7 @@ namespace LivInParis
             }
         }
 
-        static void AffcherTab(int[] list)
+        public static void AffcherTab(int[] list)
         {
             if (list != null && list.Length - 1 > 0)
             {
@@ -83,4 +88,42 @@ namespace LivInParis
             }
         }
     }
+
+
+    public class Base_Données
+    {
+        private static Base_Données instance = null;
+        private MySqlConnection db;
+
+        private Base_Données()
+        {
+            string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;";
+            db = new MySqlConnection(connectionString);
+        }
+
+        public static Base_Données Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Base_Données();
+                }
+                return instance;
+            }
+        }
+
+        public MySqlConnection DB
+        {
+            get
+            {
+                if (db.State != ConnectionState.Open)
+                {
+                    db.Open();
+                } 
+                return db;
+            }
+        }
+    }
+
 }

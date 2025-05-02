@@ -14,12 +14,12 @@ namespace LivInParis
 {
     public partial class AddNewClient : Form
     {
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;"; // connexion sql
 
 
         public AddNewClient()
         {
             InitializeComponent();
+            this.BackColor = Color.LightBlue;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,18 +28,15 @@ namespace LivInParis
            string pwd_client = this._Pwd_Box.Text;
 
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection connexion = Base_Données.Instance.DB)
             {
                 try
                 {
-                    
-                    conn.Open();
-
-                    // Requête SQL pour ajouter un clien t
+                    // Requête SQL pour ajouter un client
                     string query = "INSERT INTO Client (Identifiant_client, Mot_de_passe) VALUES (@IdentifiantClient, @MotDePasse)";
 
                     // exécution de la requête 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlCommand cmd = new MySqlCommand(query, connexion);
 
                    
                     cmd.Parameters.AddWithValue("@IdentifiantClient", id_client);
