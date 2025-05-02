@@ -28,7 +28,7 @@ namespace LivInParis
         {
 
         }
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE;";
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
 
 
         void LoadData()
@@ -71,6 +71,7 @@ namespace LivInParis
         private void button4_Click(object sender, EventArgs e)
         {
             UpdateClient updateClient = new UpdateClient();
+           
             updateClient.ShowDialog();
 
             LoadData();
@@ -293,12 +294,16 @@ namespace LivInParis
 
     public class ClientAchats
     {
-        public string IdentifiantClient { get; set; }
-        public string nom_particulier { get; set; }
+        public string IdentifiantClient 
+        { get; set; }
+        public string nom_particulier 
+        { get; set; }
 
-        public string prenom_particulier { get; set; }
+        public string prenom_particulier 
+        { get; set; }
 
-        public decimal MontantTotalAchats { get; set; }
+        public decimal MontantTotalAchats 
+        { get; set; }
 
         public ClientAchats(string identifiantClient, string nom_particulier, string prenom_particulier, decimal montantTotalAchats)
         {

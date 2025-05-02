@@ -9,7 +9,7 @@ namespace LivInParis
 {
     public partial class Panier : Form
     {
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE;";
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
 
         //prend une liste de mets sélectionnés
         public Panier(List<Mets> metsSelectionnes)
@@ -38,7 +38,7 @@ namespace LivInParis
                 totalPrix += item.prix;
             }
 
-            textBox1.Text = $"{totalPrix:0.00} €";
+           label_prix.Text = $"{totalPrix:0.00} €";
 
         }
 
@@ -49,8 +49,16 @@ namespace LivInParis
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Trajet_Ligne_Commandes trajet = new Trajet_Ligne_Commandes();   
+            Trajet_Ligne_Commandes trajet = new Trajet_Ligne_Commandes();
             trajet.Show();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
+        
     }
 }

@@ -23,7 +23,7 @@ namespace LivInParis
         {
 
         }
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE";
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*";
 
 
         void LoadClientFrom()
@@ -74,16 +74,32 @@ namespace LivInParis
                 {
                     conn.Open();
 
+
+                    string enlever_ctrt = "SET foreign_key_checks = 0;";
+                    MySqlCommand disableFKCommand = new MySqlCommand(enlever_ctrt, conn);
+                    disableFKCommand.ExecuteNonQuery();
+
+                    string pre_query = "Update Particulier Set Identifiant_client = @NewIdentifiantClient where Identifiant_client=@OldIdentifiantClient";
+                    MySqlCommand cmd2 = new MySqlCommand(pre_query, conn);
+                    cmd2.Parameters.AddWithValue("@OldIdentifiantClient", old_id_client);
+                    cmd2.Parameters.AddWithValue("@NewIdentifiantClient", new_id_client);
+                    cmd2.ExecuteNonQuery();
+
+
                     string query = "UPDATE Client SET Identifiant_client = @NewIdentifiantClient," +
-                        " Mot_de_passe = @NewMotDePasse WHERE Identifiant_client = @OldIdentifiantClient";
-
+                                   " Mot_de_passe = @NewMotDePasse WHERE Identifiant_client = @OldIdentifiantClient";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
-
                     cmd.Parameters.AddWithValue("@OldIdentifiantClient", old_id_client);
                     cmd.Parameters.AddWithValue("@NewIdentifiantClient", new_id_client);
                     cmd.Parameters.AddWithValue("@NewMotDePasse", new_pwd_client);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
+
+
+                    string remettre_ctrt = "SET foreign_key_checks = 1;";
+
+                    MySqlCommand remettre_crtCommand = new MySqlCommand(remettre_ctrt, conn);
+                    remettre_crtCommand.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
                     {
@@ -101,12 +117,14 @@ namespace LivInParis
             }
 
             Close();
-
-         
-
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

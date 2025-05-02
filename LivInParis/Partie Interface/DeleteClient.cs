@@ -21,7 +21,7 @@ namespace LivInParis
 
         }
 
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE;";
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
 
 
         void LoadClientFrom()
@@ -69,13 +69,24 @@ namespace LivInParis
                 {
                     conn.Open();
 
+                    string enlever_ctrt = "SET foreign_key_checks=0";
+                    MySqlCommand enlever = new MySqlCommand (enlever_ctrt, conn);
+                    enlever.ExecuteNonQuery();
+
+
                     string query = "DELETE FROM Client WHERE Identifiant_client = @IdentifiantClient";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
                     cmd.Parameters.AddWithValue("@IdentifiantClient", identifiantClient);
 
+                    
                     int rowsAffected = cmd.ExecuteNonQuery();
+
+                    string remettre_ctrt = "SET foreign_key_checks=1";
+
+                    MySqlCommand remettre = new MySqlCommand (remettre_ctrt, conn);
+                    remettre.ExecuteNonQuery ();
 
                     if (rowsAffected > 0)
                     {

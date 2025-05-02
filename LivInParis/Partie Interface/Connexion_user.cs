@@ -28,7 +28,7 @@ namespace LivInParis
             }
         }
 
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE;";
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
         private void button1_Click(object sender, EventArgs e)
         {
             string id_client = this._text_box_connexion_id.Text;
@@ -54,7 +54,9 @@ namespace LivInParis
                     if (count > 0)
                     {
                         Utilisateur connexion = new Utilisateur();
-                        connexion.Show();
+                        this.Hide();
+                        connexion.ShowDialog();
+                        this.Close();
                     }
                     else
                     {
@@ -79,7 +81,9 @@ namespace LivInParis
         private void _button_create_account_Click(object sender, EventArgs e)
         {
             Créer_un_compte new_user = new Créer_un_compte();
+            this.Hide();
             new_user.ShowDialog();
+            this.Close();
         }
     }
 }

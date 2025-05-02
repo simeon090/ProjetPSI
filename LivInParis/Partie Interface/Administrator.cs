@@ -28,7 +28,9 @@ namespace LivInParis
         private void button1_Click(object sender, EventArgs e)
         {
             HomePage admi = new HomePage();
+            this.Hide();
             admi.ShowDialog();
+            this.Close();
            
         }
 
@@ -74,7 +76,9 @@ namespace LivInParis
         private void button2_Click(object sender, EventArgs e)
         {
           Connexion_user utilisateur = new Connexion_user();
+            this.Hide();
             utilisateur.ShowDialog();
+            this.Close();
         }
     }
 }

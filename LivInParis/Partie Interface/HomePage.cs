@@ -20,13 +20,20 @@ namespace LivInParis
         private void button1_Click(object sender, EventArgs e)
         {
             ClientPage clientPage = new ClientPage();
-            clientPage.Show();
+            this.Hide(); 
+            clientPage.ShowDialog();
+            this.Close();
+            
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             CuisinierPage cuis = new CuisinierPage();
+            this.Hide();
             cuis.ShowDialog();
+            this.Close();
+           
         }
 
         private void HomePage_Load(object sender, EventArgs e)

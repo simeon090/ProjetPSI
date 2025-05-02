@@ -31,9 +31,9 @@
             label1 = new Label();
             label2 = new Label();
             _box_resume = new ListBox();
-            textBox1 = new TextBox();
             label3 = new Label();
             button1 = new Button();
+            label_prix = new Label();
             SuspendLayout();
             // 
             // label1
@@ -60,19 +60,11 @@
             // 
             _box_resume.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             _box_resume.ItemHeight = 32;
-            _box_resume.Location = new Point(261, 228);
+            _box_resume.Location = new Point(240, 211);
             _box_resume.Name = "_box_resume";
-            _box_resume.Size = new Size(445, 292);
+            _box_resume.Size = new Size(592, 324);
             _box_resume.TabIndex = 5;
             _box_resume.SelectedIndexChanged += _box_resume_SelectedIndexChanged;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(231, 586);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(402, 23);
-            textBox1.TabIndex = 3;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label3
             // 
@@ -94,14 +86,25 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label_prix
+            // 
+            label_prix.AutoSize = true;
+            label_prix.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_prix.Location = new Point(224, 566);
+            label_prix.Name = "label_prix";
+            label_prix.Size = new Size(179, 65);
+            label_prix.TabIndex = 7;
+            label_prix.Text = "label4 ";
+            label_prix.Click += label4_Click;
+            // 
             // Panier
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1277, 714);
+            Controls.Add(label_prix);
             Controls.Add(button1);
             Controls.Add(label3);
-            Controls.Add(textBox1);
             Controls.Add(_box_resume);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -116,8 +119,8 @@
         private Label label1;
         private Label label2;
         private ListBox _box_resume;
-        private TextBox textBox1;
         private Label label3;
         private Button button1;
+        private Label label_prix;
     }
 }

@@ -28,23 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            arrivee_box = new TextBox();
+            label1 = new Label();
+            départ_box = new TextBox();
+            label2 = new Label();
             SuspendLayout();
             // 
-            // textBox1
+            // arrivee_box
             // 
-            textBox1.Location = new Point(407, 94);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(799, 31);
-            textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
+            arrivee_box.Location = new Point(286, 118);
+            arrivee_box.Margin = new Padding(2);
+            arrivee_box.Name = "arrivee_box";
+            arrivee_box.Size = new Size(637, 23);
+            arrivee_box.TabIndex = 0;
+            arrivee_box.TextChanged += textBox1_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(286, 101);
+            label1.Name = "label1";
+            label1.Size = new Size(95, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Station d'arrivée ";
+            // 
+            // départ_box
+            // 
+            départ_box.Location = new Point(286, 271);
+            départ_box.Name = "départ_box";
+            départ_box.Size = new Size(637, 23);
+            départ_box.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(286, 253);
+            label2.Name = "label2";
+            label2.Size = new Size(104, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Station_de_depart ";
             // 
             // Trajet_Ligne_Commandes
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1592, 576);
-            Controls.Add(textBox1);
+            ClientSize = new Size(1493, 980);
+            Controls.Add(label2);
+            Controls.Add(départ_box);
+            Controls.Add(label1);
+            Controls.Add(arrivee_box);
+            Margin = new Padding(2);
             Name = "Trajet_Ligne_Commandes";
             Text = "Trajet_Ligne_Commandes";
             ResumeLayout(false);
@@ -53,6 +86,9 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox arrivee_box;
+        private Label label1;
+        private TextBox départ_box;
+        private Label label2;
     }
 }

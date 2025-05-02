@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LivInParis.Partie_Interface;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,12 +21,22 @@ namespace LivInParis
         private void button1_Click(object sender, EventArgs e)
         {
             Passer_commande commande = new Passer_commande();
-            commande.Show();
+            this.Hide();
+            commande.ShowDialog();
+            this.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Cuisinier cuisinier = new Cuisinier();
+            this.Hide();
+            cuisinier.ShowDialog();
+            this.Close();
         }
     }
 }

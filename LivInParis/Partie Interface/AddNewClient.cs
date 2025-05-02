@@ -14,7 +14,7 @@ namespace LivInParis
 {
     public partial class AddNewClient : Form
     {
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE;"; // connexion sql
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;"; // connexion sql
 
 
         public AddNewClient()

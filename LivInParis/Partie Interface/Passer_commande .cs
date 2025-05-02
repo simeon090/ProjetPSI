@@ -9,8 +9,10 @@ namespace LivInParis
     public partial class Passer_commande : Form
     {
 
-        public static string StationDepart { get; private set; }
-        public static string StationArrivee { get; private set; }
+        public static string StationArrivee 
+        { get; set; } 
+        public static List<string> StationsDepart { get; set; } = new List<string>(); 
+
 
         public Passer_commande()
         {
@@ -21,7 +23,7 @@ namespace LivInParis
         }
 
 
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;";
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
         private void ChargerStations()
         {
             List<string> stationsMetroParis = new List<string>
@@ -279,9 +281,10 @@ namespace LivInParis
 
         private void _choix_station_commande_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
+            StationArrivee = _choix_station_commande.SelectedItem.ToString();
             MessageBox.Show("Vous avez sélectionné : " + _choix_station_commande.SelectedItem);
-            StationDepart = _choix_station_commande.SelectedItem.ToString();
+           
         }
 
 
@@ -311,8 +314,8 @@ namespace LivInParis
 
                     while (reader.Read())
                     {
-                       
-                        metsList.Add(new Mets(reader.GetString("nom_mets"),reader.GetDecimal("prix"),reader.GetString("station_métro")));
+
+                        metsList.Add(new Mets(reader.GetString("nom_mets"), reader.GetDecimal("prix"), reader.GetString("station_métro")));
                     }
                     reader.Close();
                 }
@@ -341,26 +344,34 @@ namespace LivInParis
 
         private void box_commande_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             List<Mets> selectionMets = new List<Mets>();
+            
+                StationsDepart.Clear();
 
-            // Récupérer les mets sélectionnés dans box_commande
             foreach (var item in box_commande.CheckedItems)
             {
-                selectionMets.Add((Mets)item); 
+                Mets met = (Mets)item;
+                    selectionMets.Add(met);
+
+                if (!StationsDepart.Contains(met.station_métro))
+                {
+              StationsDepart.Add(met.station_métro);
+                }
             }
 
             if (selectionMets.Count == 0)
             {
                 MessageBox.Show("Veuillez sélectionner au moins un mets.");
-                return;
+              return;
             }
-
             Panier panier = new Panier(selectionMets);
+            
+            
             panier.Show();
         }
 
@@ -370,10 +381,10 @@ namespace LivInParis
 
             public string nom_mets { get; set; }
 
-            public decimal prix {  get; set; }
+            public decimal prix { get; set; }
 
             public string station_métro { get; set; }
-            public Mets (string nom_mets, decimal prix, string station_métro)
+            public Mets(string nom_mets, decimal prix, string station_métro)
             {
                 this.nom_mets = nom_mets;
                 this.prix = prix;
@@ -381,13 +392,15 @@ namespace LivInParis
             }
             public override string ToString()
             {
-                StationArrivee = station_métro;
+                
                 return $"{nom_mets} - {prix} € - Station: {station_métro}";
             }
-            
+
         }
 
+        private void Passer_commande_Load(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

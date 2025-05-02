@@ -17,7 +17,7 @@ namespace LivInParis
         {
             InitializeComponent();
         }
-        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=MOT_DE_PASSE;";
+        private string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
 
         private void _confirm_button_Click(object sender, EventArgs e)
         {
