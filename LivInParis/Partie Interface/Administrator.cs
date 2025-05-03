@@ -21,13 +21,13 @@ namespace LivInParis
         }
         private void _admin_text_box_TextChanged(object sender, EventArgs e)
         {
-            HomePage admin = new HomePage();
+            ModesAdmin admin = new ModesAdmin();
             admin.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            HomePage admi = new HomePage();
+            ModesAdmin admi = new ModesAdmin();
             this.Hide();
             admi.ShowDialog();
             this.Close();

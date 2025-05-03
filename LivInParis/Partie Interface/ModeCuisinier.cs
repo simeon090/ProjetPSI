@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LivInParis.Partie_Interface
 {
-    public partial class Cuisinier : Form
+    public partial class ModeCuisinier : Form
     {
-        public Cuisinier()
+        public ModeCuisinier()
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;

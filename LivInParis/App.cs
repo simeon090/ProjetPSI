@@ -1,3 +1,4 @@
+using LivInParis.Partie_Graphe;
 using MySql.Data.MySqlClient;
 using System.Data;
 

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using LivInParis.Partie_Interface;
+using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using Org.BouncyCastle.Asn1.Cmp;
 using System;
@@ -16,10 +17,12 @@ namespace LivInParis
 {
     public partial class ClientPage : Form
     {
+        public MySqlConnection connexion;
         public ClientPage()
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
+            this.connexion = Base_Données.Instance.DB;
             LoadData();
         }
 
@@ -33,8 +36,6 @@ namespace LivInParis
         void LoadData()
         {
             List<Particulier> particuliers = new List<Particulier>();
-
-            MySqlConnection connexion = Base_Données.Instance.DB;
             {
                 try
                 {
@@ -69,7 +70,7 @@ namespace LivInParis
         private void button4_Click(object sender, EventArgs e)
         {
             UpdateClient updateClient = new UpdateClient();
-           
+
             updateClient.ShowDialog();
 
             LoadData();
@@ -93,69 +94,31 @@ namespace LivInParis
             LoadData();
         }
 
-        //private void button4_Click(object sender, EventArgs e)
-        //{ 
-        //    string id_modif = 
-        //    string password_modif = 
-        //    using (MySqlConnection conn = new MySqlConnection(connectionString))
-        //    {
-        //        try
-        //        {
-        //            conn.Open();
-        //            string query = "Update * FROM Client";
-        //            MySqlCommand cmd = new MySqlCommand(query, conn);
-        //            MySqlDataReader reader = cmd.ExecuteReader();
-
-        //            while (reader.Read())
-        //            {
-        //                clients.Add(new Client(
-        //                    reader.GetString("Identifiant_client"),
-        //                    reader.GetString("Mot_de_passe")
-
-        //                ));
-        //            }
-
-        //            reader.Close();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show("Erreur : " + ex.Message);
-        //        }
-        //    }
-
-        //    bindingSource1.DataSource = clients;
-        //    dataGridView1.DataSource = bindingSource1;
-
-        //}
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             List<Particulier> particuliers = new List<Particulier>();
 
-            using (MySqlConnection connexion = Base_Données.Instance.DB)
+            try
             {
-                try
-                {
-                    string query = "SELECT * FROM Particulier ORDER BY adresse_particulier"; // Trie par adresse
-                    MySqlCommand cmd = new MySqlCommand(query, connexion);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                string query = "SELECT * FROM Particulier ORDER BY adresse_particulier"; // Trie par adresse
+                MySqlCommand cmd = new MySqlCommand(query, connexion);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        particuliers.Add(new Particulier(
-                            reader.GetDecimal("numéro_tel_particulier"),
-                            reader.GetString("nom_particulier"),
-                            reader.GetString("prenom_particulier"),
-                            reader.GetString("adresse_particulier"),
-                            reader.GetString("Identifiant_client")
-                        ));
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
+                while (reader.Read())
                 {
-                    MessageBox.Show("Erreur : " + ex.Message);
+                    particuliers.Add(new Particulier(
+                        reader.GetDecimal("numéro_tel_particulier"),
+                        reader.GetString("nom_particulier"),
+                        reader.GetString("prenom_particulier"),
+                        reader.GetString("adresse_particulier"),
+                        reader.GetString("Identifiant_client")
+                    ));
                 }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
             }
 
 
@@ -167,32 +130,29 @@ namespace LivInParis
 
         private void button5_Click(object sender, EventArgs e)
         {
-            List<Particulier> particuliers= new List<Particulier>();
+            List<Particulier> particuliers = new List<Particulier>();
 
-            using (MySqlConnection connexion = Base_Données.Instance.DB)
+            try
             {
-                try
-                {
-                    string query = "SELECT * FROM Particulier ORDER BY nom_particulier";
-                    MySqlCommand cmd = new MySqlCommand(query, connexion);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                string query = "SELECT * FROM Particulier ORDER BY nom_particulier";
+                MySqlCommand cmd = new MySqlCommand(query, connexion);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        particuliers.Add(new Particulier(
-                             reader.GetDecimal("numéro_tel_particulier"),
-                             reader.GetString("nom_particulier"),
-                             reader.GetString("prenom_particulier"),
-                             reader.GetString("adresse_particulier"),
-                             reader.GetString("Identifiant_client")
-                         ));
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
+                while (reader.Read())
                 {
-                    MessageBox.Show("Erreur : " + ex.Message);
+                    particuliers.Add(new Particulier(
+                            reader.GetDecimal("numéro_tel_particulier"),
+                            reader.GetString("nom_particulier"),
+                            reader.GetString("prenom_particulier"),
+                            reader.GetString("adresse_particulier"),
+                            reader.GetString("Identifiant_client")
+                        ));
                 }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
             }
 
             bindingSource1.DataSource = particuliers;
@@ -203,42 +163,39 @@ namespace LivInParis
         {
             List<ClientAchats> clientsAchats = new List<ClientAchats>();
 
-            using (MySqlConnection connexion = Base_Données.Instance.DB)
+            try
             {
-                try
-                {
-                    string query = @"
-                        SELECT 
-                            P.Identifiant_client, 
-                            P.nom_particulier, 
-                            P.prenom_particulier, 
-                            SUM(LC.prix) AS montant_total_achats
-                        FROM Commande CM
-                        JOIN Lignes_Commandes LC ON CM.numéro_commande = LC.numéro_commande
-                        JOIN Particulier P ON CM.Identifiant_client = P.Identifiant_client
-                        GROUP BY P.Identifiant_client, P.nom_particulier, P.prenom_particulier
-                        ORDER BY montant_total_achats DESC;
-                        ";
+                string query = @"
+                    SELECT 
+                        P.Identifiant_client, 
+                        P.nom_particulier, 
+                        P.prenom_particulier, 
+                        SUM(LC.prix) AS montant_total_achats
+                    FROM Commande CM
+                    JOIN Lignes_Commandes LC ON CM.numéro_commande = LC.numéro_commande
+                    JOIN Particulier P ON CM.Identifiant_client = P.Identifiant_client
+                    GROUP BY P.Identifiant_client, P.nom_particulier, P.prenom_particulier
+                    ORDER BY montant_total_achats DESC;
+                    ";
 
-                    MySqlCommand cmd = new MySqlCommand(query, connexion);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                MySqlCommand cmd = new MySqlCommand(query, connexion);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        clientsAchats.Add(new ClientAchats(
-                            reader.GetString("Identifiant_client"),
-                            reader.GetString("nom_particulier"),
-                            reader.GetString("prenom_particulier"),
-                            reader.GetDecimal("montant_total_achats")
-                        ));
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
+                while (reader.Read())
                 {
-                    MessageBox.Show("Erreur : " + ex.Message);
-                    Console.WriteLine(ex.ToString());
+                    clientsAchats.Add(new ClientAchats(
+                        reader.GetString("Identifiant_client"),
+                        reader.GetString("nom_particulier"),
+                        reader.GetString("prenom_particulier"),
+                        reader.GetDecimal("montant_total_achats")
+                    ));
                 }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
+                Console.WriteLine(ex.ToString());
             }
             bindingSource1.DataSource = clientsAchats;
             dataGridView1.DataSource = bindingSource1;
@@ -246,7 +203,41 @@ namespace LivInParis
 
 
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                var item = dataGridView1.CurrentRow.DataBoundItem;
+
+                string id_client_interface = null;
+
+                //on verifie si item est un particulier
+                if (item is Particulier p)
+                {
+                    id_client_interface = p.Identifiant_client;
+                }
+                //on verifie si item est un client achats
+                else if (item is ClientAchats c)
+                {
+                    id_client_interface = c.IdentifiantClient;
+                }
+
+                if (!string.IsNullOrEmpty(id_client_interface))
+                {
+                    InterfaceCommande form = new InterfaceCommande(id_client_interface);
+                    form.ShowDialog();
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Aucun client sélectionnée");
+                }
+            }
+        }
+
     }
+
     public class Particulier
     {
         public decimal numéro_tel_particulier { get; set; }
@@ -263,27 +254,6 @@ namespace LivInParis
             this.prenom_particulier = prenom_particulier;
             this.adresse_particulier = adresse_particulier;
             this.Identifiant_client = Identifiant_client;
-        }
-    }
-
-
-    public class Client
-    {
-        public string IdentifiantClient { get; set; }
-        public string MotDePasse { get; set; }
-
-       
-
-        public Client(string identifiantClient, string motDePasse)
-        {
-            IdentifiantClient = identifiantClient;
-            MotDePasse = motDePasse;
-        }
-
-        // Methode ToString pour afficher l'objet sous une forme lisible
-        public override string ToString()
-        {
-            return $"Identifiant: {IdentifiantClient}, Mot de passe: {MotDePasse}";
         }
     }
 

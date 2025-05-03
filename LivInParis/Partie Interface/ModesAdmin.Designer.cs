@@ -1,6 +1,6 @@
 ﻿namespace LivInParis
 {
-    partial class Utilisateur
+    partial class ModesAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,64 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(123, 78);
-            label1.Name = "label1";
-            label1.Size = new Size(515, 45);
-            label1.TabIndex = 0;
-            label1.Text = "Quelle mode voulez vous utiliser ? ";
-            label1.Click += label1_Click;
             // 
             // button1
             // 
-            button1.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(52, 201);
+            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(133, 43);
             button1.Name = "button1";
-            button1.Size = new Size(687, 114);
-            button1.TabIndex = 1;
-            button1.Text = "Mode Client ";
+            button1.Size = new Size(511, 135);
+            button1.TabIndex = 0;
+            button1.Text = "Client";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(52, 370);
+            button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(133, 202);
             button2.Name = "button2";
-            button2.Size = new Size(687, 100);
-            button2.TabIndex = 2;
-            button2.Text = "Mode Cuisinier ";
+            button2.Size = new Size(511, 144);
+            button2.TabIndex = 1;
+            button2.Text = "Cuisinier";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // Utilisateur
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(133, 366);
+            button3.Name = "button3";
+            button3.Size = new Size(511, 144);
+            button3.TabIndex = 2;
+            button3.Text = "Graphe avec Coloration";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // ModesAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(label1);
             MaximumSize = new Size(800, 600);
             MinimumSize = new Size(800, 600);
-            Name = "Utilisateur";
-            Text = "Utilisateur";
+            Name = "ModesAdmin";
+            Text = "HomePage";
+            Load += HomePage_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
         private Button button1;
         private Button button2;
+        private Button button3;
     }
 }

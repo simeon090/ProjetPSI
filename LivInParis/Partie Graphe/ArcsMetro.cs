@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LivInParis
 {
-    public class Arcs
+    public class ArcsMetro
     {
         station_metro precedent;
         station_metro suivant;
@@ -17,7 +17,7 @@ namespace LivInParis
         string status;
 
 
-        public Arcs(station_metro precedent, station_metro suivant, int duree_minute, string ligne_de_metro, string sens, int temps_de_changement, string status)
+        public ArcsMetro(station_metro precedent, station_metro suivant, int duree_minute, string ligne_de_metro, string sens, int temps_de_changement, string status)
         {
             this.precedent = precedent;
             this.suivant = suivant;

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace LivInParis
 {
-    public partial class Utilisateur : Form
+    public partial class ChoixMode : Form
     {
-        public Utilisateur()
+        public ChoixMode()
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
@@ -34,7 +34,7 @@ namespace LivInParis
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Cuisinier cuisinier = new Cuisinier();
+            ModeCuisinier cuisinier = new ModeCuisinier();
             this.Hide();
             cuisinier.ShowDialog();
             this.Close();
