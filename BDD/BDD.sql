@@ -312,3 +312,115 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2025-04-04 15:47:36
+INSERT INTO `client` VALUES 
+('client22','password22'), ('client23','password23'), ('client24','password24'), 
+('client25','password25'), ('client26','password26'), ('client27','password27'), 
+('client28','password28'), ('client29','password29'), ('client30','password30'), 
+('client31','password31'), ('client32','password32'), ('client33','password33'), 
+('client34','password34'), ('client35','password35'), ('client36','password36');
+
+INSERT INTO `particulier` VALUES 
+(22,'Durand','Claire','22 rue A, Paris','client22'),
+(23,'Martin','Luc','23 rue B, Lyon','client23'),
+(24,'Bernard','Sophie','24 rue C, Marseille','client24'),
+(25,'Petit','Julien','25 rue D, Lille','client25'),
+(26,'Robert','Emma','26 rue E, Bordeaux','client26'),
+(27,'Richard','Lucas','27 rue F, Nantes','client27'),
+(28,'Dubois','Camille','28 rue G, Toulouse','client28'),
+(29,'Moreau','Nathan','29 rue H, Strasbourg','client29'),
+(30,'Laurent','Léa','30 rue I, Nice','client30'),
+(31,'Simon','Mathis','31 rue J, Montpellier','client31'),
+(32,'Michel','Chloé','32 rue K, Rennes','client32'),
+(33,'Lefebvre','Enzo','33 rue L, Grenoble','client33'),
+(34,'Leroy','Manon','34 rue M, Dijon','client34'),
+(35,'Roux','Noah','35 rue N, Reims','client35'),
+(36,'David','Lina','36 rue O, Tours','client36');
+
+INSERT INTO `commande` VALUES 
+(11, 'client22', 1), (12, 'client23', 2), (13, 'client24', 3),
+(14, 'client25', 4), (15, 'client26', 5), (16, 'client27', 6),
+(17, 'client28', 7), (18, 'client29', 8), (19, 'client30', 9),
+(20, 'client31', 10), (21, 'client32', 1), (22, 'client33', 2),
+(23, 'client34', 3), (24, 'client35', 4), (25, 'client36', 5);
+
+INSERT INTO `client` VALUES 
+('client22','password22'), ('client23','password23'), ('client24','password24'), 
+('client25','password25'), ('client26','password26'), ('client27','password27'), 
+('client28','password28'), ('client29','password29'), ('client30','password30'), 
+('client31','password31'), ('client32','password32'), ('client33','password33'), 
+('client34','password34'), ('client35','password35'), ('client36','password36');
+
+INSERT INTO `particulier` VALUES 
+(22,'Durand','Claire','22 rue A, Paris','client22'),
+(23,'Martin','Luc','23 rue B, Lyon','client23'),
+(24,'Bernard','Sophie','24 rue C, Marseille','client24'),
+(25,'Petit','Julien','25 rue D, Lille','client25'),
+(26,'Robert','Emma','26 rue E, Bordeaux','client26'),
+(27,'Richard','Lucas','27 rue F, Nantes','client27'),
+(28,'Dubois','Camille','28 rue G, Toulouse','client28'),
+(29,'Moreau','Nathan','29 rue H, Strasbourg','client29'),
+(30,'Laurent','Léa','30 rue I, Nice','client30'),
+(31,'Simon','Mathis','31 rue J, Montpellier','client31'),
+(32,'Michel','Chloé','32 rue K, Rennes','client32'),
+(33,'Lefebvre','Enzo','33 rue L, Grenoble','client33'),
+(34,'Leroy','Manon','34 rue M, Dijon','client34'),
+(35,'Roux','Noah','35 rue N, Reims','client35'),
+(36,'David','Lina','36 rue O, Tours','client36');
+
+INSERT INTO `commande` VALUES 
+(11, 'client22', 1), (12, 'client23', 2), (13, 'client24', 3),
+(14, 'client25', 4), (15, 'client26', 5), (16, 'client27', 6),
+(17, 'client28', 7), (18, 'client29', 8), (19, 'client30', 9),
+(20, 'client31', 10), (21, 'client32', 1), (22, 'client33', 2),
+(23, 'client34', 3), (24, 'client35', 4), (25, 'client36', 5);
+
+
+
+-- Commandes pour cuisinier 3
+INSERT INTO `commande` VALUES 
+(121, 'client22', 3),
+(122, 'client22', 3),
+(123, 'client23', 3),
+(124, 'client24', 3),
+(125, 'client25', 3);
+
+-- Commandes pour cuisinier 4
+INSERT INTO `commande` VALUES 
+(126, 'client1', 4),
+(127, 'client2', 4),
+(128, 'client3', 4);
+
+-- Commandes pour cuisinier 5
+INSERT INTO `commande` VALUES 
+(129, 'client4', 5),
+(130, 'client5', 5);
+
+-- Commandes pour cuisinier 6
+INSERT INTO `commande` VALUES 
+(131, 'client6', 6);
+
+-- Commandes pour cuisinier 7
+-- Aucun pour tester le cas 0 commande
+
+-- Commandes pour cuisinier 8
+INSERT INTO `commande` VALUES 
+(132, 'client7', 8),
+(133, 'client8', 8);
+
+-- Commandes pour cuisinier 9
+INSERT INTO `commande` VALUES 
+(134, 'client9', 9);
+
+-- Commandes pour cuisinier 10
+INSERT INTO `commande` VALUES 
+(135, 'client30', 10),
+(136, 'client31', 10);
+
+INSERT INTO `commande` VALUES (137, 'client1', 1);
+INSERT INTO `commande` VALUES (138, 'client1', 2);
+INSERT INTO `commande` VALUES (139, 'client2', 2);
+INSERT INTO `commande` VALUES (140, 'client2', 3);
+INSERT INTO `commande` VALUES (141, 'client3', 3);
+INSERT INTO `commande` VALUES (142, 'client3', 4);
+INSERT INTO `commande` VALUES (143, 'client4', 4);
+INSERT INTO `commande` VALUES (144, 'client4', 1);
