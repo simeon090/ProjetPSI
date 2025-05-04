@@ -39,7 +39,6 @@ namespace LivInParis.Partie_Interface
             ";
 
             MySqlCommand cmd = new MySqlCommand(query, connexion);
-            Console.WriteLine(this.id_client);
             cmd.Parameters.AddWithValue("@Identifiant_client", this.id_client);
             using (MySqlDataReader reader = cmd.ExecuteReader())
             {
@@ -64,6 +63,13 @@ namespace LivInParis.Partie_Interface
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            ClientPage clientPage = new ClientPage();
+            this.Close();
+            clientPage.ShowDialog();
         }
     }
 }

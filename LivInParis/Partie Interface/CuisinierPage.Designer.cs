@@ -37,6 +37,7 @@ namespace LivInParis
             button3 = new Button();
             button5 = new Button();
             button4 = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
@@ -45,7 +46,7 @@ namespace LivInParis
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(10, 23);
+            dataGridView1.Location = new Point(10, 49);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(762, 346);
             dataGridView1.TabIndex = 0;
@@ -53,7 +54,7 @@ namespace LivInParis
             // 
             // button1
             // 
-            button1.Location = new Point(19, 513);
+            button1.Location = new Point(19, 492);
             button1.Name = "button1";
             button1.Size = new Size(132, 36);
             button1.TabIndex = 1;
@@ -63,7 +64,7 @@ namespace LivInParis
             // 
             // button2
             // 
-            button2.Location = new Point(391, 387);
+            button2.Location = new Point(391, 403);
             button2.Name = "button2";
             button2.Size = new Size(130, 42);
             button2.TabIndex = 2;
@@ -73,7 +74,7 @@ namespace LivInParis
             // 
             // button3
             // 
-            button3.Location = new Point(574, 390);
+            button3.Location = new Point(575, 407);
             button3.Name = "button3";
             button3.Size = new Size(132, 36);
             button3.TabIndex = 3;
@@ -83,7 +84,7 @@ namespace LivInParis
             // 
             // button5
             // 
-            button5.Location = new Point(10, 385);
+            button5.Location = new Point(10, 401);
             button5.Name = "button5";
             button5.Size = new Size(141, 44);
             button5.TabIndex = 5;
@@ -92,18 +93,31 @@ namespace LivInParis
             // 
             // button4
             // 
-            button4.Location = new Point(199, 387);
+            button4.Location = new Point(196, 401);
             button4.Name = "button4";
             button4.Size = new Size(138, 42);
             button4.TabIndex = 6;
             button4.Text = "button4";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(1, -10);
+            label1.Name = "label1";
+            label1.Size = new Size(42, 40);
+            label1.TabIndex = 7;
+            label1.Text = "←";
+            label1.Click += label1_Click;
             // 
             // CuisinierPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(label1);
             Controls.Add(button4);
             Controls.Add(button5);
             Controls.Add(button3);
@@ -118,6 +132,7 @@ namespace LivInParis
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
 
@@ -130,5 +145,6 @@ namespace LivInParis
         private Button button3;
         private Button button5;
         private Button button4;
+        private Label label1;
     }
 }

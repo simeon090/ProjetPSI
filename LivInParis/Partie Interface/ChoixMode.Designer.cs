@@ -31,6 +31,7 @@
             label1 = new Label();
             button1 = new Button();
             button2 = new Button();
+            label2 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -66,17 +67,29 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // Utilisateur
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(3, -5);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 40);
+            label2.TabIndex = 3;
+            label2.Text = "←";
+            label2.Click += label2_Click;
+            // 
+            // ChoixMode
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
             MaximumSize = new Size(800, 600);
             MinimumSize = new Size(800, 600);
-            Name = "Utilisateur";
+            Name = "ChoixMode";
             Text = "Utilisateur";
             ResumeLayout(false);
             PerformLayout();
@@ -87,5 +100,6 @@
         private Label label1;
         private Button button1;
         private Button button2;
+        private Label label2;
     }
 }

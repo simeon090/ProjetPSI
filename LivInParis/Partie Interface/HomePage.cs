@@ -1,5 +1,4 @@
-﻿using LivInParis.Partie_Graphe;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LivInParis
 {
-    public partial class ModesAdmin : Form
+    public partial class HomePage : Form
     {
-        public ModesAdmin()
+        public HomePage()
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
@@ -22,11 +21,11 @@ namespace LivInParis
         private void button1_Click(object sender, EventArgs e)
         {
             ClientPage clientPage = new ClientPage();
-            this.Hide();
+            this.Hide(); 
             clientPage.ShowDialog();
             this.Hide();
-
-
+            
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -35,27 +34,12 @@ namespace LivInParis
             this.Hide();
             cuis.ShowDialog();
             this.Hide();
-
+           
         }
 
         private void HomePage_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            GrapheUtilisateur grapheUtilisateurs = new GrapheUtilisateur();
-            Console.WriteLine(grapheUtilisateurs.ToString());
-            grapheUtilisateurs.ColorationGraphe();
-            grapheUtilisateurs.VisualiserGraphe();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            Connexion_user connexion = new Connexion_user();
-            this.Hide();
-            connexion.ShowDialog();
         }
     }
 }

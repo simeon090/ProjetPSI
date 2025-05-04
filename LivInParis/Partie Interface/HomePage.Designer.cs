@@ -1,6 +1,6 @@
 ﻿namespace LivInParis
 {
-    partial class ModesAdmin
+    partial class HomePage
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,14 @@
         {
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
-            label1 = new Label();
             SuspendLayout();
             // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(133, 43);
+            button1.Location = new Point(48, 86);
             button1.Name = "button1";
-            button1.Size = new Size(511, 135);
+            button1.Size = new Size(685, 187);
             button1.TabIndex = 0;
             button1.Text = "Client";
             button1.UseVisualStyleBackColor = true;
@@ -48,59 +46,32 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(133, 202);
+            button2.Location = new Point(48, 279);
             button2.Name = "button2";
-            button2.Size = new Size(511, 144);
+            button2.Size = new Size(685, 190);
             button2.TabIndex = 1;
             button2.Text = "Cuisinier";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(133, 366);
-            button3.Name = "button3";
-            button3.Size = new Size(511, 144);
-            button3.TabIndex = 2;
-            button3.Text = "Graphe avec Coloration";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, -8);
-            label1.Name = "label1";
-            label1.Size = new Size(48, 45);
-            label1.TabIndex = 3;
-            label1.Text = "←";
-            label1.Click += label1_Click;
-            // 
-            // ModesAdmin
+            // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
-            Controls.Add(label1);
-            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             MaximumSize = new Size(800, 600);
             MinimumSize = new Size(800, 600);
-            Name = "ModesAdmin";
+            Name = "HomePage";
             Text = "HomePage";
             Load += HomePage_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Button button1;
         private Button button2;
-        private Button button3;
-        private Label label1;
     }
 }

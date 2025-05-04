@@ -236,6 +236,18 @@ namespace LivInParis
             }
         }
 
+        private void ClientPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            ClientPage clientPage = new ClientPage();
+            this.Close();
+            clientPage.ShowDialog();
+
+        }
     }
 
     public class Particulier

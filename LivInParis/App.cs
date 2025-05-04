@@ -95,10 +95,10 @@ namespace LivInParis
     {
         private static Base_Données instance = null;
         private MySqlConnection db;
+        string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;";
 
-        private Base_Données()
+        public Base_Données()
         {
-            string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;";
             db = new MySqlConnection(connectionString);
         }
 
@@ -118,10 +118,25 @@ namespace LivInParis
         {
             get
             {
-                if (db.State != ConnectionState.Open)
+                if (db == null)
                 {
-                    db.Open();
-                } 
+                    db = new MySqlConnection(connectionString);
+                }
+
+                if (db.State == ConnectionState.Broken || db.State == ConnectionState.Closed)
+                {
+                    try
+                    {
+                        db.Open();
+                    }
+                    catch
+                    {
+                        db.Dispose();
+                        db = new MySqlConnection(connectionString);
+                        db.Open();
+                    }
+                }
+
                 return db;
             }
         }

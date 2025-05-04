@@ -30,6 +30,7 @@
         {
             button1 = new Button();
             button2 = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -53,11 +54,23 @@
             button2.Text = "Consulter vos statistiques ";
             button2.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(0, -8);
+            label1.Name = "label1";
+            label1.Size = new Size(48, 45);
+            label1.TabIndex = 2;
+            label1.Text = "←";
+            label1.Click += label1_Click;
+            // 
             // ModeClient
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
             MaximumSize = new Size(800, 600);
@@ -65,11 +78,13 @@
             Name = "ModeClient";
             Text = "ModeClient";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button button1;
         private Button button2;
+        private Label label1;
     }
 }

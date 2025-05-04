@@ -12,16 +12,26 @@ namespace LivInParis
 {
     public partial class ModeClient : Form
     {
-        public ModeClient()
+        public string id_client;
+        public ModeClient(string id_client)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
+            this.id_client = id_client;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Passer_commande commande = new Passer_commande();
-            commande.ShowDialog();    
+            Passer_commande commande = new Passer_commande(id_client);
+            commande.ShowDialog();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            ChoixMode choixMode = new ChoixMode(id_client);
+            this.Close();
+            choixMode.ShowDialog(); 
         }
     }
 }

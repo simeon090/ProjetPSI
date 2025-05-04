@@ -34,6 +34,7 @@
             button1 = new Button();
             box_commande = new CheckedListBox();
             button2 = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // _choix_station_commande
@@ -83,25 +84,37 @@
             box_commande.FormattingEnabled = true;
             box_commande.Location = new Point(12, 188);
             box_commande.Name = "box_commande";
-            box_commande.Size = new Size(738, 274);
+            box_commande.Size = new Size(738, 252);
             box_commande.TabIndex = 7;
             box_commande.SelectedIndexChanged += box_commande_SelectedIndexChanged;
             // 
             // button2
             // 
             button2.Location = new Point(259, 491);
-            button2.Name = "Passer_commande";
+            button2.Name = "button2";
             button2.Size = new Size(221, 44);
             button2.TabIndex = 8;
             button2.Text = "Passer_commande";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(1, -13);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 47);
+            label1.TabIndex = 9;
+            label1.Text = "←";
+            label1.Click += label1_Click;
+            // 
             // Passer_commande
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(box_commande);
             Controls.Add(button1);
@@ -126,5 +139,6 @@
         private Button button1;
         private CheckedListBox box_commande;
         private Button button2;
+        private Label label1;
     }
 }

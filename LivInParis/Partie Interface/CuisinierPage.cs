@@ -99,7 +99,7 @@ namespace LivInParis
 
         }
 
-       
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -191,6 +191,17 @@ namespace LivInParis
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            ModesAdmin modesAdmin = new ModesAdmin();
+            this.Close();
+            modesAdmin.ShowDialog();
+
+        }
     }
 }

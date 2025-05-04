@@ -40,6 +40,7 @@ namespace LivInParis
             button6 = new Button();
             button5 = new Button();
             button1 = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -104,6 +105,7 @@ namespace LivInParis
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(label1);
             splitContainer1.Panel1.Controls.Add(dataGridView1);
             // 
             // splitContainer1.Panel2
@@ -167,6 +169,17 @@ namespace LivInParis
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(0, -13);
+            label1.Name = "label1";
+            label1.Size = new Size(42, 40);
+            label1.TabIndex = 9;
+            label1.Text = "←";
+            label1.Click += label1_Click;
+            // 
             // ClientPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -177,9 +190,11 @@ namespace LivInParis
             MinimumSize = new Size(800, 600);
             Name = "ClientPage";
             Text = "Client";
+            Load += ClientPage_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
@@ -200,5 +215,6 @@ namespace LivInParis
         private Button button5;
         private Button button6;
         private Button button7;
+        private Label label1;
     }
 }
