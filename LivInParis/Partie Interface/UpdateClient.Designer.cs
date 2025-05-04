@@ -35,6 +35,7 @@
             _text_box_mdp = new TextBox();
             label2 = new Label();
             label3 = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // _Idenifiant_old
@@ -103,11 +104,23 @@
             label3.Text = " Nouvel Identifiant ";
             label3.Click += label3_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(5, -11);
+            label4.Name = "label4";
+            label4.Size = new Size(48, 45);
+            label4.TabIndex = 7;
+            label4.Text = "←";
+            label4.Click += label4_Click;
+            // 
             // UpdateClient
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(label3);
             Controls.Add(_text_box_mdp);
@@ -132,5 +145,6 @@
         private TextBox _text_box_mdp;
         private Label label2;
         private Label label3;
+        private Label label4;
     }
 }

@@ -88,5 +88,12 @@ namespace LivInParis
         private void _ListDesClients_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            ClientPage clientPage = new ClientPage();
+            this.Hide();
+            clientPage.ShowDialog();
+        }
     }
 }

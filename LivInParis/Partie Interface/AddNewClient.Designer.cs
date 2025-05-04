@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Size = new Size(800, 600);
-            this.MaximumSize = this.Size;
-            this.MinimumSize = this.Size;
             button1 = new Button();
             _Id_Box = new TextBox();
             _Pwd_Box = new TextBox();
             label1 = new Label();
             label2 = new Label();
+            label3 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -82,16 +80,30 @@
             label2.TabIndex = 5;
             label2.Text = "Password";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Black", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(12, -1);
+            label3.Name = "label3";
+            label3.Size = new Size(50, 47);
+            label3.TabIndex = 6;
+            label3.Text = "←";
+            label3.Click += label3_Click;
+            // 
             // AddNewClient
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1030, 462);
+            ClientSize = new Size(784, 561);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(_Pwd_Box);
             Controls.Add(_Id_Box);
             Controls.Add(button1);
+            MaximumSize = new Size(800, 600);
+            MinimumSize = new Size(800, 600);
             Name = "AddNewClient";
             Text = "AddNewClient";
             ResumeLayout(false);
@@ -105,5 +117,6 @@
         private TextBox _Pwd_Box;
         private Label label1;
         private Label label2;
+        private Label label3;
     }
 }

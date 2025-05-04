@@ -29,9 +29,6 @@ namespace LivInParis
         /// </summary>
         private void InitializeComponent()
         {
-            this.Size = new Size(800, 600);
-            this.MaximumSize = this.Size;
-            this.MinimumSize = this.Size;
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             bindingSource1 = new BindingSource(components);
@@ -39,9 +36,11 @@ namespace LivInParis
             button3 = new Button();
             button4 = new Button();
             splitContainer1 = new SplitContainer();
+            button7 = new Button();
             button6 = new Button();
             button5 = new Button();
             button1 = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -58,7 +57,7 @@ namespace LivInParis
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(756, 741);
+            dataGridView1.Size = new Size(435, 561);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -66,7 +65,7 @@ namespace LivInParis
             // 
             button2.Anchor = AnchorStyles.None;
             button2.Font = new Font("Segoe UI", 12F);
-            button2.Location = new Point(96, 208);
+            button2.Location = new Point(-20, 118);
             button2.Name = "button2";
             button2.Size = new Size(345, 70);
             button2.TabIndex = 2;
@@ -78,7 +77,7 @@ namespace LivInParis
             // 
             button3.Anchor = AnchorStyles.None;
             button3.Font = new Font("Segoe UI", 12F);
-            button3.Location = new Point(96, 107);
+            button3.Location = new Point(-20, 17);
             button3.Name = "button3";
             button3.Size = new Size(345, 70);
             button3.TabIndex = 3;
@@ -90,7 +89,7 @@ namespace LivInParis
             // 
             button4.Anchor = AnchorStyles.None;
             button4.Font = new Font("Segoe UI", 12F);
-            button4.Location = new Point(95, 0);
+            button4.Location = new Point(-21, -90);
             button4.Name = "button4";
             button4.Size = new Size(345, 70);
             button4.TabIndex = 4;
@@ -106,25 +105,39 @@ namespace LivInParis
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(label1);
             splitContainer1.Panel1.Controls.Add(dataGridView1);
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(button7);
             splitContainer1.Panel2.Controls.Add(button6);
             splitContainer1.Panel2.Controls.Add(button5);
             splitContainer1.Panel2.Controls.Add(button1);
             splitContainer1.Panel2.Controls.Add(button4);
             splitContainer1.Panel2.Controls.Add(button2);
             splitContainer1.Panel2.Controls.Add(button3);
-            splitContainer1.Size = new Size(1336, 741);
-            splitContainer1.SplitterDistance = 776;
+            splitContainer1.Size = new Size(784, 561);
+            splitContainer1.SplitterDistance = 455;
             splitContainer1.TabIndex = 5;
+            // 
+            // button7
+            // 
+            button7.Anchor = AnchorStyles.None;
+            button7.Font = new Font("Segoe UI", 12F);
+            button7.Location = new Point(-13, 488);
+            button7.Name = "button7";
+            button7.Size = new Size(345, 70);
+            button7.TabIndex = 8;
+            button7.Text = "Voir les commandes du client";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // button6
             // 
             button6.Anchor = AnchorStyles.None;
             button6.Font = new Font("Segoe UI", 12F);
-            button6.Location = new Point(92, 496);
+            button6.Location = new Point(-23, 396);
             button6.Name = "button6";
             button6.Size = new Size(345, 70);
             button6.TabIndex = 7;
@@ -136,7 +149,7 @@ namespace LivInParis
             // 
             button5.Anchor = AnchorStyles.None;
             button5.Font = new Font("Segoe UI", 12F);
-            button5.Location = new Point(96, 399);
+            button5.Location = new Point(-13, 303);
             button5.Name = "button5";
             button5.Size = new Size(345, 70);
             button5.TabIndex = 6;
@@ -148,7 +161,7 @@ namespace LivInParis
             // 
             button1.Anchor = AnchorStyles.None;
             button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(103, 301);
+            button1.Location = new Point(-13, 211);
             button1.Name = "button1";
             button1.Size = new Size(345, 70);
             button1.TabIndex = 5;
@@ -156,17 +169,32 @@ namespace LivInParis
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(0, -13);
+            label1.Name = "label1";
+            label1.Size = new Size(42, 40);
+            label1.TabIndex = 9;
+            label1.Text = "←";
+            label1.Click += label1_Click;
+            // 
             // ClientPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1336, 741);
+            ClientSize = new Size(784, 561);
             Controls.Add(splitContainer1);
+            MaximumSize = new Size(800, 600);
+            MinimumSize = new Size(800, 600);
             Name = "ClientPage";
             Text = "Client";
+            Load += ClientPage_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
@@ -186,5 +214,7 @@ namespace LivInParis
         private Button button1;
         private Button button5;
         private Button button6;
+        private Button button7;
+        private Label label1;
     }
 }

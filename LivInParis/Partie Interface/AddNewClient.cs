@@ -24,8 +24,8 @@ namespace LivInParis
 
         private void button1_Click(object sender, EventArgs e)
         {
-           string id_client =  this._Id_Box.Text;
-           string pwd_client = this._Pwd_Box.Text;
+            string id_client = this._Id_Box.Text;
+            string pwd_client = this._Pwd_Box.Text;
 
 
             using (MySqlConnection connexion = Base_Données.Instance.DB)
@@ -38,25 +38,30 @@ namespace LivInParis
                     // exécution de la requête 
                     MySqlCommand cmd = new MySqlCommand(query, connexion);
 
-                   
+
                     cmd.Parameters.AddWithValue("@IdentifiantClient", id_client);
                     cmd.Parameters.AddWithValue("@MotDePasse", pwd_client);
 
-                    
+
                     cmd.ExecuteNonQuery();
 
-                     MessageBox.Show("Client ajouté avec succès!");
+                    MessageBox.Show("Client ajouté avec succès!");
                 }
                 catch (Exception ex)
                 {
-                     MessageBox.Show("Erreur lors de l'insertion du client: " + ex.Message);
+                    MessageBox.Show("Erreur lors de l'insertion du client: " + ex.Message);
                 }
             }
 
-           Close();
+            Close();
         }
 
-        
+        private void label3_Click(object sender, EventArgs e)
+        {
+            ClientPage clientPage = new ClientPage();
+            this.Hide();
+            clientPage.ShowDialog();
+        }
     }
-    
+
 }

@@ -42,6 +42,7 @@
             label7 = new Label();
             _confirm_button = new Button();
             label8 = new Label();
+            label5 = new Label();
             SuspendLayout();
             // 
             // _nom_create
@@ -167,11 +168,23 @@
             label8.TabIndex = 14;
             label8.Text = "Renseigner les informations suivantes ";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(12, -2);
+            label5.Name = "label5";
+            label5.Size = new Size(48, 45);
+            label5.TabIndex = 15;
+            label5.Text = "←";
+            label5.Click += label5_Click;
+            // 
             // Créer_un_compte
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(label5);
             Controls.Add(label8);
             Controls.Add(_confirm_button);
             Controls.Add(label7);
@@ -210,5 +223,6 @@
         private Label label7;
         private Button _confirm_button;
         private Label label8;
+        private Label label5;
     }
 }

@@ -34,6 +34,7 @@
             label3 = new Label();
             label_prix = new Label();
             richTextBox1 = new RichTextBox();
+            label4 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -95,11 +96,23 @@
             richTextBox1.TabIndex = 8;
             richTextBox1.Text = "";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(2, -8);
+            label4.Name = "label4";
+            label4.Size = new Size(42, 40);
+            label4.TabIndex = 9;
+            label4.Text = "←";
+            label4.Click += label4_Click_1;
+            // 
             // Panier
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(label4);
             Controls.Add(richTextBox1);
             Controls.Add(label_prix);
             Controls.Add(label3);
@@ -122,5 +135,6 @@
         private Label label3;
         private Label label_prix;
         private RichTextBox richTextBox1;
+        private Label label4;
     }
 }

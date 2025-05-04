@@ -74,11 +74,12 @@ namespace LivInParis
                 while (reader.Read())
                 {
                     cuisiniers.Add(new Cuisinier(
-                        reader.GetDecimal("telephone_cuisinier"),
-                        reader.GetString("prenom_cuisinier"),
                         reader.GetString("nom_cuisinier"),
+                        reader.GetString("prenom_cuisinier"),
+                        "Cuisinier",
                         reader.GetString("adresse_cuisinier"),
-                        reader.GetString("mail_cuisinier")
+                        reader.GetString("mail_cuisinier"),
+                        Convert.ToInt32(reader.GetDecimal("telephone_cuisinier"))
                     ));
                 }
 
@@ -98,23 +99,7 @@ namespace LivInParis
 
         }
 
-        public class Cuisinier
-        {
-            public decimal Telephone { get; set; }
-            public string Prenom { get; set; }
-            public string Nom { get; set; }
-            public string Adresse { get; set; }
-            public string Mail { get; set; }
 
-            public Cuisinier(decimal telephone, string prenom, string nom, string adresse, string mail)
-            {
-                Telephone = telephone;
-                Prenom = prenom;
-                Nom = nom;
-                Adresse = adresse;
-                Mail = mail;
-            }
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -206,6 +191,17 @@ namespace LivInParis
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            ModesAdmin modesAdmin = new ModesAdmin();
+            this.Hide();
+            modesAdmin.ShowDialog();
+
+        }
     }
 }

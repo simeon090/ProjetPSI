@@ -98,16 +98,20 @@ namespace LivInParis
                 totalPrix += item.prix;
             }
 
-           label_prix.Text = $"{totalPrix:0.00} €";
+            label_prix.Text = $"{totalPrix:0.00} €";
 
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-
-        
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+            Passer_commande commande = new Passer_commande();
+            this.Hide();
+            commande.ShowDialog();
+        }
     }
 }

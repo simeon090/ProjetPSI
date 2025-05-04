@@ -31,6 +31,7 @@
             _ListDesClients = new ComboBox();
             label1 = new Label();
             button1 = new Button();
+            label2 = new Label();
             SuspendLayout();
             // 
             // _ListDesClients
@@ -62,11 +63,23 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(0, -8);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 40);
+            label2.TabIndex = 3;
+            label2.Text = "←";
+            label2.Click += label2_Click;
+            // 
             // DeleteClient
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(_ListDesClients);
@@ -83,5 +96,6 @@
         private ComboBox _ListDesClients;
         private Label label1;
         private Button button1;
+        private Label label2;
     }
 }

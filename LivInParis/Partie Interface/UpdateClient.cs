@@ -124,6 +124,13 @@ namespace LivInParis
         {
 
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            ClientPage clientPage = new ClientPage();
+            this.Hide();
+            clientPage.ShowDialog();
+        }
     }
 }
 

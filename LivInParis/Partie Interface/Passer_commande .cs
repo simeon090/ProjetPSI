@@ -140,24 +140,24 @@ namespace LivInParis
         private void button2_Click(object sender, EventArgs e)
         {
             List<Mets> selectionMets = new List<Mets>();
-            
-                StationsDepart.Clear();
+
+            StationsDepart.Clear();
 
             foreach (var item in box_commande.CheckedItems)
             {
                 Mets met = (Mets)item;
-                    selectionMets.Add(met);
+                selectionMets.Add(met);
 
                 if (!StationsDepart.Contains(met.station_métro))
                 {
-              StationsDepart.Add(met.station_métro);
+                    StationsDepart.Add(met.station_métro);
                 }
             }
 
             if (selectionMets.Count == 0)
             {
                 MessageBox.Show("Veuillez sélectionner au moins un mets.");
-              return;
+                return;
             }
             if (StationArrivee == null)
             {
@@ -165,9 +165,16 @@ namespace LivInParis
                 return;
             }
             Panier panier = new Panier(selectionMets);
-            
-            
+
+
             panier.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            ChoixMode utilisateur = new ChoixMode();
+            this.Hide();
+            utilisateur.ShowDialog();
         }
     }
 }

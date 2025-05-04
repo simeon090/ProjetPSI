@@ -21,7 +21,14 @@ namespace LivInParis
         private void button1_Click(object sender, EventArgs e)
         {
             Passer_commande commande = new Passer_commande();
-            commande.ShowDialog();    
+            commande.ShowDialog();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            ChoixMode choixMode = new ChoixMode();
+            this.Hide();
+            choixMode.ShowDialog(); 
         }
     }
 }

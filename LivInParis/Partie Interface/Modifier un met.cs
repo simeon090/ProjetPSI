@@ -17,5 +17,12 @@ namespace LivInParis.Partie_Interface
             InitializeComponent();
             this.BackColor = Color.LightBlue;
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            ModeCuisinier modeCuisinier = new ModeCuisinier();
+            this.Hide();
+            modeCuisinier.ShowDialog(); 
+        }
     }
 }

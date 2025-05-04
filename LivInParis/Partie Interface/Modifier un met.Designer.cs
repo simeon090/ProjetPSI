@@ -28,21 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Size = new Size(800, 600);
-            this.MaximumSize = this.Size;
-            this.MinimumSize = this.Size;
+            label1 = new Label();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(3, -5);
+            label1.Name = "label1";
+            label1.Size = new Size(48, 45);
+            label1.TabIndex = 0;
+            label1.Text = "←";
+            label1.Click += label1_Click;
             // 
             // Modifier_un_met
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1474, 977);
+            ClientSize = new Size(784, 561);
+            Controls.Add(label1);
+            MaximumSize = new Size(800, 600);
+            MinimumSize = new Size(800, 600);
             Name = "Modifier_un_met";
             Text = "Modifier_un_met";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
     }
 }
