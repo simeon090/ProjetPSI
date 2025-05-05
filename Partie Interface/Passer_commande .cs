@@ -12,15 +12,17 @@ namespace LivInParis
 
         public static string StationArrivee
         { get; set; }
+        public string id_client;
         public static List<string> StationsDepart { get; set; } = new List<string>();
 
 
-        public Passer_commande()
+        public Passer_commande(string id_client)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             ChargerStations();
             ChargerMets();
+            this.id_client = id_client;
         }
 
         private void ChargerStations()
@@ -164,15 +166,16 @@ namespace LivInParis
                 MessageBox.Show("Veuillez sélectionner votre station de livraison");
                 return;
             }
-            Panier panier = new Panier(selectionMets);
+            Panier panier = new Panier(selectionMets, id_client);
 
 
+            this.Hide();
             panier.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            ChoixMode utilisateur = new ChoixMode();
+            ChoixMode utilisateur = new ChoixMode(id_client);
             this.Hide();
             utilisateur.ShowDialog();
         }

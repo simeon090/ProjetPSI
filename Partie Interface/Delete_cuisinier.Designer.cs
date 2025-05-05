@@ -1,6 +1,6 @@
-﻿namespace LivInParis
+﻿namespace LivInParis.Partie_Interface
 {
-    partial class ModeClient
+    partial class Delete_cuisinier
     {
         /// <summary>
         /// Required designer variable.
@@ -28,63 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
+            _delete_box_cuis = new ComboBox();
             button1 = new Button();
-            button2 = new Button();
             label1 = new Label();
+            label2 = new Label();
             SuspendLayout();
+            // 
+            // _delete_box_cuis
+            // 
+            _delete_box_cuis.FormattingEnabled = true;
+            _delete_box_cuis.Location = new Point(193, 130);
+            _delete_box_cuis.Name = "_delete_box_cuis";
+            _delete_box_cuis.Size = new Size(430, 23);
+            _delete_box_cuis.TabIndex = 0;
+            _delete_box_cuis.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // button1
             // 
-            button1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(91, 129);
+            button1.Location = new Point(323, 297);
             button1.Name = "button1";
-            button1.Size = new Size(589, 114);
-            button1.TabIndex = 0;
-            button1.Text = "Passer une commande ";
+            button1.Size = new Size(143, 41);
+            button1.TabIndex = 1;
+            button1.Text = "Supprimer";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(91, 285);
-            button2.Name = "button2";
-            button2.Size = new Size(589, 97);
-            button2.TabIndex = 1;
-            button2.Text = "Consulter vos statistiques ";
-            button2.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(0, -8);
+            label1.Location = new Point(1, -6);
             label1.Name = "label1";
-            label1.Size = new Size(48, 45);
+            label1.Size = new Size(53, 45);
             label1.TabIndex = 2;
-            label1.Text = "←";
+            label1.Text = "⭠";
             label1.Click += label1_Click;
             // 
-            // ModeClient
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(25, 54);
+            label2.Name = "label2";
+            label2.Size = new Size(824, 37);
+            label2.TabIndex = 3;
+            label2.Text = "Selectionner le nom du cuisinier que vous souhaitez supprimer ";
+            // 
+            // Delete_cuisinier
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 561);
+            ClientSize = new Size(861, 480);
+            Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button2);
             Controls.Add(button1);
-            MaximumSize = new Size(800, 600);
-            MinimumSize = new Size(800, 600);
-            Name = "ModeClient";
-            Text = "ModeClient";
+            Controls.Add(_delete_box_cuis);
+            Name = "Delete_cuisinier";
+            Text = "Delete_cuisinier";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private ComboBox _delete_box_cuis;
         private Button button1;
-        private Button button2;
         private Label label1;
+        private Label label2;
     }
 }

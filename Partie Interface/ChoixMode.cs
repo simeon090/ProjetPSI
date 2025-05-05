@@ -13,18 +13,20 @@ namespace LivInParis
 {
     public partial class ChoixMode : Form
     {
-        public ChoixMode()
+        string id_client;
+        public ChoixMode(string id_client)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
+            this.id_client = id_client;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Passer_commande commande = new Passer_commande();
+            Passer_commande commande = new Passer_commande(id_client);
             this.Hide();
             commande.ShowDialog();
-            this.Close();
+            this.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,17 +36,17 @@ namespace LivInParis
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ModeCuisinier cuisinier = new ModeCuisinier();
+            ModeCuisinier cuisinier = new ModeCuisinier(id_client);
             this.Hide();
             cuisinier.ShowDialog();
-            this.Close();
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            Connexion_user connexion = new Connexion_user();
+            Connexion_user connexionUser = new Connexion_user();
             this.Hide();
-            connexion.ShowDialog();
+            connexionUser.ShowDialog();
         }
     }
 }

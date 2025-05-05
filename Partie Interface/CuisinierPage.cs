@@ -1,3 +1,4 @@
+using LivInParis.Partie_Interface;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
@@ -11,6 +12,7 @@ namespace LivInParis
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             connexion = Base_Données.Instance.DB;
+            dataGridView1.AutoGenerateColumns = true;
         }
 
 
@@ -193,15 +195,31 @@ namespace LivInParis
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Modifier_cuisinier modifierCuisinier = new Modifier_cuisinier();
+            this.Close();
+            modifierCuisinier.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             ModesAdmin modesAdmin = new ModesAdmin();
-            this.Hide();
+            this.Close();
             modesAdmin.ShowDialog();
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Ajouter_cuisinier cuiniser = new Ajouter_cuisinier();
+            this.Close();
+            cuiniser.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Delete_cuisinier deleteCuisinier = new Delete_cuisinier();
+            this.Close();
+            deleteCuisinier.ShowDialog();
         }
     }
 }

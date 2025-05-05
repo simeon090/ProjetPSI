@@ -186,7 +186,8 @@
             _quantite_box.Name = "_quantite_box";
             _quantite_box.Size = new Size(75, 15);
             _quantite_box.TabIndex = 20;
-            _quantite_box.Text = "quantité_box";
+            _quantite_box.Text = "quantité";
+            _quantite_box.Click += _quantite_box_Click;
             // 
             // _confirmer_button
             // 

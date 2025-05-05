@@ -35,6 +35,9 @@
             label_prix = new Label();
             richTextBox1 = new RichTextBox();
             label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -63,7 +66,7 @@
             _box_resume.ItemHeight = 32;
             _box_resume.Location = new Point(23, 112);
             _box_resume.Name = "_box_resume";
-            _box_resume.Size = new Size(696, 164);
+            _box_resume.Size = new Size(529, 164);
             _box_resume.TabIndex = 5;
             _box_resume.SelectedIndexChanged += _box_resume_SelectedIndexChanged;
             // 
@@ -107,11 +110,43 @@
             label4.Text = "←";
             label4.Click += label4_Click_1;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(581, 154);
+            label5.Name = "label5";
+            label5.Size = new Size(80, 45);
+            label5.TabIndex = 10;
+            label5.Text = "Prix";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(696, 169);
+            label6.Name = "label6";
+            label6.Size = new Size(0, 32);
+            label6.TabIndex = 11;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(676, 166);
+            label7.Name = "label7";
+            label7.Size = new Size(68, 30);
+            label7.TabIndex = 12;
+            label7.Text = "label7";
+            // 
             // Panier
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(richTextBox1);
             Controls.Add(label_prix);
@@ -123,6 +158,7 @@
             MinimumSize = new Size(800, 600);
             Name = "Panier";
             Text = "Panier";
+            Load += Panier_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -136,5 +172,8 @@
         private Label label_prix;
         private RichTextBox richTextBox1;
         private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
     }
 }

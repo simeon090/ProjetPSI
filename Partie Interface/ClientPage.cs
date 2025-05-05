@@ -70,8 +70,8 @@ namespace LivInParis
         private void button4_Click(object sender, EventArgs e)
         {
             UpdateClient updateClient = new UpdateClient();
-
-            updateClient.ShowDialog();
+            this.Close();
+            updateClient.Show();
 
             LoadData();
         }
@@ -80,8 +80,8 @@ namespace LivInParis
         private void button3_Click(object sender, EventArgs e)
         {
             AddNewClient form_tu = new AddNewClient();
-
-            form_tu.ShowDialog();
+            this.Close();
+            form_tu.Show();
 
             LoadData();
         }
@@ -89,7 +89,8 @@ namespace LivInParis
         private void button2_Click(object sender, EventArgs e)
         {
             DeleteClient deleteClient = new DeleteClient();
-            deleteClient.ShowDialog();
+            this.Close();
+            deleteClient.Show();
 
             LoadData();
         }
@@ -226,7 +227,8 @@ namespace LivInParis
                 if (!string.IsNullOrEmpty(id_client_interface))
                 {
                     InterfaceCommande form = new InterfaceCommande(id_client_interface);
-                    form.ShowDialog();
+                    this.Close();
+                    form.Show();
                     LoadData();
                 }
                 else
@@ -243,9 +245,9 @@ namespace LivInParis
 
         private void label1_Click(object sender, EventArgs e)
         {
-            ClientPage clientPage = new ClientPage();
-            this.Hide();
-            clientPage.ShowDialog();
+            ModesAdmin clientPage = new ModesAdmin();
+            this.Close();
+            clientPage.Show();
 
         }
     }
