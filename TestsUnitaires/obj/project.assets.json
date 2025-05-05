@@ -2615,23 +2615,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hassa\\.nuget\\packages\\": {},
+    "C:\\Users\\simeo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hassa\\OneDrive\\Desktop\\Projet_PSI\\ProjetPSI\\TestsUnitaires\\TestsUnitaires.csproj",
+      "projectUniqueName": "C:\\Users\\simeo\\OneDrive - De Vinci\\Documents\\PB_Scientifique_INFO\\PSI2_Github\\PSI2_Github\\TestsUnitaires\\TestsUnitaires.csproj",
       "projectName": "TestsUnitaires",
-      "projectPath": "C:\\Users\\hassa\\OneDrive\\Desktop\\Projet_PSI\\ProjetPSI\\TestsUnitaires\\TestsUnitaires.csproj",
-      "packagesPath": "C:\\Users\\hassa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hassa\\OneDrive\\Desktop\\Projet_PSI\\ProjetPSI\\TestsUnitaires\\obj\\",
+      "projectPath": "C:\\Users\\simeo\\OneDrive - De Vinci\\Documents\\PB_Scientifique_INFO\\PSI2_Github\\PSI2_Github\\TestsUnitaires\\TestsUnitaires.csproj",
+      "packagesPath": "C:\\Users\\simeo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\simeo\\OneDrive - De Vinci\\Documents\\PB_Scientifique_INFO\\PSI2_Github\\PSI2_Github\\TestsUnitaires\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\hassa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\simeo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2640,15 +2640,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\hassa\\OneDrive\\Desktop\\Projet_PSI\\ProjetPSI\\LivInParis\\LivInParis.csproj": {
-              "projectPath": "C:\\Users\\hassa\\OneDrive\\Desktop\\Projet_PSI\\ProjetPSI\\LivInParis\\LivInParis.csproj"
+            "C:\\Users\\simeo\\OneDrive - De Vinci\\Documents\\PB_Scientifique_INFO\\PSI2_Github\\PSI2_Github\\LivInParis\\LivInParis.csproj": {
+              "projectPath": "C:\\Users\\simeo\\OneDrive - De Vinci\\Documents\\PB_Scientifique_INFO\\PSI2_Github\\PSI2_Github\\LivInParis\\LivInParis.csproj"
             }
           }
         }
@@ -2696,26 +2695,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.1, 8.0.1]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.1, 8.0.1]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.1, 8.0.1]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.2.24157.14/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
