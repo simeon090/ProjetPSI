@@ -194,3 +194,7 @@ C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PS
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.ModesAdmin.resources
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.HomePage.resources
 C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.Mets_En_Ligne.resources
+C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.Ajouter_cuisinier.resources
+C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.Delete_cuisinier.resources
+C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.Modifier_cuisinier.resources
+C:\Users\simeo\OneDrive - De Vinci\Documents\PB_Scientifique_INFO\PSI2_Github\PSI2_Github\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.CréationCuisinier.resources

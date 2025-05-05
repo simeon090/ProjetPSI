@@ -50,7 +50,8 @@ namespace LivInParis
                             reader.GetString("nom_particulier"),
                             reader.GetString("prenom_particulier"),
                             reader.GetString("adresse_particulier"),
-                            reader.GetString("Identifiant_client")
+                            reader.GetString("Identifiant_client"),
+                            reader.GetString("mail_particulier")
                         ));
                     }
                     reader.Close();
@@ -70,8 +71,8 @@ namespace LivInParis
         private void button4_Click(object sender, EventArgs e)
         {
             UpdateClient updateClient = new UpdateClient();
-
-            updateClient.ShowDialog();
+            this.Close();
+            updateClient.Show();
 
             LoadData();
         }
@@ -80,18 +81,70 @@ namespace LivInParis
         private void button3_Click(object sender, EventArgs e)
         {
             AddNewClient form_tu = new AddNewClient();
-
-            form_tu.ShowDialog();
+            this.Close();
+            form_tu.Show();
 
             LoadData();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DeleteClient deleteClient = new DeleteClient();
-            deleteClient.ShowDialog();
 
-            LoadData();
+            if(dataGridView1.CurrentRow != null)
+            {
+                var item = dataGridView1.CurrentRow.DataBoundItem;
+
+                string id_client_interface = null;
+
+                //on verifie si item est un particulier
+                if (item is Particulier p)
+                {
+                    id_client_interface = p.Identifiant_client;
+                }
+                //on verifie si item est un client achats
+                else if (item is ClientAchats c)
+                {
+                    id_client_interface = c.IdentifiantClient;
+                }
+
+                if (!string.IsNullOrEmpty(id_client_interface))
+                {
+                    SupprimerClient(id_client_interface);
+                }
+                else
+                {
+                    MessageBox.Show("Aucun client sélectionnée");
+                }
+            }
+        }
+
+        private void SupprimerClient(string id_client)
+        {
+            try
+            {
+                string enlever_ctrt = "SET foreign_key_checks=0";
+                new MySqlCommand(enlever_ctrt, connexion).ExecuteNonQuery();
+
+                string query_client = "DELETE FROM Client WHERE Identifiant_client = @IdentifiantClient";
+                MySqlCommand cmd = new MySqlCommand(query_client, connexion);
+                cmd.Parameters.AddWithValue("@IdentifiantClient", id_client);
+                cmd.ExecuteNonQuery();
+
+                string query_particulier = "DELETE FROM Particulier WHERE Identifiant_client = @IdentifiantClient";
+                cmd = new MySqlCommand(query_particulier, connexion);
+                cmd.Parameters.AddWithValue("@IdentifiantClient", id_client);
+                cmd.ExecuteNonQuery();
+
+                string remettre_ctrt = "SET foreign_key_checks=1";
+                new MySqlCommand(remettre_ctrt, connexion).ExecuteNonQuery();
+
+                MessageBox.Show("Client supprimé avec succès !");
+                LoadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de la suppression du client: " + ex.Message);
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -111,7 +164,8 @@ namespace LivInParis
                         reader.GetString("nom_particulier"),
                         reader.GetString("prenom_particulier"),
                         reader.GetString("adresse_particulier"),
-                        reader.GetString("Identifiant_client")
+                        reader.GetString("Identifiant_client"),
+                        reader.GetString("mail_particulier")
                     ));
                 }
                 reader.Close();
@@ -145,7 +199,9 @@ namespace LivInParis
                             reader.GetString("nom_particulier"),
                             reader.GetString("prenom_particulier"),
                             reader.GetString("adresse_particulier"),
-                            reader.GetString("Identifiant_client")
+                            reader.GetString("Identifiant_client"),
+                            reader.GetString("mail_particulier")
+
                         ));
                 }
                 reader.Close();
@@ -226,7 +282,8 @@ namespace LivInParis
                 if (!string.IsNullOrEmpty(id_client_interface))
                 {
                     InterfaceCommande form = new InterfaceCommande(id_client_interface);
-                    form.ShowDialog();
+                    this.Close();
+                    form.Show();
                     LoadData();
                 }
                 else
@@ -243,9 +300,9 @@ namespace LivInParis
 
         private void label1_Click(object sender, EventArgs e)
         {
-            ClientPage clientPage = new ClientPage();
+            ModesAdmin clientPage = new ModesAdmin();
             this.Close();
-            clientPage.ShowDialog();
+            clientPage.Show();
 
         }
     }
@@ -258,14 +315,18 @@ namespace LivInParis
         public string adresse_particulier { get; set; }
         public string Identifiant_client { get; set; }
 
+        public string mail_client { get; set; }
+
         
-        public Particulier(decimal numéro_tel_particulier, string nom_particulier, string prenom_particulier, string adresse_particulier, string Identifiant_client)
+        public Particulier(decimal numéro_tel_particulier, string nom_particulier, string prenom_particulier, string adresse_particulier, string Identifiant_client, string mail_client)
         {
             this.numéro_tel_particulier = numéro_tel_particulier;
             this.nom_particulier = nom_particulier;
             this.prenom_particulier = prenom_particulier;
             this.adresse_particulier = adresse_particulier;
             this.Identifiant_client = Identifiant_client;
+            this.mail_client = mail_client;
+
         }
     }
 

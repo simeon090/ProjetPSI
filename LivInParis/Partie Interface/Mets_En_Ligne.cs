@@ -16,13 +16,15 @@ namespace LivInParis.Partie_Interface
     public partial class Mets_En_Ligne : Form
     {
         private BindingSource bindingSource1 = new BindingSource();
-        public string id_cuisinier;
+        public string id_particulier;
+        public int tel_cuisinier;
         public MySqlConnection connexion;
-        public Mets_En_Ligne(string id_cuisinier)
+        public Mets_En_Ligne(string id_particulier, int tel_cuisinier)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
-            this.id_cuisinier = id_cuisinier;
+            this.tel_cuisinier = tel_cuisinier;
+            this.id_particulier = id_particulier;
             connexion = Base_Données.Instance.DB;
             dataGridView1.AutoGenerateColumns = true;
             LoadData();
@@ -45,12 +47,12 @@ namespace LivInParis.Partie_Interface
                 FROM Cuisinier
                 JOIN Commande ON Cuisinier.telephone_cuisinier = Commande.telephone_cuisinier
                 JOIN Lignes_Commandes ON Commande.numéro_commande = Lignes_Commandes.numéro_commande
-                WHERE Cuisinier.telephone_cuisinier = @Identifiant_cuisinier
+                WHERE Cuisinier.telephone_cuisinier = @tel_cuisinier
                 ORDER BY Cuisinier.nom_cuisinier, Lignes_Commandes.type;
                 ";
 
                 MySqlCommand cmd = new MySqlCommand(query, connexion);
-                cmd.Parameters.AddWithValue("@Identifiant_cuisinier", id_cuisinier);
+                cmd.Parameters.AddWithValue("@tel_cuisinier", tel_cuisinier);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -76,8 +78,8 @@ namespace LivInParis.Partie_Interface
 
         private void label2_Click(object sender, EventArgs e)
         {
-            ModeCuisinier modeCuisinier = new ModeCuisinier(id_cuisinier);
-            this.Close();
+            ModeCuisinier modeCuisinier = new ModeCuisinier(id_particulier, tel_cuisinier);
+            this.Hide();
             modeCuisinier.ShowDialog();
         }
     }

@@ -22,9 +22,10 @@ namespace LivInParis
         private void button1_Click(object sender, EventArgs e)
         {
             ClientPage clientPage = new ClientPage();
-            this.Hide();
-            clientPage.ShowDialog();
             this.Close();
+            clientPage.Show();
+          
+
 
 
         }
@@ -32,9 +33,9 @@ namespace LivInParis
         private void button2_Click(object sender, EventArgs e)
         {
             CuisinierPage cuis = new CuisinierPage();
-            this.Hide();
-            cuis.ShowDialog();
             this.Close();
+            cuis.Show();
+          
 
         }
 
@@ -54,7 +55,7 @@ namespace LivInParis
         private void label1_Click(object sender, EventArgs e)
         {
             Connexion_user connexion = new Connexion_user();
-            this.Hide();
+            this.Close();
             connexion.ShowDialog();
         }
     }
