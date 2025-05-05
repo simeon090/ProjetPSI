@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LivInParis.Partie_Interface
+namespace LivInParis
 {
-    public partial class Cuisinier : Form
+    public partial class ModeClient : Form
     {
-        public Cuisinier()
+        public ModeClient()
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
@@ -20,7 +20,15 @@ namespace LivInParis.Partie_Interface
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Passer_commande commande = new Passer_commande();
+            commande.ShowDialog();
+        }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+            ChoixMode choixMode = new ChoixMode();
+            this.Hide();
+            choixMode.ShowDialog(); 
         }
     }
 }

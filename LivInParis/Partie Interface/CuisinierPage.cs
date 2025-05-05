@@ -199,7 +199,7 @@ namespace LivInParis
         private void label1_Click(object sender, EventArgs e)
         {
             ModesAdmin modesAdmin = new ModesAdmin();
-            this.Hide();
+            this.Close();
             modesAdmin.ShowDialog();
 
         }

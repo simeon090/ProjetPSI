@@ -13,10 +13,14 @@ namespace LivInParis.Partie_Interface
 {
     public partial class Ajouter_un_met : Form
     {
-        public Ajouter_un_met()
+        public MySqlConnection connexion;
+        public string id_client;
+        public Ajouter_un_met(string id_client)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
+            this.id_client = id_client;
+            this.connexion = Base_Données.Instance.DB;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -84,9 +88,14 @@ namespace LivInParis.Partie_Interface
 
         private void label8_Click(object sender, EventArgs e)
         {
-            ModeCuisinier modeCuisinier = new ModeCuisinier();
-            this.Hide();
-            modeCuisinier.ShowDialog(); 
+            ModeCuisinier modeCuisinier = new ModeCuisinier(id_client);
+            this.Close();
+            modeCuisinier.ShowDialog();
+        }
+
+        private void _quantite_box_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

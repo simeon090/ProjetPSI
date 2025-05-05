@@ -1,6 +1,6 @@
-﻿namespace LivInParis.Partie_Interface
+﻿namespace LivInParis
 {
-    partial class Cuisinier
+    partial class Administrator
     {
         /// <summary>
         /// Required designer variable.
@@ -28,58 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
+            label1 = new Label();
+            bindingSource1 = new BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(198, 91);
+            button1.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(334, 137);
             button1.Name = "button1";
-            button1.Size = new Size(397, 89);
+            button1.Size = new Size(591, 120);
             button1.TabIndex = 0;
-            button1.Text = "Ajouter un met ";
+            button1.Text = "Administrateur ";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(198, 230);
+            button2.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(334, 312);
             button2.Name = "button2";
-            button2.Size = new Size(397, 82);
+            button2.Size = new Size(591, 104);
             button2.TabIndex = 1;
-            button2.Text = "Modifier un met ";
+            button2.Text = "Utilisateur ";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
-            // button3
+            // label1
             // 
-            button3.Location = new Point(198, 365);
-            button3.Name = "button3";
-            button3.Size = new Size(397, 83);
-            button3.TabIndex = 2;
-            button3.Text = "Supprimer un mets ";
-            button3.UseVisualStyleBackColor = true;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 39.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(31, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(1151, 71);
+            label1.TabIndex = 2;
+            label1.Text = "Comment voulez-vous utiliser l'application ? ";
+            label1.Click += label1_Click;
             // 
-            // Cuisinier
+            // Administrator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 561);
-            Controls.Add(button3);
+            ClientSize = new Size(1223, 545);
+            Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
-            MaximumSize = new Size(800, 600);
-            MinimumSize = new Size(800, 600);
-            Name = "Cuisinier";
-            Text = "Cuisinier";
+            Name = "Administrator";
+            Text = "Administrator";
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button button1;
         private Button button2;
-        private Button button3;
+        private Label label1;
+        private BindingSource bindingSource1;
     }
 }

@@ -19,7 +19,16 @@
     <Compile Update="Partie Interface\Créer_un_compte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Partie Interface\Cuisinier.cs">
+    <Compile Update="Partie Interface\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\InterfaceCommande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\Mets_En_Ligne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\ModeCuisinier.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Partie Interface\CuisinierPage.cs">
@@ -28,7 +37,7 @@
     <Compile Update="Partie Interface\DeleteClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Partie Interface\HomePage.cs">
+    <Compile Update="Partie Interface\ModesAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Partie Interface\ModeClient.cs">
@@ -46,7 +55,10 @@
     <Compile Update="Partie Interface\UpdateClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Partie Interface\Utilisateur.cs">
+    <Compile Update="Partie Interface\ChoixMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Utilisateur.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

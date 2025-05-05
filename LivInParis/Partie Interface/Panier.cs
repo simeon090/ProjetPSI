@@ -7,11 +7,13 @@ using static LivInParis.Passer_commande;
 
 namespace LivInParis
 {
+    
     public partial class Panier : Form
     {
+        public string id_client;
 
         //prend une liste de mets sélectionnés
-        public Panier(List<Mets> metsSelectionnes)
+        public Panier(List<Mets> metsSelectionnes, string id_client)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
@@ -22,6 +24,8 @@ namespace LivInParis
             }
 
             CalculerTotal();
+            this.id_client = id_client;
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -109,8 +113,8 @@ namespace LivInParis
 
         private void label4_Click_1(object sender, EventArgs e)
         {
-            Passer_commande commande = new Passer_commande();
-            this.Hide();
+            Passer_commande commande = new Passer_commande(id_client);
+            this.Close();
             commande.ShowDialog();
         }
     }

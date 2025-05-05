@@ -30,6 +30,7 @@
         {
             dataGridView1 = new DataGridView();
             label3 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -48,9 +49,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(165, 9);
+            label3.Location = new Point(82, 9);
             label3.Name = "label3";
-            label3.Size = new Size(415, 45);
+            label3.Size = new Size(455, 45);
             label3.TabIndex = 9;
             label3.Text = "Commandes de l'utilisateur : ";
             label3.Click += label3_Click;
@@ -60,6 +61,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label2);
             Controls.Add(label3);
             Controls.Add(dataGridView1);
             Name = "InterfaceCommande";
@@ -74,5 +76,6 @@
 
         private DataGridView dataGridView1;
         private Label label3;
+        private Label label2;
     }
 }

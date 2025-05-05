@@ -52,7 +52,7 @@ namespace LivInParis
 
                     if (count > 0)
                     {
-                        ChoixMode connexion_utilisateur = new ChoixMode();
+                        ChoixMode connexion_utilisateur = new ChoixMode(id_client);
                         this.Hide();
                         connexion_utilisateur.ShowDialog();
                     }
@@ -81,7 +81,7 @@ namespace LivInParis
             Créer_un_compte new_user = new Créer_un_compte();
             this.Hide();
             new_user.ShowDialog();
-            this.Close();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace LivInParis
             ModesAdmin admi = new ModesAdmin();
             this.Hide();
             admi.ShowDialog();
-            this.Close();
+            this.Hide();
         }
 
         private void label3_Click(object sender, EventArgs e)

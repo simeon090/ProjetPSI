@@ -59,7 +59,7 @@ namespace LivInParis
         private void label3_Click(object sender, EventArgs e)
         {
             ClientPage clientPage = new ClientPage();
-            this.Hide();
+            this.Close();
             clientPage.ShowDialog();
         }
     }

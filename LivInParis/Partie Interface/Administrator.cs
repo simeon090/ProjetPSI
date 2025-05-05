@@ -30,7 +30,7 @@ namespace LivInParis
             ModesAdmin admi = new ModesAdmin();
             this.Hide();
             admi.ShowDialog();
-            this.Close();
+            this.Hide();
            
         }
 
@@ -78,7 +78,7 @@ namespace LivInParis
           Connexion_user utilisateur = new Connexion_user();
             this.Hide();
             utilisateur.ShowDialog();
-            this.Close();
+            this.Hide();
         }
     }
 }

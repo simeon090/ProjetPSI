@@ -23,7 +23,7 @@ namespace LivInParis
             ClientPage clientPage = new ClientPage();
             this.Hide(); 
             clientPage.ShowDialog();
-            this.Close();
+            this.Hide();
             
             
         }
@@ -33,7 +33,7 @@ namespace LivInParis
             CuisinierPage cuis = new CuisinierPage();
             this.Hide();
             cuis.ShowDialog();
-            this.Close();
+            this.Hide();
            
         }
 

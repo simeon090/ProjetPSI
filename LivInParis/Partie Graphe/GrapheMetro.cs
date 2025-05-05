@@ -14,7 +14,7 @@ namespace LivInParis
     public class GrapheMetro
     {
         List<station_metro> List_Noeuds;
-        List<Arcs> List_Liens;
+        List<ArcsMetro> List_Liens;
 
         #region Constructeur
         /// <summary>
@@ -28,7 +28,7 @@ namespace LivInParis
         {
             // 1) Initialisation
             this.List_Noeuds = new List<station_metro>();
-            this.List_Liens = new List<Arcs>();
+            this.List_Liens = new List<ArcsMetro>();
 
             // Solution pour résoudre le problème des accents dans un csv trouvé avec chatGPT (voir rapport)
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -66,7 +66,7 @@ namespace LivInParis
                 }
                 if (station_precedente != null)
                 {
-                    this.List_Liens.Add(new Arcs(station_precedente, station_actuelle, duree, ligne_de_metro, sens, tps_changement, status));
+                    this.List_Liens.Add(new ArcsMetro(station_precedente, station_actuelle, duree, ligne_de_metro, sens, tps_changement, status));
                 }
             }
         }

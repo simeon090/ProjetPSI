@@ -82,7 +82,7 @@ namespace LivInParis
         private void label5_Click(object sender, EventArgs e)
         {
             Connexion_user connexion = new Connexion_user();
-            this.Hide();
+            this.Close();
             connexion.ShowDialog();
 
         }

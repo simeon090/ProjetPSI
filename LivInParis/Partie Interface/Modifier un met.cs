@@ -12,10 +12,20 @@ namespace LivInParis.Partie_Interface
 {
     public partial class Modifier_un_met : Form
     {
-        public Modifier_un_met()
+        public string id_client;
+        public Modifier_un_met(string id_client)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
+            this.id_client = id_client;
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            ModeCuisinier modeCuisinier = new ModeCuisinier(id_client);
+            this.Close();
+            modeCuisinier.ShowDialog(); 
         }
 
         private void label1_Click(object sender, EventArgs e)
