@@ -95,7 +95,7 @@ namespace LivInParis
     {
         private static Base_Données instance = null;
         private MySqlConnection db;
-        string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;";
+        string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
 
         public Base_Données()
         {

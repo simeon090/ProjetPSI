@@ -169,13 +169,14 @@ namespace LivInParis
             Panier panier = new Panier(selectionMets, id_client);
 
 
+            this.Hide();
             panier.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             ChoixMode utilisateur = new ChoixMode(id_client);
-            this.Close();
+            this.Hide();
             utilisateur.ShowDialog();
         }
     }

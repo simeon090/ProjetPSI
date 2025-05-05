@@ -40,19 +40,19 @@
             // _choix_station_commande
             // 
             _choix_station_commande.FormattingEnabled = true;
-            _choix_station_commande.Location = new Point(34, 90);
+            _choix_station_commande.Location = new Point(34, 104);
             _choix_station_commande.Name = "_choix_station_commande";
-            _choix_station_commande.Size = new Size(704, 25);
+            _choix_station_commande.Size = new Size(704, 36);
             _choix_station_commande.TabIndex = 0;
             _choix_station_commande.SelectedIndexChanged += _choix_station_commande_SelectedIndexChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(99, 37);
+            label3.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(19, 47);
             label3.Name = "label3";
-            label3.Size = new Size(551, 40);
+            label3.Size = new Size(767, 54);
             label3.TabIndex = 4;
             label3.Text = "Choisir la station la plus proche de vous ? ";
             label3.Click += label3_Click;
@@ -61,9 +61,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 141);
+            label2.Location = new Point(12, 158);
             label2.Name = "label2";
-            label2.Size = new Size(526, 28);
+            label2.Size = new Size(774, 41);
             label2.TabIndex = 5;
             label2.Text = "Sélectionner les mets que vous souhaitez commander ";
             label2.Click += label2_Click;
@@ -82,9 +82,9 @@
             // 
             box_commande.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             box_commande.FormattingEnabled = true;
-            box_commande.Location = new Point(12, 188);
+            box_commande.Location = new Point(12, 214);
             box_commande.Name = "box_commande";
-            box_commande.Size = new Size(738, 252);
+            box_commande.Size = new Size(738, 239);
             box_commande.TabIndex = 7;
             box_commande.SelectedIndexChanged += box_commande_SelectedIndexChanged;
             // 
@@ -104,16 +104,16 @@
             label1.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(1, -13);
             label1.Name = "label1";
-            label1.Size = new Size(50, 47);
+            label1.Size = new Size(76, 71);
             label1.TabIndex = 9;
             label1.Text = "←";
             label1.Click += label1_Click;
             // 
             // Passer_commande
             // 
-            AutoScaleDimensions = new SizeF(8F, 17F);
+            AutoScaleDimensions = new SizeF(12F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 561);
+            ClientSize = new Size(778, 544);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(box_commande);

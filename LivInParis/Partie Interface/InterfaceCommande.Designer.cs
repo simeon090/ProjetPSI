@@ -56,6 +56,17 @@
             label3.Text = "Commandes de l'utilisateur : ";
             label3.Click += label3_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 40);
+            label2.TabIndex = 13;
+            label2.Text = "←";
+            label2.Click += label2_Click;
+            // 
             // InterfaceCommande
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);

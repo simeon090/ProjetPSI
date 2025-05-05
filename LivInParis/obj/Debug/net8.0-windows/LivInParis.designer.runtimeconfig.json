@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\simeo\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\simeo\\.nuget\\packages",
+      "C:\\Users\\hassa\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\hassa\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cbvUzGFIUVXTVxf3VDWFSVGvYBS9dIVOVcYS/8H1AtB1vzI9zRE/D5Reb+T7OgosHUFgMK4GCnFA1RM8nfa1Mw==",
+  "dgSpecHash": "Gquutzbg6oyNIuMDeRCd1mIkp9AVx2yrIHeO+wh5XdRy8lDRM3Am5Ap/sLCOaVAG6B1lsiuM89/qGZ6CLfs4IA==",
   "success": true,
   "projectFilePath": "C:\\Users\\hassa\\OneDrive\\Desktop\\Projet_PSI\\ProjetPSI\\TestsUnitaires\\TestsUnitaires.csproj",
   "expectedPackageFiles": [
@@ -42,10 +42,7 @@
     "C:\\Users\\hassa\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\hassa\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\hassa\\.nuget\\packages\\system.windows.extensions\\8.0.0\\system.windows.extensions.8.0.0.nupkg.sha512",
-    "C:\\Users\\hassa\\.nuget\\packages\\zstdsharp.port\\0.8.0\\zstdsharp.port.0.8.0.nupkg.sha512",
-    "C:\\Users\\hassa\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.1\\microsoft.netcore.app.ref.8.0.1.nupkg.sha512",
-    "C:\\Users\\hassa\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.1\\microsoft.windowsdesktop.app.ref.8.0.1.nupkg.sha512",
-    "C:\\Users\\hassa\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.1\\microsoft.aspnetcore.app.ref.8.0.1.nupkg.sha512"
+    "C:\\Users\\hassa\\.nuget\\packages\\zstdsharp.port\\0.8.0\\zstdsharp.port.0.8.0.nupkg.sha512"
   ],
   "logs": []
 }

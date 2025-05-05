@@ -1,6 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Partie Interface - Copie\AddNewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Administrator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Ajouter un met.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Ajouter_cuisinier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\ChoixMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\ClientPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Connexion_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\CréationCuisinier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Créer_un_compte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\CuisinierPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\DeleteClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Delete_cuisinier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\InterfaceCommande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Mets_En_Ligne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\ModeClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\ModeCuisinier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\ModesAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Modifier un met.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Modifier_cuisinier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Panier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Passer_commande .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\Supprimer_met.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface - Copie\UpdateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Partie Interface\AddNewClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -10,13 +82,22 @@
     <Compile Update="Partie Interface\Ajouter un met.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Partie Interface\Ajouter_cuisinier.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Partie Interface\ClientPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Partie Interface\Connexion_user.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Partie Interface\CréationCuisinier.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Partie Interface\Créer_un_compte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\Delete_cuisinier.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Partie Interface\HomePage.cs">
@@ -46,10 +127,16 @@
     <Compile Update="Partie Interface\Modifier un met.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Partie Interface\Modifier_cuisinier.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Partie Interface\Panier.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Partie Interface\Passer_commande .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\Supprimer_met.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Partie Interface\UpdateClient.cs">

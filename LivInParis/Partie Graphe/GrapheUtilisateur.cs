@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,6 @@ namespace LivInParis.Partie_Graphe
                     string prenom = reader_client.GetString("prenom_particulier");
                     string identifiant = reader_client.GetString("Identifiant_client");
                     string motDePasse = reader_client.GetString("Mot_de_passe");
-
                     Client client = new Client(nom, prenom, "Client", identifiant, motDePasse);
                     this.List_Noeuds.Add(client);
                     List_Clients.Add(client);
@@ -97,6 +97,10 @@ namespace LivInParis.Partie_Graphe
                     client = liste[i];
                 }
             }
+            if (client is null)
+            {
+                Console.WriteLine(id);
+            }
             return client;
         }
 
@@ -110,7 +114,7 @@ namespace LivInParis.Partie_Graphe
             resultat += "\nListe des Relations : \n";
             for (int i = 0; i < this.List_Arcs.Count; i++)
             {
-                resultat += this.List_Arcs[i].Cuisinier.Nom + " " + this.List_Arcs[i].Cuisinier.Prenom + "----->" + this.List_Arcs[i].Client.Nom + " " + this.List_Arcs[i].Client.Nom + "\n";
+                resultat += this.List_Arcs[i].Cuisinier.Nom + " " + this.List_Arcs[i].Cuisinier.Prenom + "----->" + this.List_Arcs[i].Client.Nom + " " + this.List_Arcs[i].Client.Prenom + "\n";
             }
             return resultat;
         }

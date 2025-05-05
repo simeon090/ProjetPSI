@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `projet_psi_2` /*!40100 DEFAULT CHARACTER SET utf
 USE `projet_psi_2`;
 -- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: projet_psi_2
+-- Host: localhost    Database: projet_psi_2
 -- ------------------------------------------------------
 -- Server version	8.0.41
 
@@ -37,7 +37,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES ('client1','password1'),('client10','password10'),('client11','password11'),('client12','password12'),('client13','password13'),('client14','password14'),('client15','password15'),('client16','password16'),('client17','password17'),('client18','password18'),('client19','password19'),('client2','password2'),('client20','password20'),('client21','password21'),('client3','password3'),('client4','password4'),('client5','password5'),('client6','password6'),('client7','password7'),('client8','password8'),('client9','password9'),('yanisssou','psg ');
+INSERT INTO `client` VALUES ('client1','password1'),('client10','password10'),('client11','password11'),('client12','password12'),('client13','password13'),('client14','password14'),('client15','password15'),('client16','password16'),('client17','password17'),('client18','password18'),('client19','password19'),('client2','password2'),('client20','password20'),('client21','password21'),('client22','password22'),('client23','password23'),('client24','password24'),('client25','password25'),('client26','password26'),('client27','password27'),('client28','password28'),('client29','password29'),('client3','password3'),('client30','password30'),('client31','password31'),('client32','password32'),('client33','password33'),('client34','password34'),('client35','password35'),('client36','password36'),('client4','password4'),('client5','password5'),('client6','password6'),('client7','password7'),('client8','password8'),('client9','password9'),('yanisssou','psg ');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +66,7 @@ CREATE TABLE `commande` (
 
 LOCK TABLES `commande` WRITE;
 /*!40000 ALTER TABLE `commande` DISABLE KEYS */;
-INSERT INTO `commande` VALUES (1,'client1',1),(2,'client2',2),(3,'client3',3),(4,'client4',4),(5,'client5',5),(6,'client6',6),(7,'client7',7),(8,'client8',8),(9,'client9',9),(10,'client10',10);
+INSERT INTO `commande` VALUES (1,'client1',1),(2,'client2',2),(3,'client3',3),(4,'client4',4),(5,'client5',5),(6,'client6',6),(7,'client7',7),(8,'client8',8),(9,'client9',9),(10,'client10',10),(11,'client22',1),(12,'client23',2),(13,'client24',3),(14,'client25',4),(15,'client26',5),(16,'client27',6),(17,'client28',7),(18,'client29',8),(19,'client30',9),(20,'client31',10),(21,'client32',1),(22,'client33',2),(23,'client34',3),(24,'client35',4),(25,'client36',5);
 /*!40000 ALTER TABLE `commande` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +94,7 @@ CREATE TABLE `cuisinier` (
 
 LOCK TABLES `cuisinier` WRITE;
 /*!40000 ALTER TABLE `cuisinier` DISABLE KEYS */;
-INSERT INTO `cuisinier` VALUES (1,'Marie','Dupond','30 Rue de la République 75011','Mdupond@gmail.com','Voltaire'),(2,'Jean','Martin','12 Avenue des Champs 75008','jmartin@gmail.com','Richelieu - Drouot'),(3,'Sophie','Lemoine','5 Place de la Concorde 75001','slemoine@gmail.com','Quatre Septembre'),(4,'Paul','Durand','18 Boulevard Haussmann 75009','pdurand@gmail.com','Franklin D. Roosevelt'),(5,'Lucie','Morel','45 Rue Lafayette 75010','lmorel@gmail.com','Michel Bizot'),(6,'Thomas','Bertrand','22 Rue Saint-Honoré 75001','tbertrand@gmail.com','Opéra'),(7,'Camille','Dubois','9 Avenue Montaigne 75008','cdubois@gmail.com','Bastille'),(8,'Nicolas','Fontaine','37 Rue de Rivoli 75004','nfontaine@gmail.com','Saint-Georges'),(9,'Emma','Blanc','14 Rue des Rosiers 75004','eblanc@gmail.com','Michel Bizot'),(10,'Alexandre','Renard','3 Boulevard Saint-Michel 75005','arenard@gmail.com','Chaussée d’Antin - La Fayette');
+INSERT INTO `cuisinier` VALUES (1,'Marie','Dupond','30 Rue de la République 75011','Mdupond@gmail.com','Voltaire'),(2,'Jean','Martin','12 Avenue des Champs 75008','jmartin@gmail.com','Richelieu - Drouot'),(3,'Sophie','Lemoine','5 Place de la Concorde 75001','slemoine@gmail.com','Quatre Septembre'),(4,'Paul','Durand','18 Boulevard Haussmann 75009','pdurand@gmail.com','Franklin D. Roosevelt'),(5,'Lucie','Morel','45 Rue Lafayette 75010','lmorel@gmail.com','Michel Bizot'),(6,'Thomas','Bertrand','22 Rue Saint-Honoré 75001','tbertrand@gmail.com','Opéra'),(7,'Camille','Dubois','9 Avenue Montaigne 75008','cdubois@gmail.com','Bastille'),(8,'Nicolas','Fontaine','37 Rue de Rivoli 75004','nfontaine@gmail.com','Saint-Georges'),(9,'Emma','Blanc','14 Rue des Rosiers 75004','eblanc@gmail.com','Michel Bizot'),(10,'Alexandre','Renard','3 Boulevard Saint-Michel 75005','arenard@gmail.com','Chaussée d’Antin - La Fayette'),(5654,'test','test','FGH','RTG','Porte Maillot'),(565434,'eraze','trtre','re','tre','George V');
 /*!40000 ALTER TABLE `cuisinier` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,6 +229,7 @@ CREATE TABLE `mets` (
   `régime_alimentaire` varchar(50) DEFAULT NULL,
   `prix` decimal(10,2) NOT NULL,
   `telephone_cuisinier` decimal(10,0) DEFAULT NULL,
+  `quantité` int DEFAULT '1',
   PRIMARY KEY (`id_mets`),
   KEY `mets_ibfk_1` (`telephone_cuisinier`),
   CONSTRAINT `mets_ibfk_1` FOREIGN KEY (`telephone_cuisinier`) REFERENCES `cuisinier` (`telephone_cuisinier`) ON DELETE CASCADE
@@ -241,7 +242,7 @@ CREATE TABLE `mets` (
 
 LOCK TABLES `mets` WRITE;
 /*!40000 ALTER TABLE `mets` DISABLE KEYS */;
-INSERT INTO `mets` VALUES (20,'Tarte aux fraises','Dessert','Française','Végétarien',5.00,1),(21,'Bœuf bourguignon','Plat','Française','Non spécifié',15.00,2),(22,'Soupe de lentilles','Entrée','Indienne','Non spécifié',8.00,2),(23,'Lasagnes','Plat','Italienne','Non spécifié',12.00,3),(24,'Beignets à la crème','Dessert','Chinoise','Sans gluten',6.00,3),(25,'Tacos au poulet','Plat','Mexicaine','Non spécifié',25.00,4),(26,'Crème catalane','Dessert','Espagnole','Non spécifié',10.00,4),(27,'Coq au vin','Plat','Française','Non spécifié',20.00,5),(28,'Salade César','Entrée','Américaine','Sans lactose',12.00,5),(29,'Risotto aux champignons','Plat','Italienne','Non spécifié',18.00,6),(30,'Pudding au caramel','Dessert','Anglaise','Non spécifié',5.00,6),(31,'Curry de légumes','Plat','Indienne','Végétarien',14.00,7),(32,'Nachos au fromage','Entrée','Mexicaine','Non spécifié',7.00,7),(33,'Gratin dauphinois','Plat','Française','Végétarien',22.00,8),(34,'Nougat chinois','Dessert','Chinoise','Non spécifié',9.00,8),(35,'Pizza Margherita','Plat','Italienne','Végétarien',30.00,9),(36,'Samosas','Entrée','Indienne','Non spécifié',15.00,9),(37,'Paella','Plat','Espagnole','Végétarien',10.00,10),(38,'Scones','Dessert','Anglaise','Sans gluten',5.00,10);
+INSERT INTO `mets` VALUES (20,'Tarte aux fraises','Dessert','Française','Végétarien',5.00,1,1),(21,'Bœuf bourguignon','Plat','Française','Non spécifié',15.00,2,1),(22,'Soupe de lentilles','Entrée','Indienne','Non spécifié',8.00,2,1),(23,'Lasagnes','Plat','Italienne','Non spécifié',12.00,3,1),(24,'Beignets à la crème','Dessert','Chinoise','Sans gluten',6.00,3,1),(25,'Tacos au poulet','Plat','Mexicaine','Non spécifié',25.00,4,1),(26,'Crème catalane','Dessert','Espagnole','Non spécifié',10.00,4,1),(27,'Coq au vin','Plat','Française','Non spécifié',20.00,5,1),(28,'Salade César','Entrée','Américaine','Sans lactose',12.00,5,1),(29,'Risotto aux champignons','Plat','Italienne','Non spécifié',18.00,6,1),(30,'Pudding au caramel','Dessert','Anglaise','Non spécifié',5.00,6,1),(31,'Curry de légumes','Plat','Indienne','Végétarien',14.00,7,1),(32,'Nachos au fromage','Entrée','Mexicaine','Non spécifié',7.00,7,1),(33,'Gratin dauphinois','Plat','Française','Végétarien',22.00,8,1),(34,'Nougat chinois','Dessert','Chinoise','Non spécifié',9.00,8,1),(35,'Pizza Margherita','Plat','Italienne','Végétarien',30.00,9,1),(36,'Samosas','Entrée','Indienne','Non spécifié',15.00,9,1),(37,'Paella','Plat','Espagnole','Végétarien',10.00,10,1),(38,'Scones','Dessert','Anglaise','Sans gluten',5.00,10,1);
 /*!40000 ALTER TABLE `mets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,6 +287,7 @@ CREATE TABLE `particulier` (
   `prenom_particulier` varchar(50) DEFAULT NULL,
   `adresse_particulier` varchar(50) DEFAULT NULL,
   `Identifiant_client` varchar(50) NOT NULL,
+  `mail_particulier` varchar(50) DEFAULT 'defaut@;email.com',
   PRIMARY KEY (`numéro_tel_particulier`),
   UNIQUE KEY `Identifiant_client` (`Identifiant_client`),
   CONSTRAINT `particulier_ibfk_1` FOREIGN KEY (`Identifiant_client`) REFERENCES `client` (`Identifiant_client`)
@@ -298,7 +300,7 @@ CREATE TABLE `particulier` (
 
 LOCK TABLES `particulier` WRITE;
 /*!40000 ALTER TABLE `particulier` DISABLE KEYS */;
-INSERT INTO `particulier` VALUES (1,'Durand','Medhy','Rue Cardinet 15, 75017','client1'),(2,'Martin','Sophie','Avenue de la République 34, 75011','client2'),(3,'Bernard','Lucas','Rue de Rivoli 120, 75004','client3'),(4,'Dubois','Emma','Boulevard Haussmann 90, 75008','client4'),(5,'Thomas','Léo','Place de Clichy 7, 75018','client5'),(6,'Robert','Chloé','Rue Lafayette 55, 75009','client6'),(7,'Richard','Noah','Quai de la Gare 20, 75013','client7'),(8,'Petit','Manon','Avenue des Champs-Élysées 101, 75008','client8'),(9,'Lefevre','Nathan','Rue du Faubourg Saint-Honoré 45, 75008','client9'),(10,'Lemoine','Camille','Boulevard Voltaire 200, 75011','client10'),(11,'Moreau','Louis','Avenue Montaigne 15, 75008','client11'),(12,'Simon','Sarah','Rue Saint-Antoine 67, 75004','client12'),(13,'Laurent','Gabriel','Rue de Rennes 88, 75006','client13'),(14,'Leroy','Jade','Boulevard Saint-Michel 19, 75005','client14'),(15,'Bertrand','Adam','Rue de la Pompe 30, 75016','client15'),(16,'Roux','Inès','Avenue Victor Hugo 75, 75016','client16'),(17,'Fontaine','Hugo','Rue Mouffetard 110, 75005','client17'),(18,'David','Eva','Boulevard de la Villette 21, 75019','client18'),(19,'Girard','Tom','Place de la Bastille 10, 75004','client19'),(20,'Denis','Lina','Avenue Ledru-Rollin 56, 75011','client20'),(78236589,'rr\'r','\'rr','r\'\'r','yanisssou');
+INSERT INTO `particulier` VALUES (1,'Durand','Medhy','Rue Cardinet 15, 75017','client1','defaut@;email.com'),(2,'Martin','Sophie','Avenue de la République 34, 75011','client2','defaut@;email.com'),(3,'Bernard','Lucas','Rue de Rivoli 120, 75004','client3','defaut@;email.com'),(4,'Dubois','Emma','Boulevard Haussmann 90, 75008','client4','defaut@;email.com'),(5,'Thomas','Léo','Place de Clichy 7, 75018','client5','defaut@;email.com'),(6,'Robert','Chloé','Rue Lafayette 55, 75009','client6','defaut@;email.com'),(7,'Richard','Noah','Quai de la Gare 20, 75013','client7','defaut@;email.com'),(8,'Petit','Manon','Avenue des Champs-Élysées 101, 75008','client8','defaut@;email.com'),(9,'Lefevre','Nathan','Rue du Faubourg Saint-Honoré 45, 75008','client9','defaut@;email.com'),(10,'Lemoine','Camille','Boulevard Voltaire 200, 75011','client10','defaut@;email.com'),(11,'Moreau','Louis','Avenue Montaigne 15, 75008','client11','defaut@;email.com'),(12,'Simon','Sarah','Rue Saint-Antoine 67, 75004','client12','defaut@;email.com'),(13,'Laurent','Gabriel','Rue de Rennes 88, 75006','client13','defaut@;email.com'),(14,'Leroy','Jade','Boulevard Saint-Michel 19, 75005','client14','defaut@;email.com'),(15,'Bertrand','Adam','Rue de la Pompe 30, 75016','client15','defaut@;email.com'),(16,'Roux','Inès','Avenue Victor Hugo 75, 75016','client16','defaut@;email.com'),(17,'Fontaine','Hugo','Rue Mouffetard 110, 75005','client17','defaut@;email.com'),(18,'David','Eva','Boulevard de la Villette 21, 75019','client18','defaut@;email.com'),(19,'Girard','Tom','Place de la Bastille 10, 75004','client19','defaut@;email.com'),(20,'Denis','Lina','Avenue Ledru-Rollin 56, 75011','client20','defaut@;email.com'),(22,'Durand','Claire','22 rue A, Paris','client22','defaut@;email.com'),(23,'Martin','Luc','23 rue B, Lyon','client23','defaut@;email.com'),(24,'Bernard','Sophie','24 rue C, Marseille','client24','defaut@;email.com'),(25,'Petit','Julien','25 rue D, Lille','client25','defaut@;email.com'),(26,'Robert','Emma','26 rue E, Bordeaux','client26','defaut@;email.com'),(27,'Richard','Lucas','27 rue F, Nantes','client27','defaut@;email.com'),(28,'Dubois','Camille','28 rue G, Toulouse','client28','defaut@;email.com'),(29,'Moreau','Nathan','29 rue H, Strasbourg','client29','defaut@;email.com'),(30,'Laurent','Léa','30 rue I, Nice','client30','defaut@;email.com'),(31,'Simon','Mathis','31 rue J, Montpellier','client31','defaut@;email.com'),(32,'Michel','Chloé','32 rue K, Rennes','client32','defaut@;email.com'),(33,'Lefebvre','Enzo','33 rue L, Grenoble','client33','defaut@;email.com'),(34,'Leroy','Manon','34 rue M, Dijon','client34','defaut@;email.com'),(35,'Roux','Noah','35 rue N, Reims','client35','defaut@;email.com'),(36,'David','Lina','36 rue O, Tours','client36','defaut@;email.com'),(78236589,'rr\'r','\'rr','r\'\'r','yanisssou','defaut@;email.com');
 /*!40000 ALTER TABLE `particulier` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -311,116 +313,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-04 15:47:36
-INSERT INTO `client` VALUES 
-('client22','password22'), ('client23','password23'), ('client24','password24'), 
-('client25','password25'), ('client26','password26'), ('client27','password27'), 
-('client28','password28'), ('client29','password29'), ('client30','password30'), 
-('client31','password31'), ('client32','password32'), ('client33','password33'), 
-('client34','password34'), ('client35','password35'), ('client36','password36');
-
-INSERT INTO `particulier` VALUES 
-(22,'Durand','Claire','22 rue A, Paris','client22'),
-(23,'Martin','Luc','23 rue B, Lyon','client23'),
-(24,'Bernard','Sophie','24 rue C, Marseille','client24'),
-(25,'Petit','Julien','25 rue D, Lille','client25'),
-(26,'Robert','Emma','26 rue E, Bordeaux','client26'),
-(27,'Richard','Lucas','27 rue F, Nantes','client27'),
-(28,'Dubois','Camille','28 rue G, Toulouse','client28'),
-(29,'Moreau','Nathan','29 rue H, Strasbourg','client29'),
-(30,'Laurent','Léa','30 rue I, Nice','client30'),
-(31,'Simon','Mathis','31 rue J, Montpellier','client31'),
-(32,'Michel','Chloé','32 rue K, Rennes','client32'),
-(33,'Lefebvre','Enzo','33 rue L, Grenoble','client33'),
-(34,'Leroy','Manon','34 rue M, Dijon','client34'),
-(35,'Roux','Noah','35 rue N, Reims','client35'),
-(36,'David','Lina','36 rue O, Tours','client36');
-
-INSERT INTO `commande` VALUES 
-(11, 'client22', 1), (12, 'client23', 2), (13, 'client24', 3),
-(14, 'client25', 4), (15, 'client26', 5), (16, 'client27', 6),
-(17, 'client28', 7), (18, 'client29', 8), (19, 'client30', 9),
-(20, 'client31', 10), (21, 'client32', 1), (22, 'client33', 2),
-(23, 'client34', 3), (24, 'client35', 4), (25, 'client36', 5);
-
-INSERT INTO `client` VALUES 
-('client22','password22'), ('client23','password23'), ('client24','password24'), 
-('client25','password25'), ('client26','password26'), ('client27','password27'), 
-('client28','password28'), ('client29','password29'), ('client30','password30'), 
-('client31','password31'), ('client32','password32'), ('client33','password33'), 
-('client34','password34'), ('client35','password35'), ('client36','password36');
-
-INSERT INTO `particulier` VALUES 
-(22,'Durand','Claire','22 rue A, Paris','client22'),
-(23,'Martin','Luc','23 rue B, Lyon','client23'),
-(24,'Bernard','Sophie','24 rue C, Marseille','client24'),
-(25,'Petit','Julien','25 rue D, Lille','client25'),
-(26,'Robert','Emma','26 rue E, Bordeaux','client26'),
-(27,'Richard','Lucas','27 rue F, Nantes','client27'),
-(28,'Dubois','Camille','28 rue G, Toulouse','client28'),
-(29,'Moreau','Nathan','29 rue H, Strasbourg','client29'),
-(30,'Laurent','Léa','30 rue I, Nice','client30'),
-(31,'Simon','Mathis','31 rue J, Montpellier','client31'),
-(32,'Michel','Chloé','32 rue K, Rennes','client32'),
-(33,'Lefebvre','Enzo','33 rue L, Grenoble','client33'),
-(34,'Leroy','Manon','34 rue M, Dijon','client34'),
-(35,'Roux','Noah','35 rue N, Reims','client35'),
-(36,'David','Lina','36 rue O, Tours','client36');
-
-INSERT INTO `commande` VALUES 
-(11, 'client22', 1), (12, 'client23', 2), (13, 'client24', 3),
-(14, 'client25', 4), (15, 'client26', 5), (16, 'client27', 6),
-(17, 'client28', 7), (18, 'client29', 8), (19, 'client30', 9),
-(20, 'client31', 10), (21, 'client32', 1), (22, 'client33', 2),
-(23, 'client34', 3), (24, 'client35', 4), (25, 'client36', 5);
-
-
-
--- Commandes pour cuisinier 3
-INSERT INTO `commande` VALUES 
-(121, 'client22', 3),
-(122, 'client22', 3),
-(123, 'client23', 3),
-(124, 'client24', 3),
-(125, 'client25', 3);
-
--- Commandes pour cuisinier 4
-INSERT INTO `commande` VALUES 
-(126, 'client1', 4),
-(127, 'client2', 4),
-(128, 'client3', 4);
-
--- Commandes pour cuisinier 5
-INSERT INTO `commande` VALUES 
-(129, 'client4', 5),
-(130, 'client5', 5);
-
--- Commandes pour cuisinier 6
-INSERT INTO `commande` VALUES 
-(131, 'client6', 6);
-
--- Commandes pour cuisinier 7
--- Aucun pour tester le cas 0 commande
-
--- Commandes pour cuisinier 8
-INSERT INTO `commande` VALUES 
-(132, 'client7', 8),
-(133, 'client8', 8);
-
--- Commandes pour cuisinier 9
-INSERT INTO `commande` VALUES 
-(134, 'client9', 9);
-
--- Commandes pour cuisinier 10
-INSERT INTO `commande` VALUES 
-(135, 'client30', 10),
-(136, 'client31', 10);
-
-INSERT INTO `commande` VALUES (137, 'client1', 1);
-INSERT INTO `commande` VALUES (138, 'client1', 2);
-INSERT INTO `commande` VALUES (139, 'client2', 2);
-INSERT INTO `commande` VALUES (140, 'client2', 3);
-INSERT INTO `commande` VALUES (141, 'client3', 3);
-INSERT INTO `commande` VALUES (142, 'client3', 4);
-INSERT INTO `commande` VALUES (143, 'client4', 4);
-INSERT INTO `commande` VALUES (144, 'client4', 1);
+-- Dump completed on 2025-05-05 17:57:47

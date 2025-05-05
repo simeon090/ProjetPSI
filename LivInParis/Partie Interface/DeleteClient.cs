@@ -60,8 +60,13 @@ namespace LivInParis
                 string enlever_ctrt = "SET foreign_key_checks=0";
                 new MySqlCommand(enlever_ctrt, connexion).ExecuteNonQuery();
 
-                string query = "DELETE FROM Client WHERE Identifiant_client = @IdentifiantClient";
-                MySqlCommand cmd = new MySqlCommand(query, connexion);
+                string query_client = "DELETE FROM Client WHERE Identifiant_client = @IdentifiantClient";
+                MySqlCommand cmd = new MySqlCommand(query_client, connexion);
+                cmd.Parameters.AddWithValue("@IdentifiantClient", identifiantClient);
+                cmd.ExecuteNonQuery();
+
+                string query_particulier = "DELETE FROM Particulier WHERE Identifiant_client = @IdentifiantClient";
+                cmd = new MySqlCommand(query_particulier, connexion);
                 cmd.Parameters.AddWithValue("@IdentifiantClient", identifiantClient);
                 cmd.ExecuteNonQuery();
 
@@ -69,7 +74,7 @@ namespace LivInParis
                 new MySqlCommand(remettre_ctrt, connexion).ExecuteNonQuery();
 
                 MessageBox.Show("Client supprimé avec succès !");
-                LoadClientFrom(); // Met à jour la liste
+                LoadClientFrom();
             }
             catch (Exception ex)
             {
@@ -92,7 +97,7 @@ namespace LivInParis
         private void label2_Click(object sender, EventArgs e)
         {
             ClientPage clientPage = new ClientPage();
-            this.Hide();
+            this.Close();
             clientPage.ShowDialog();
         }
     }

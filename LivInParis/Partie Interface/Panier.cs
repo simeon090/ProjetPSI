@@ -7,7 +7,7 @@ using static LivInParis.Passer_commande;
 
 namespace LivInParis
 {
-    
+
     public partial class Panier : Form
     {
         public string id_client;
@@ -114,8 +114,37 @@ namespace LivInParis
         private void label4_Click_1(object sender, EventArgs e)
         {
             Passer_commande commande = new Passer_commande(id_client);
-            this.Close();
+            this.Hide();
             commande.ShowDialog();
+        }
+
+        private void Panier_Load(object sender, EventArgs e)
+        {
+            decimal totalPrix = 0;
+
+            foreach (Mets item in _box_resume.Items)
+            {
+                totalPrix += item.prix;
+            }
+
+            label5.Text = "Prix totale : " + totalPrix + "€";
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Recuperer toutes les informations de mets
+            //Cree une ligne de commande pour chaque met
+            //Crée un enregistrement dans la table commande
+            //retrouver le met en base de donnée et diminuer la quantité ou la supprimer
+            MessageBox.Show("Bravo votre commande a été passé!");
+            ChoixMode connexion_utilisateur = new ChoixMode(id_client);
+            this.Hide();
+            connexion_utilisateur.Show();
         }
     }
 }

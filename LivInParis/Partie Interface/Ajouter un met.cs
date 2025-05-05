@@ -15,12 +15,14 @@ namespace LivInParis.Partie_Interface
     {
         public MySqlConnection connexion;
         public string id_client;
-        public Ajouter_un_met(string id_client)
+        public int tel_cuisinier;
+        public Ajouter_un_met(string id_client, int tel_cuisinier)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             this.id_client = id_client;
             this.connexion = Base_Données.Instance.DB;
+            this.tel_cuisinier = tel_cuisinier;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -40,8 +42,6 @@ namespace LivInParis.Partie_Interface
             string prix_met_box = this._prix_met_box.Text;
             string _type_met = this._type_met_box.Text;
             string _regime_ali_box = this._regime_ali_box.Text;
-            string _tel_cui_box = this._tel_cui_box.Text;
-
 
 
 
@@ -60,11 +60,14 @@ namespace LivInParis.Partie_Interface
                     cmd.Parameters.AddWithValue("@prix_met", prix_met_box);
                     cmd.Parameters.AddWithValue("@type_met", _type_met);
                     cmd.Parameters.AddWithValue("@regime_ali", _regime_ali_box);
-                    cmd.Parameters.AddWithValue("@tel_cuisinier", _tel_cui_box);
+                    cmd.Parameters.AddWithValue("@tel_cuisinier", tel_cuisinier);
 
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Met ajouté avec succès!");
+                    ModeCuisinier modeCuisinier = new ModeCuisinier(id_client, tel_cuisinier);
+                    this.Close();
+                    modeCuisinier.Show();
                 }
                 catch (Exception ex)
                 {
@@ -88,9 +91,9 @@ namespace LivInParis.Partie_Interface
 
         private void label8_Click(object sender, EventArgs e)
         {
-            ModeCuisinier modeCuisinier = new ModeCuisinier(id_client);
+            ModeCuisinier modeCuisinier = new ModeCuisinier(id_client, tel_cuisinier);
             this.Close();
-            modeCuisinier.ShowDialog();
+            modeCuisinier.Show();
         }
 
         private void _quantite_box_Click(object sender, EventArgs e)

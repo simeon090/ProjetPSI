@@ -13,17 +13,18 @@ namespace LivInParis.Partie_Interface
     public partial class ModeCuisinier : Form
     {
         public string id_client;
-        public ModeCuisinier(string id_client)
+        public int tel_cuisinier;
+        public ModeCuisinier(string id_client, int tel_cuisinier)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             this.id_client = id_client;
-
+            this.tel_cuisinier = tel_cuisinier;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Ajouter_un_met ajouter_un_met = new Ajouter_un_met(id_client);
+            Ajouter_un_met ajouter_un_met = new Ajouter_un_met(id_client, tel_cuisinier);
             this.Hide();
             ajouter_un_met.ShowDialog();
 
@@ -32,15 +33,30 @@ namespace LivInParis.Partie_Interface
         private void label1_Click(object sender, EventArgs e)
         {
             ChoixMode choixMode = new ChoixMode(id_client);
-            this.Close();
+            this.Hide();
             choixMode.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Mets_En_Ligne met_en_ligne = new Mets_En_Ligne(id_client);
+            Mets_En_Ligne met_en_ligne = new Mets_En_Ligne(id_client, tel_cuisinier);
             this.Hide();
             met_en_ligne.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Modifier_un_met modifier_un_met = new Modifier_un_met(id_client, tel_cuisinier);
+            this.Close();
+            modifier_un_met.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Supprimer_met supprimer_met = new Supprimer_met(id_client, tel_cuisinier);
+            this.Close();
+            supprimer_met.Show();
+
         }
     }
 }
