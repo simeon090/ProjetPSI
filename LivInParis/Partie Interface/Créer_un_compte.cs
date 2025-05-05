@@ -106,5 +106,20 @@ namespace LivInParis
         {
 
         }
+
+        private void Créer_un_compte_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _mdp_create_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

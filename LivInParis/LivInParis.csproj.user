@@ -79,7 +79,7 @@
     <Compile Update="Partie Interface\Administrator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Partie Interface\Ajouter un met.cs">
+    <Compile Update="Partie Interface\Ajouter_cuisinier.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Partie Interface\Ajouter_cuisinier.cs">
