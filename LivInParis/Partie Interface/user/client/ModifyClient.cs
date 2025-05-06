@@ -24,10 +24,9 @@ namespace LivInParis
             this.BackColor = Color.LightBlue;
             this.id_particulier = id_particulier;
             this.connexion = connexion;
-            LoadClient();
             this.is_admin = is_admin;
             this.mdp_admin = mdp_admin;
-
+            LoadClient();
         }
 
 
@@ -57,7 +56,7 @@ namespace LivInParis
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show("erreur: " + ex.Message);
             }
         }
 
@@ -123,12 +122,13 @@ namespace LivInParis
 
             try
             {
+                //on met à jour à la fois le client et le particulier correspondant
                 string query_client = "UPDATE client SET Mot_de_passe = @motDePasse WHERE Identifiant_client = @identifiant";
                 string query_particulier = @"UPDATE particulier 
-                                    SET nom_particulier = @nom, prenom_particulier = @prenom, 
-                                        adresse_particulier = @adresse, numéro_tel_particulier = @numeroTel, 
-                                        mail_particulier = @email 
-                                    WHERE Identifiant_client = @identifiant";
+                SET nom_particulier = @nom, prenom_particulier = @prenom, 
+                adresse_particulier = @adresse, numéro_tel_particulier = @numeroTel, 
+                mail_particulier = @email 
+                WHERE Identifiant_client = @identifiant";
 
                 MySqlCommand cmd = new MySqlCommand(query_client, connexion);
                 cmd.Parameters.AddWithValue("@motDePasse", motDePasse);

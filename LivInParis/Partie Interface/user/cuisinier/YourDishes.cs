@@ -76,33 +76,31 @@ namespace LivInParis.Partie_Interface
         {
             List<Client> clients = new List<Client>();
 
-                string query = @"
-                SELECT c.Identifiant_client, p.nom_particulier, p.prenom_particulier, p.adresse_particulier
-                FROM commande c
-                JOIN client cl ON c.Identifiant_client = cl.Identifiant_client
-                JOIN particulier p ON p.Identifiant_client = cl.Identifiant_client
-                WHERE c.telephone_cuisinier = @telephone_cuisinier;
-                ";
+            string query = @"
+            SELECT c.Identifiant_client, p.nom_particulier, p.prenom_particulier, p.adresse_particulier
+            FROM commande c
+            JOIN client cl ON c.Identifiant_client = cl.Identifiant_client
+            JOIN particulier p ON p.Identifiant_client = cl.Identifiant_client
+            WHERE c.telephone_cuisinier = @telephone_cuisinier;
+            ";
 
 
-                MySqlCommand cmd = new MySqlCommand(query, connexion);
-                cmd.Parameters.AddWithValue("@telephone_cuisinier", tel_cuisinier);
-                MySqlDataReader reader = cmd.ExecuteReader();
+            MySqlCommand cmd = new MySqlCommand(query, connexion);
+            cmd.Parameters.AddWithValue("@telephone_cuisinier", tel_cuisinier);
+            MySqlDataReader reader = cmd.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    string nom = reader.GetString("nom_particulier");
-                    string prenom = reader.GetString("prenom_particulier");
-                    string adresse = reader.GetString("adresse_particulier");
-                    string id_client = reader.GetString("Identifiant_client");
+            while (reader.Read())
+            {
+                string nom = reader.GetString("nom_particulier");
+                string prenom = reader.GetString("prenom_particulier");
+                string adresse = reader.GetString("adresse_particulier");
+                string id_client = reader.GetString("Identifiant_client");
 
-                    clients.Add(
-                        new Client(nom, prenom, "Particulier", id_client, "Confidentiel")
-                    );
+                clients.Add(
+                    new Client(nom, prenom, "Particulier", id_client, "Confidentiel")
+                );
                 }
             reader.Close();
-  
-
             bindingSource2.DataSource = clients;
             dataGridView2.DataSource = bindingSource2;
         }

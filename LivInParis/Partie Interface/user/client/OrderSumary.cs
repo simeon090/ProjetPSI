@@ -15,22 +15,21 @@ namespace LivInParis
     {
         public string id_client;
         MySqlConnection connexion;
+        public string StationArrivé;
 
         //prend une liste de mets sélectionnés
-        public OrderSumary(List<Mets> metsSelectionnes, string id_client, MySqlConnection connexion)
+        public OrderSumary(List<Mets> metsSelectionnes, string id_client, MySqlConnection connexion, string stationArrivé)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             this.connexion = connexion;
-
+            this.id_client = id_client;
+            this.StationArrivé = stationArrivé;
             foreach (var mets in metsSelectionnes)
             {
                 _box_resume.Items.Add(mets);
             }
-
             CalculerTotal();
-            this.id_client = id_client;
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -42,11 +41,10 @@ namespace LivInParis
             if (_box_resume.SelectedItem is Mets metsSelectionne)
             {
                 string stationDepart = metsSelectionne.station_métro;
-                string stationArrivee = Passer_commande.StationArrivee;
 
                 GrapheMetro graphe = new GrapheMetro("MetroParis_Noeuds.csv", "MetroParis_Arcs.csv");
                 station_metro depart = graphe.TrouverStationAvecNom(stationDepart);
-                station_metro arrivee = graphe.TrouverStationAvecNom(stationArrivee);
+                station_metro arrivee = graphe.TrouverStationAvecNom(StationArrivé);
 
                 Dictionary<station_metro, (string, int)> dijkstra = graphe.Dijkstra(depart, arrivee);
                 station_metro[] liste_stations = graphe.ToListStations(dijkstra);
@@ -107,7 +105,7 @@ namespace LivInParis
                 totalPrix += item.prix;
             }
 
-            label_prix.Text = $"{totalPrix:0.00} €";
+            label_prix.Text = totalPrix+ " €";
 
         }
 
@@ -143,6 +141,7 @@ namespace LivInParis
 
         /// <summary>
         /// Bouton executer lorsqu'on passe commande, il doit crée une livraison, et une commande en BDD pour chaque mets
+        /// Ensuite on doit retrouver le met correspondant et mettre à jour sa quantité disponible
         /// </summary>
         private void button2_Click(object sender, EventArgs e)
         {
@@ -188,7 +187,7 @@ namespace LivInParis
             MySqlCommand cmd = new MySqlCommand(query_lignes_commandes, connexion);
             cmd.Parameters.AddWithValue("@NumeroCommande", id_commande);
             cmd.Parameters.AddWithValue("@DateLivraison", DateTime.Today);
-            cmd.Parameters.AddWithValue("@AdresseLivraison", Passer_commande.StationArrivee);
+            cmd.Parameters.AddWithValue("@AdresseLivraison", StationArrivé);
             cmd.Parameters.AddWithValue("@RegimeAlimentaire", met.régime_alimentaire);
             cmd.Parameters.AddWithValue("@Prix", met.prix);
             cmd.Parameters.AddWithValue("@Type", met.type);
@@ -208,7 +207,7 @@ namespace LivInParis
                      "VALUES (@IdLivraison, @Arrivee, @Depart)";
             MySqlCommand cmd = new MySqlCommand(query_livraison, connexion);
             cmd.Parameters.AddWithValue("@IdLivraison", "10001"+id_sous_commande);
-            cmd.Parameters.AddWithValue("@Arrivee", Passer_commande.StationArrivee);
+            cmd.Parameters.AddWithValue("@Arrivee", StationArrivé);
             cmd.Parameters.AddWithValue("@Depart", met.station_métro);
             cmd.ExecuteNonQuery();
         }

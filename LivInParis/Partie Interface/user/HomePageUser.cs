@@ -40,6 +40,10 @@ namespace LivInParis
 
         }
 
+
+        /// <summary>
+        /// Ici on test si l'utilisateur est déjà un cuisinier ou pas, s'il ne les pas on demande son téléphone et il devient sinon on le redirige vers la page des cuisiniers
+        /// </summary>
         private void button2_Click(object sender, EventArgs e)
         { 
             string query_telephone = "SELECT * FROM particulier WHERE Identifiant_client = @Identifiant_client;";
@@ -88,7 +92,7 @@ namespace LivInParis
             } else
             {
                 reader.Close();
-                Console.WriteLine("Une erreur c'est produise");
+                Console.WriteLine("une erreur c'est produise");
             }   
         }
 

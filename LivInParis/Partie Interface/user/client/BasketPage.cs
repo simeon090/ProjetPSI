@@ -10,13 +10,10 @@ namespace LivInParis
     public partial class Passer_commande : Form
     {
 
-        public static string StationArrivee
-        { get; set; }
+        public string StationArrivee;
         public string id_client;
         public List<Mets> selectionMets;
         public MySqlConnection connexion;
-        public static List<string> StationsDepart { get; set; } = new List<string>();
-
 
         public Passer_commande(string id_client, MySqlConnection connexion)
         {
@@ -58,8 +55,8 @@ namespace LivInParis
 
         private void ChargerMets()
         {
-                try
-                {
+            try
+            {
                 //requête pour station + tt les champs de mets
                 string query = @"
                 SELECT 
@@ -103,8 +100,6 @@ namespace LivInParis
             {
                 MessageBox.Show("Erreur : " + ex.Message);
             }
-
-            // ListBox
             box_commande.Items.Clear();
             if (selectionMets != null)
             {
@@ -140,22 +135,16 @@ namespace LivInParis
 
         private void button2_Click(object sender, EventArgs e)
         {
-            List<Mets> Mets_selectionné = new List<Mets>();
-
-            StationsDepart.Clear();
+            List<Mets> Mets_selectionnés = new List<Mets>();
 
             foreach (var item in box_commande.CheckedItems)
             {
+                //ici on doit le "cast" car meme si le box_commande est rempli de item de type mets ce n'est pas imédiatement reconnu
                 Mets met = (Mets)item;
-                Mets_selectionné.Add(met);
-
-                if (!StationsDepart.Contains(met.station_métro))
-                {
-                    StationsDepart.Add(met.station_métro);
-                }
+                Mets_selectionnés.Add(met);
             }
 
-            if (Mets_selectionné.Count == 0)
+            if (Mets_selectionnés.Count == 0)
             {
                 MessageBox.Show("Veuillez sélectionner au moins un mets.");
                 return;
@@ -165,9 +154,7 @@ namespace LivInParis
                 MessageBox.Show("Veuillez sélectionner votre station de livraison");
                 return;
             }
-            OrderSumary panier = new OrderSumary(Mets_selectionné, id_client, connexion);
-
-
+            OrderSumary panier = new OrderSumary(Mets_selectionnés, id_client, connexion, StationArrivee);
             this.Hide();
             panier.Show();
         }

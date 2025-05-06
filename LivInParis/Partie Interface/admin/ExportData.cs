@@ -25,11 +25,11 @@ namespace LivInParis.Partie_Interface.admin
         {
             InitializeComponent();
             this.connexion = connexion;
-            LoadMets();
-            LoadClient();
-            LoadCuisiniers();
             this.mdp_admin = mdp_admin;
             this.BackColor = Color.LightBlue;
+            LoadMets();
+            LoadClient();
+            LoadCuisiniers();       
         }
         public void LoadCuisiniers()
         {
@@ -110,6 +110,7 @@ namespace LivInParis.Partie_Interface.admin
 
         public void LoadClient()
         {
+            //join pour avoir seulement les clients qui ont fais des commandes
             string query = @"
             SELECT c.Identifiant_client, p.nom_particulier, p.prenom_particulier, p.adresse_particulier
             FROM commande c
@@ -136,7 +137,7 @@ namespace LivInParis.Partie_Interface.admin
         private void button3_Click(object sender, EventArgs e)
         {
             string chemin_fichier = "cuisiniers_LivInParis.xml";
-            using (XmlWriter writer = XmlWriter.Create(chemin_fichier, new XmlWriterSettings { Indent = true }))
+            XmlWriter writer = XmlWriter.Create(chemin_fichier, new XmlWriterSettings { Indent = true });
             {
                 writer.WriteStartDocument();
                 writer.WriteStartElement("Cuisiniers");
@@ -144,21 +145,17 @@ namespace LivInParis.Partie_Interface.admin
                 foreach (var cuisinier in cuisiniers)
                 {
                     writer.WriteStartElement("Cuisinier");
-
                     writer.WriteElementString("Nom", cuisinier.Nom);
                     writer.WriteElementString("Prenom", cuisinier.Prenom);
                     writer.WriteElementString("Type", cuisinier.Type);
                     writer.WriteElementString("Adresse", cuisinier.adresse);
                     writer.WriteElementString("Mail", cuisinier.mail);
                     writer.WriteElementString("Telephone", cuisinier.telephone.ToString());
-
                     writer.WriteEndElement();
                 }
-
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
             }
-
             MessageBox.Show("Cuisiniers enregistrés au format XML");
         }
 

@@ -24,11 +24,11 @@ namespace LivInParis
             this.connexion = connexion;
             this._text_box_con.KeyDown += _text_box_con_KeyDown;
             this.mdp_admin = mdp_admin;
-
         }
 
         private void _text_box_con_KeyDown(object? sender, KeyEventArgs e)
         {
+            //ajouter pour quand on appuie sur entrée on se connecte (gain de temps)
             if (e.KeyCode == Keys.Enter)
             {
                 button1_Click(sender, e);

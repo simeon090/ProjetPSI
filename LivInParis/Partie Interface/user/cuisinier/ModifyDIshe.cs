@@ -53,7 +53,7 @@ namespace LivInParis.Partie_Interface
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur lors de la récupération des identifiants des clients: " + ex.Message);
+                MessageBox.Show("erreur : " + ex.Message);
             }
         }
 
@@ -82,7 +82,7 @@ namespace LivInParis.Partie_Interface
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur lors de la récupération des identifiants des clients: " + ex.Message);
+                MessageBox.Show("erreur : " + ex.Message);
             }
         }
 
@@ -156,12 +156,12 @@ namespace LivInParis.Partie_Interface
                 }
                 else
                 {
-                    MessageBox.Show("Aucun met trouvé à mettre à jour.");
+                    MessageBox.Show("Aucun met trouvé !");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("une erreur c'est produise lors de la mise à jour du met : " + ex.Message);
+                MessageBox.Show("une erreur c'est produise " + ex.Message);
             }
         }
 

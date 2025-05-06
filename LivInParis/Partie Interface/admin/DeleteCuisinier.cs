@@ -20,11 +20,10 @@ namespace LivInParis.Partie_Interface
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             this.connexion = connexion;
-            LoadCuisinierFrom();
             this.mdp_admin = mdp_admin;
-
+            LoadCuisiniers();
         }
-        void LoadCuisinierFrom()
+        void LoadCuisiniers()
         {
             List<string> cuisinier = new List<string>();
             try
@@ -59,29 +58,29 @@ namespace LivInParis.Partie_Interface
         private void button1_Click_1(object sender, EventArgs e)
         {
             string nom_cuisinier = _delete_box_cuis.SelectedItem?.ToString();
-            if (string.IsNullOrEmpty(nom_cuisinier))
+            if (nom_cuisinier == null)
             {
                 MessageBox.Show("Veuillez sélectionner un cuisinier.");
-                return;
-            }
-
-            try
+            } else
             {
-                string enlever_ctrt = "SET foreign_key_checks=0";
-                MySqlCommand cmd = new MySqlCommand(enlever_ctrt, connexion);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    string enlever_ctrt = "SET foreign_key_checks=0";
+                    MySqlCommand cmd = new MySqlCommand(enlever_ctrt, connexion);
+                    cmd.ExecuteNonQuery();
 
-                string query = "DELETE FROM cuisinier WHERE nom_cuisinier = @nom_cuisinier";
-                MySqlCommand deleteCmd = new MySqlCommand(query, connexion);
-                deleteCmd.Parameters.AddWithValue("@nom_cuisinier", nom_cuisinier);
-                deleteCmd.ExecuteNonQuery();
+                    string query = "DELETE FROM cuisinier WHERE nom_cuisinier = @nom_cuisinier";
+                    MySqlCommand deleteCmd = new MySqlCommand(query, connexion);
+                    deleteCmd.Parameters.AddWithValue("@nom_cuisinier", nom_cuisinier);
+                    deleteCmd.ExecuteNonQuery();
 
-                MessageBox.Show("Cuisinier supprimé avec succès.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur lors de la suppression du cuisinier: " + ex.Message);
-            }
+                    MessageBox.Show("Cuisinier supprimé avec succès.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("erreur : " + ex.Message);
+                }
+            }     
         }
 
         private void label1_Click(object sender, EventArgs e)

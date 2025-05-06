@@ -72,5 +72,12 @@ namespace LivInParis
             this.Hide();
             export.ShowDialog();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            StatsAdmin statistiques = new StatsAdmin(mdp_admin, connexion);
+            this.Hide();
+            statistiques.ShowDialog();
+        }
     }
 }

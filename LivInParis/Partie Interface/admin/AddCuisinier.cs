@@ -25,6 +25,9 @@ namespace LivInParis.Partie_Interface
 
         }
 
+        /// <summary>
+        /// Charge les stations de métros à partir de la base de donnée
+        /// </summary>
         private void ChargerStations()
         {
             List<string> stationsMetroParis = new List<string> { };
@@ -53,7 +56,6 @@ namespace LivInParis.Partie_Interface
 
             try
             {
-                // Requête SQL pour ajouter un cuisinier
                 string query = "INSERT INTO Cuisinier (nom_cuisinier, prenom_cuisinier, telephone_cuisinier, adresse_cuisinier, station_métro, mail_cuisinier) VALUES (@nom, @prenom, @telephone, @adresse, @station_metro, @e_mail)";
 
                 MySqlCommand cmd = new MySqlCommand(query, connexion);
@@ -74,7 +76,7 @@ namespace LivInParis.Partie_Interface
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur lors de l'ajout du cuisinier : " + ex.Message);
+                MessageBox.Show("Erreur de l'ajout du cuisinier: " + ex.Message);
             }
         }
 

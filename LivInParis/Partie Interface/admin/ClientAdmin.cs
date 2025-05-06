@@ -1,4 +1,5 @@
 ﻿using LivInParis.Partie_Interface;
+using LivInParis.Partie_Interface.classes;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using Org.BouncyCastle.Asn1.Cmp;
@@ -24,17 +25,9 @@ namespace LivInParis
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             this.connexion = connexion;
-            LoadData();
             this.mdp_admin = mdp_admin;
-
+            LoadData();
         }
-
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
 
         void LoadData()
         {
@@ -61,11 +54,9 @@ namespace LivInParis
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erreur : " + ex.Message);
+                    MessageBox.Show("erreur : " + ex.Message);
                 }
             }
-
-
             bindingSource1.DataSource = particuliers;
             dataGridView1.DataSource = bindingSource1;
         }
@@ -73,11 +64,9 @@ namespace LivInParis
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AddNewClient form_tu = new AddNewClient(mdp_admin, connexion);
+            AddNewClient ajouter_client = new AddNewClient(mdp_admin, connexion);
             this.Close();
-            form_tu.Show();
-
-            LoadData();
+            ajouter_client.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -85,22 +74,20 @@ namespace LivInParis
 
             if (dataGridView1.CurrentRow != null)
             {
-                var item = dataGridView1.CurrentRow.DataBoundItem;
-
                 string id_client_interface = null;
 
                 //on verifie si item est un particulier
-                if (item is Particulier p)
+                if (dataGridView1.CurrentRow.DataBoundItem is Particulier p)
                 {
                     id_client_interface = p.Identifiant_client;
                 }
                 //on verifie si item est un client achats
-                else if (item is ClientAchats c)
+                else if (dataGridView1.CurrentRow.DataBoundItem is ClientAchats c)
                 {
                     id_client_interface = c.IdentifiantClient;
                 }
 
-                if (!string.IsNullOrEmpty(id_client_interface))
+                if (id_client_interface != null)
                 {
                     SupprimerClient(id_client_interface);
                 }
@@ -115,6 +102,7 @@ namespace LivInParis
         {
             try
             {
+                // on enleve la contrainte des clés étrangère pour eviter certaines erreurs
                 string enlever_ctrt = "SET foreign_key_checks=0";
                 new MySqlCommand(enlever_ctrt, connexion).ExecuteNonQuery();
 
@@ -128,10 +116,12 @@ namespace LivInParis
                 cmd.Parameters.AddWithValue("@IdentifiantClient", id_client);
                 cmd.ExecuteNonQuery();
 
+                // on remet la contrainte
                 string remettre_ctrt = "SET foreign_key_checks=1";
                 new MySqlCommand(remettre_ctrt, connexion).ExecuteNonQuery();
 
                 MessageBox.Show("Client supprimé avec succès !");
+                // on met à jour la data
                 LoadData();
             }
             catch (Exception ex)
@@ -146,7 +136,7 @@ namespace LivInParis
 
             try
             {
-                string query = "SELECT * FROM Particulier ORDER BY adresse_particulier"; // Trie par adresse
+                string query = "SELECT * FROM Particulier ORDER BY adresse_particulier";
                 MySqlCommand cmd = new MySqlCommand(query, connexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -165,14 +155,10 @@ namespace LivInParis
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show("erreur : " + ex.Message);
             }
-
-
             bindingSource1.DataSource = particuliers;
             dataGridView1.DataSource = bindingSource1;
-
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -210,7 +196,7 @@ namespace LivInParis
 
         private void button6_Click(object sender, EventArgs e)
         {
-            List<ClientAchats> clientsAchats = new List<ClientAchats>();
+            List<ClientAchats> clients_achats = new List<ClientAchats>();
 
             try
             {
@@ -232,7 +218,7 @@ namespace LivInParis
 
                 while (reader.Read())
                 {
-                    clientsAchats.Add(new ClientAchats(
+                    clients_achats.Add(new ClientAchats(
                         reader.GetString("Identifiant_client"),
                         reader.GetString("nom_particulier"),
                         reader.GetString("prenom_particulier"),
@@ -243,10 +229,10 @@ namespace LivInParis
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show("erreur : " + ex.Message);
                 Console.WriteLine(ex.ToString());
             }
-            bindingSource1.DataSource = clientsAchats;
+            bindingSource1.DataSource = clients_achats;
             dataGridView1.DataSource = bindingSource1;
 
 
@@ -257,33 +243,36 @@ namespace LivInParis
         {
             if (dataGridView1.CurrentRow != null)
             {
-                var item = dataGridView1.CurrentRow.DataBoundItem;
-
-                string id_client_interface = null;
+               string id_client_interface = null;
 
                 //on verifie si item est un particulier
-                if (item is Particulier p)
+                if (dataGridView1.CurrentRow.DataBoundItem is Particulier p)
                 {
                     id_client_interface = p.Identifiant_client;
                 }
                 //on verifie si item est un client achats
-                else if (item is ClientAchats c)
+                else if (dataGridView1.CurrentRow.DataBoundItem is ClientAchats c)
                 {
                     id_client_interface = c.IdentifiantClient;
                 }
 
-                if (!string.IsNullOrEmpty(id_client_interface))
+                if (id_client_interface != null)
                 {
-                    UserOrders form = new UserOrders(id_client_interface, true, connexion);
+                    UserOrders page_commandes = new UserOrders(id_client_interface, true, connexion);
                     this.Close();
-                    form.Show();
+                    page_commandes.Show();
                     LoadData();
                 }
                 else
                 {
-                    MessageBox.Show("Aucun client sélectionnée");
+                    MessageBox.Show("Aucun client sélectionnée!");
                 }
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void ClientPage_Load(object sender, EventArgs e)
@@ -303,17 +292,15 @@ namespace LivInParis
         {
             if (dataGridView1.CurrentRow != null)
             {
-                var item = dataGridView1.CurrentRow.DataBoundItem;
-
                 string id_particulier = null;
 
                 //on verifie si item est un particulier
-                if (item is Particulier p)
+                if (dataGridView1.CurrentRow.DataBoundItem is Particulier p)
                 {
                     id_particulier = p.Identifiant_client;
                 }
                 //on verifie si item est un client achats
-                else if (item is ClientAchats c)
+                else if (dataGridView1.CurrentRow.DataBoundItem is ClientAchats c)
                 {
                     id_particulier = c.IdentifiantClient;
                 }
@@ -326,56 +313,9 @@ namespace LivInParis
                 }
                 else
                 {
-                    MessageBox.Show("Aucun client sélectionnée");
+                    MessageBox.Show("Aucun client sélectionnée!");
                 }
             }
         }
     }
-
-    public class Particulier
-    {
-        public decimal numéro_tel_particulier { get; set; }
-        public string nom_particulier { get; set; }
-        public string prenom_particulier { get; set; }
-        public string adresse_particulier { get; set; }
-        public string Identifiant_client { get; set; }
-
-        public string mail_client { get; set; }
-
-        
-        public Particulier(decimal numéro_tel_particulier, string nom_particulier, string prenom_particulier, string adresse_particulier, string Identifiant_client, string mail_client)
-        {
-            this.numéro_tel_particulier = numéro_tel_particulier;
-            this.nom_particulier = nom_particulier;
-            this.prenom_particulier = prenom_particulier;
-            this.adresse_particulier = adresse_particulier;
-            this.Identifiant_client = Identifiant_client;
-            this.mail_client = mail_client;
-
-        }
-    }
-
-    public class ClientAchats
-    {
-        public string IdentifiantClient 
-        { get; set; }
-        public string nom_particulier 
-        { get; set; }
-
-        public string prenom_particulier 
-        { get; set; }
-
-        public decimal MontantTotalAchats 
-        { get; set; }
-
-        public ClientAchats(string identifiantClient, string nom_particulier, string prenom_particulier, decimal montantTotalAchats)
-        {
-            this.IdentifiantClient = identifiantClient;
-            this.nom_particulier = nom_particulier;
-            this.prenom_particulier = prenom_particulier;
-            this. MontantTotalAchats = montantTotalAchats;
-        }
-    }
-
-
 }

@@ -21,13 +21,10 @@ namespace LivInParis.Partie_Interface
             InitializeComponent();
             this.connexion = connexion;
             this.mdp_admin = mdp_admin;
-            LoadClientFrom();
-
-
+            LoadCuisiniers();
         }
 
-
-        void LoadClientFrom()
+        void LoadCuisiniers()
         {
             List<string> cuisinier = new List<string>();
 
@@ -52,6 +49,7 @@ namespace LivInParis.Partie_Interface
             }
             this._modif_cuis_box.Items.AddRange(cuisinier.ToArray());
         }
+
 
         private void _modif_cuis_box_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -99,12 +97,9 @@ namespace LivInParis.Partie_Interface
 
             try
             {
-                // Requête SQL pour ajouter un met
                 string query = "UPDATE cuisinier SET adresse_cuisinier=@adresse, station_métro=@station, mail_cuisinier=@mail WHERE nom_cuisinier=@nom";
 
                 MySqlCommand cmd = new MySqlCommand(query, connexion);
-
-
 
                 cmd.Parameters.AddWithValue("@nom", nom_cuisinier);
                 cmd.Parameters.AddWithValue("@adresse", adresse_cuisinier);

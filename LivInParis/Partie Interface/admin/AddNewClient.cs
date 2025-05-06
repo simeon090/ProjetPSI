@@ -34,23 +34,21 @@ namespace LivInParis
             string prenom = this.textBox2.Text;
             string mail = this.textBox4.Text;
             string adresse = this.textBox3.Text;
-            double tel = Convert.ToDouble(this.textBox5.Text);
+            
 
                 try
                 {
-                    // Requête SQL pour ajouter un client
+                    // dans le try pour gérer les erreurs
+                    int tel = Convert.ToInt32(this.textBox5.Text);
                     string query_client = "INSERT INTO Client (Identifiant_client, Mot_de_passe) VALUES (@IdentifiantClient, @MotDePasse)";
 
                     MySqlCommand cmd = new MySqlCommand(query_client, connexion);
 
-
                     cmd.Parameters.AddWithValue("@IdentifiantClient", id_client);
                     cmd.Parameters.AddWithValue("@MotDePasse", pwd_client);
 
-
                     cmd.ExecuteNonQuery();
 
-                    // Requête SQL pour ajouter un particulier en lien avec le client
                     string query_particulier = "INSERT INTO particulier (numéro_tel_particulier, nom_particulier, prenom_particulier, adresse_particulier, Identifiant_client, mail_particulier) " +
                            "VALUES (@NumeroTel, @Nom, @Prenom, @Adresse, @IdentifiantClient, @Mail)";
 
@@ -63,14 +61,13 @@ namespace LivInParis
                     cmd.Parameters.AddWithValue("@IdentifiantClient", id_client);
                     cmd.Parameters.AddWithValue("@Mail", mail);
 
-
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Client ajouté avec succès!");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erreur lors de l'insertion du client: " + ex.Message);
+                    MessageBox.Show("Erreur insertion du client: " + ex.Message);
                 }
         }
 

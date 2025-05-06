@@ -13,9 +13,7 @@ namespace LivInParis
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             this.connexion = connexion;
-            dataGridView1.AutoGenerateColumns = true;
             this.mdp_admin = mdp_admin;
-
         }
 
 
@@ -64,8 +62,8 @@ namespace LivInParis
 
             bindingSource1.DataSource = clientsCuisiniers;
             dataGridView1.DataSource = bindingSource1;
-
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             List<Cuisinier> cuisiniers = new List<Cuisinier>();
@@ -143,7 +141,7 @@ namespace LivInParis
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show("erreur : " + ex.Message);
             }
 
             bindingSource1.DataSource = cuisiniersPlats;

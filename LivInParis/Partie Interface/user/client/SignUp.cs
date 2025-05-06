@@ -30,51 +30,39 @@ namespace LivInParis
             string nom = this._nom_create.Text;
             string prenom = this._prenom_create.Text;
             string adresse = this._adresse_create.Text;
-            string telephone = this._tel_create.Text;
             string mail = this.textBox1.Text;
 
-            if (!decimal.TryParse(telephone, out decimal telephoneDecimal))
+            try
             {
-                MessageBox.Show("Erreur : Le numéro de téléphone doit être un nombre valide.");
-                return;
+                int telephone = Convert.ToInt32(this._tel_create.Text);
+                // requeete 1 
+                string queryClient = "INSERT INTO Client (Identifiant_client, Mot_de_passe) VALUES (@IdentifiantClient, @MotDePasse)";
+                MySqlCommand cmdClient = new MySqlCommand(queryClient, connexion);
+                cmdClient.Parameters.AddWithValue("@IdentifiantClient", id);
+                cmdClient.Parameters.AddWithValue("@MotDePasse", pwd);
+                cmdClient.ExecuteNonQuery();
+
+                // requete 2 
+                string queryParticulier = "INSERT INTO Particulier (Identifiant_client, nom_particulier, prenom_particulier, adresse_particulier, numéro_tel_particulier, mail_particulier) " +
+                                            "VALUES (@Identifiant_client, @nom_particulier, @prenom_particulier, @adresse_particulier, @numéro_particulier, @mail_particulier)";
+                MySqlCommand cmdParticulier = new MySqlCommand(queryParticulier, connexion);
+                cmdParticulier.Parameters.AddWithValue("@Identifiant_client", id);
+                cmdParticulier.Parameters.AddWithValue("@nom_particulier", nom);
+                cmdParticulier.Parameters.AddWithValue("@prenom_particulier", prenom);
+                cmdParticulier.Parameters.AddWithValue("@adresse_particulier", adresse);
+                cmdParticulier.Parameters.AddWithValue("@numéro_particulier", telephone);
+                cmdParticulier.Parameters.AddWithValue("@mail_particulier", mail);
+                cmdParticulier.ExecuteNonQuery();
+
+                MessageBox.Show("Compte créé avec succès!");
+                HomePageUser connexion_utilisateur = new HomePageUser(id, connexion);
+                this.Hide();
+                connexion_utilisateur.ShowDialog();
             }
-
-                using (MySqlTransaction transaction = connexion.BeginTransaction())
-                {
-                    try
-                    {
-                        // requeete 1 
-                        string queryClient = "INSERT INTO Client (Identifiant_client, Mot_de_passe) VALUES (@IdentifiantClient, @MotDePasse)";
-                        MySqlCommand cmdClient = new MySqlCommand(queryClient, connexion, transaction);
-                        cmdClient.Parameters.AddWithValue("@IdentifiantClient", id);
-                        cmdClient.Parameters.AddWithValue("@MotDePasse", pwd);
-                        cmdClient.ExecuteNonQuery();
-
-                        // requete 2 
-                        string queryParticulier = "INSERT INTO Particulier (Identifiant_client, nom_particulier, prenom_particulier, adresse_particulier, numéro_tel_particulier, mail_particulier) " +
-                                                  "VALUES (@Identifiant_client, @nom_particulier, @prenom_particulier, @adresse_particulier, @numéro_particulier, @mail_particulier)";
-                        MySqlCommand cmdParticulier = new MySqlCommand(queryParticulier, connexion, transaction);
-                        cmdParticulier.Parameters.AddWithValue("@Identifiant_client", id);
-                        cmdParticulier.Parameters.AddWithValue("@nom_particulier", nom);
-                        cmdParticulier.Parameters.AddWithValue("@prenom_particulier", prenom);
-                        cmdParticulier.Parameters.AddWithValue("@adresse_particulier", adresse);
-                        cmdParticulier.Parameters.AddWithValue("@numéro_particulier", telephoneDecimal);
-                        cmdParticulier.Parameters.AddWithValue("@mail_particulier", mail);
-                        cmdParticulier.ExecuteNonQuery();
-
-                        transaction.Commit();
-                        MessageBox.Show("Compte créé avec succès!");
-                        HomePageUser connexion_utilisateur = new HomePageUser(id, connexion);
-                        this.Hide();
-                        connexion_utilisateur.ShowDialog();
-                    }
-                    catch (Exception ex)
-                    {
-                        // message erreur 
-                        transaction.Rollback();
-                        MessageBox.Show("Erreur lors de l'insertion: " + ex.Message);
-                    }
-                }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de l'insertion: " + ex.Message);
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -96,20 +84,5 @@ namespace LivInParis
         {
 
         }
-
-        //private void Créer_un_compte_Load(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void textBox1_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void _mdp_create_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
     }
 }

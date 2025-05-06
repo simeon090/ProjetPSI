@@ -47,7 +47,6 @@ namespace LivInParis.Partie_Interface
 
             try
             {
-                // Requête SQL pour ajouter un met
                 string query = "INSERT INTO Mets (nom_mets, prix, type, régime_alimentaire, telephone_cuisinier, nationalité, quantité) VALUES (@nom_met, @prix_met, @type_met, @regime_ali, @tel_cuisinier, @nationalité, @quantité)";
 
                 MySqlCommand cmd = new MySqlCommand(query, connexion);

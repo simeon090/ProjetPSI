@@ -50,17 +50,13 @@ namespace LivInParis.Partie_Interface
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erreur lors de la récupération des noms de mets: " + ex.Message);
+                    MessageBox.Show("erreir: " + ex.Message);
                 }
             this.comboBox1.Items.AddRange(mets.ToArray());
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
-
-
 
         }
 
@@ -83,7 +79,7 @@ namespace LivInParis.Partie_Interface
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erreur lors de la récupération des prix: " + ex.Message);
+                    MessageBox.Show("erreir " + ex.Message);
                 }
         }
 
