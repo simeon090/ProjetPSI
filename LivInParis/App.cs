@@ -12,7 +12,7 @@ namespace LivInParis
         {
             // Initialisation Partie Graphique
             ApplicationConfiguration.Initialize();
-            Application.Run(new LivInParis.Connexion_user());
+            Application.Run(new LivInParis.ConnexionUser());
 
             GrapheMetro Test_Graphe = new GrapheMetro(chemin_csv_stations, chemin_csv_arcs);
             //Test_Graphe.VisualiserGraphe();
@@ -95,7 +95,7 @@ namespace LivInParis
     {
         private static Base_Données instance = null;
         private MySqlConnection db;
-        string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=psg123*;";
+        string connectionString = "server=localhost;database=projet_psi_2;uid=root;pwd=simeon;";
 
         public Base_Données()
         {

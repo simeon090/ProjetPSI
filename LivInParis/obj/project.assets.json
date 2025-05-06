@@ -1614,11 +1614,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\simeo\\OneDrive - De Vinci\\Documents\\PB_Scientifique_INFO\\PSI2_Github\\PSI2_Github\\LivInParis\\LivInParis.csproj",
+      "projectUniqueName": "C:\\Users\\simeo\\Desktop\\CLEAN PSI\\ProjetPSI-master (2)\\ProjetPSI-master\\LivInParis\\LivInParis.csproj",
       "projectName": "LivInParis",
-      "projectPath": "C:\\Users\\simeo\\OneDrive - De Vinci\\Documents\\PB_Scientifique_INFO\\PSI2_Github\\PSI2_Github\\LivInParis\\LivInParis.csproj",
+      "projectPath": "C:\\Users\\simeo\\Desktop\\CLEAN PSI\\ProjetPSI-master (2)\\ProjetPSI-master\\LivInParis\\LivInParis.csproj",
       "packagesPath": "C:\\Users\\simeo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\simeo\\OneDrive - De Vinci\\Documents\\PB_Scientifique_INFO\\PSI2_Github\\PSI2_Github\\LivInParis\\obj\\",
+      "outputPath": "C:\\Users\\simeo\\Desktop\\CLEAN PSI\\ProjetPSI-master (2)\\ProjetPSI-master\\LivInParis\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
