@@ -43,12 +43,13 @@
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             label6 = new Label();
             _choix_station_commande = new ComboBox();
+            label7 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(123, 98);
+            label1.Location = new Point(180, 111);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(57, 25);
@@ -58,7 +59,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(121, 228);
+            label2.Location = new Point(178, 241);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(80, 25);
@@ -68,7 +69,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(123, 358);
+            label3.Location = new Point(180, 371);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(91, 25);
@@ -78,7 +79,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(120, 487);
+            label4.Location = new Point(186, 494);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(115, 25);
@@ -88,7 +89,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(120, 684);
+            label5.Location = new Point(186, 691);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(265, 25);
@@ -97,7 +98,7 @@
             // 
             // _nom_box
             // 
-            _nom_box.Location = new Point(123, 143);
+            _nom_box.Location = new Point(180, 156);
             _nom_box.Margin = new Padding(4, 5, 4, 5);
             _nom_box.Name = "_nom_box";
             _nom_box.Size = new Size(630, 31);
@@ -105,7 +106,7 @@
             // 
             // _prenom_box
             // 
-            _prenom_box.Location = new Point(123, 263);
+            _prenom_box.Location = new Point(180, 276);
             _prenom_box.Margin = new Padding(4, 5, 4, 5);
             _prenom_box.Name = "_prenom_box";
             _prenom_box.Size = new Size(630, 31);
@@ -113,7 +114,7 @@
             // 
             // _telephone_box
             // 
-            _telephone_box.Location = new Point(129, 392);
+            _telephone_box.Location = new Point(186, 405);
             _telephone_box.Margin = new Padding(4, 5, 4, 5);
             _telephone_box.Name = "_telephone_box";
             _telephone_box.Size = new Size(624, 31);
@@ -121,7 +122,7 @@
             // 
             // _mail_box
             // 
-            _mail_box.Location = new Point(123, 517);
+            _mail_box.Location = new Point(189, 524);
             _mail_box.Margin = new Padding(4, 5, 4, 5);
             _mail_box.Name = "_mail_box";
             _mail_box.Size = new Size(630, 31);
@@ -129,7 +130,7 @@
             // 
             // _adresse_box
             // 
-            _adresse_box.Location = new Point(120, 622);
+            _adresse_box.Location = new Point(186, 629);
             _adresse_box.Margin = new Padding(4, 5, 4, 5);
             _adresse_box.Name = "_adresse_box";
             _adresse_box.Size = new Size(627, 31);
@@ -138,7 +139,7 @@
             // adresse
             // 
             adresse.AutoSize = true;
-            adresse.Location = new Point(126, 585);
+            adresse.Location = new Point(192, 592);
             adresse.Margin = new Padding(4, 0, 4, 0);
             adresse.Name = "adresse";
             adresse.Size = new Size(72, 25);
@@ -147,7 +148,7 @@
             // 
             // _confirmer_button
             // 
-            _confirmer_button.Location = new Point(396, 802);
+            _confirmer_button.Location = new Point(387, 808);
             _confirmer_button.Margin = new Padding(4, 5, 4, 5);
             _confirmer_button.Name = "_confirmer_button";
             _confirmer_button.Size = new Size(186, 68);
@@ -178,17 +179,29 @@
             // _choix_station_commande
             // 
             _choix_station_commande.FormattingEnabled = true;
-            _choix_station_commande.Location = new Point(120, 727);
+            _choix_station_commande.Location = new Point(186, 734);
             _choix_station_commande.Name = "_choix_station_commande";
             _choix_station_commande.Size = new Size(627, 33);
             _choix_station_commande.TabIndex = 14;
             _choix_station_commande.SelectedIndexChanged += _choix_station_commande_SelectedIndexChanged;
             // 
-            // Ajouter_cuisinier
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(258, 22);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(510, 65);
+            label7.TabIndex = 15;
+            label7.Text = "Ajouter un cuisinier : ";
+            // 
+            // AddCuisinier
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1113, 890);
+            Controls.Add(label7);
             Controls.Add(_choix_station_commande);
             Controls.Add(label6);
             Controls.Add(_confirmer_button);
@@ -204,7 +217,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Margin = new Padding(4, 5, 4, 5);
-            Name = "Ajouter_cuisinier";
+            Name = "AddCuisinier";
             Text = "Ajouter_cuisinier";
             ResumeLayout(false);
             PerformLayout();
@@ -227,5 +240,6 @@
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private Label label6;
         private ComboBox _choix_station_commande;
+        private Label label7;
     }
 }

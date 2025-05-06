@@ -14,12 +14,15 @@ namespace LivInParis
 {
     public partial class AddNewClient : Form
     {
-
-
-        public AddNewClient()
+        public string mdp_admin;
+        public MySqlConnection connexion;
+        public AddNewClient(string mdp_admin, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
+            this.connexion = connexion;
+            this.mdp_admin = mdp_admin;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,9 +36,6 @@ namespace LivInParis
             string adresse = this.textBox3.Text;
             double tel = Convert.ToDouble(this.textBox5.Text);
 
-
-            using (MySqlConnection connexion = Base_Données.Instance.DB)
-            {
                 try
                 {
                     // Requête SQL pour ajouter un client
@@ -72,14 +72,11 @@ namespace LivInParis
                 {
                     MessageBox.Show("Erreur lors de l'insertion du client: " + ex.Message);
                 }
-            }
-
-            Close();
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            ClientAdmin clientPage = new ClientAdmin();
+            ClientAdmin clientPage = new ClientAdmin(mdp_admin, connexion);
             this.Close();
             clientPage.ShowDialog();
         }
@@ -120,6 +117,11 @@ namespace LivInParis
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddNewClient_Load(object sender, EventArgs e)
         {
 
         }

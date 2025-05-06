@@ -16,24 +16,21 @@ namespace LivInParis.Partie_Interface
 
         public string id_client;
         public int tel_cuisinier;
-        public DeleteDishe(string id_client, int tel_cuisinier)
+        public MySqlConnection connexion;
+        public DeleteDishe(string id_client, int tel_cuisinier, MySqlConnection connexion)
         {
             this.BackColor = Color.LightBlue;
             InitializeComponent();
             this.id_client = id_client;
             this.tel_cuisinier = tel_cuisinier;
-            LoadMetsFrom();
-
-           
-            Console.WriteLine(tel_cuisinier);
+            this.connexion = connexion;
+            LoadMetsFrom(); 
         }
 
         void LoadMetsFrom()
         {
             List<string> mets = new List<string>();
 
-            using (MySqlConnection connexion = Base_Données.Instance.DB)
-            {
                 try
                 {
                     string query = "SELECT nom_mets from mets WHERE telephone_cuisinier=@telephone_cuisinier";
@@ -55,7 +52,6 @@ namespace LivInParis.Partie_Interface
                 {
                     MessageBox.Show("Erreur lors de la récupération des noms de mets: " + ex.Message);
                 }
-            }
             this.comboBox1.Items.AddRange(mets.ToArray());
         }
 
@@ -72,8 +68,6 @@ namespace LivInParis.Partie_Interface
         {
             string nom_mets = comboBox1.SelectedItem?.ToString();
 
-            using (MySqlConnection connexion = Base_Données.Instance.DB)
-            {
                 try
                 {
                     string query = "DELETE from mets where nom_mets=@nom";
@@ -91,12 +85,11 @@ namespace LivInParis.Partie_Interface
                 {
                     MessageBox.Show("Erreur lors de la récupération des prix: " + ex.Message);
                 }
-            }
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            ModeCuisinier modeCuisinier = new ModeCuisinier(id_client, tel_cuisinier);
+            ModeCuisinier modeCuisinier = new ModeCuisinier(id_client, tel_cuisinier, connexion);
             this.Close();
             modeCuisinier.Show();
         }

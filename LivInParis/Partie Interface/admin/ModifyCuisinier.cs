@@ -13,14 +13,16 @@ namespace LivInParis.Partie_Interface
 {
     public partial class ModifyCuisinier : Form
     {
-       public MySqlConnection connexion;
-        public ModifyCuisinier()
+        public MySqlConnection connexion;
+        public string mdp_admin;
+        public ModifyCuisinier(string mdp_admin, MySqlConnection connexion)
         {
             this.BackColor = Color.LightBlue;
             InitializeComponent();
-            this.connexion = Base_Données.Instance.DB;
+            this.connexion = connexion;
+            this.mdp_admin = mdp_admin;
             LoadClientFrom();
-            
+
 
         }
 
@@ -76,13 +78,13 @@ namespace LivInParis.Partie_Interface
             {
                 MessageBox.Show("Erreur lors de la récupération des identifiants des clients: " + ex.Message);
             }
-           
+
 
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            CuisinierAdmin cp = new CuisinierAdmin();
+            CuisinierAdmin cp = new CuisinierAdmin(mdp_admin, connexion);
             this.Close();
             cp.Show();
 
@@ -101,9 +103,9 @@ namespace LivInParis.Partie_Interface
                 string query = "UPDATE cuisinier SET adresse_cuisinier=@adresse, station_métro=@station, mail_cuisinier=@mail WHERE nom_cuisinier=@nom";
 
                 MySqlCommand cmd = new MySqlCommand(query, connexion);
-                
-                
-                
+
+
+
                 cmd.Parameters.AddWithValue("@nom", nom_cuisinier);
                 cmd.Parameters.AddWithValue("@adresse", adresse_cuisinier);
                 cmd.Parameters.AddWithValue("@station", station_métro);
@@ -112,7 +114,7 @@ namespace LivInParis.Partie_Interface
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cuisinier modifié avec succès!");
-                CuisinierAdmin cp = new CuisinierAdmin();
+                CuisinierAdmin cp = new CuisinierAdmin(mdp_admin, connexion);
                 this.Close();
                 cp.Show();
             }
@@ -120,6 +122,11 @@ namespace LivInParis.Partie_Interface
             {
                 MessageBox.Show("Erreur lors de l'insertion du met: " + ex.Message);
             }
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
 
         }
     }

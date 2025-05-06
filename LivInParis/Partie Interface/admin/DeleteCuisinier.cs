@@ -13,38 +13,39 @@ namespace LivInParis.Partie_Interface
 {
     public partial class DeleteCuisinier : Form
     {
-        public DeleteCuisinier()
+        public string mdp_admin;
+        public MySqlConnection connexion;
+        public DeleteCuisinier(string mdp_admin, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
+            this.connexion = connexion;
             LoadCuisinierFrom();
+            this.mdp_admin = mdp_admin;
+
         }
         void LoadCuisinierFrom()
         {
             List<string> cuisinier = new List<string>();
-
-            using (MySqlConnection connexion = Base_Données.Instance.DB)
-            {
-                try
+            try
                 {
-                    string query = "SELECT nom_cuisinier from cuisinier";
+                string query = "SELECT nom_cuisinier from cuisinier";
 
-                    MySqlCommand cmd = new MySqlCommand(query, connexion);
+                MySqlCommand cmd = new MySqlCommand(query, connexion);
 
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        cuisinier.Add(reader.GetString("nom_cuisinier"));
-                    }
+                while (reader.Read())
+                {
+                    cuisinier.Add(reader.GetString("nom_cuisinier"));
+                }
 
-                    reader.Close();
+                reader.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erreur lors de la récupération des identifiants des clients: " + ex.Message);
                 }
-            }
             this._delete_box_cuis.Items.AddRange(cuisinier.ToArray());
         }
 
@@ -67,11 +68,11 @@ namespace LivInParis.Partie_Interface
             try
             {
                 string enlever_ctrt = "SET foreign_key_checks=0";
-                MySqlCommand cmd = new MySqlCommand(enlever_ctrt, Base_Données.Instance.DB);
+                MySqlCommand cmd = new MySqlCommand(enlever_ctrt, connexion);
                 cmd.ExecuteNonQuery();
 
                 string query = "DELETE FROM cuisinier WHERE nom_cuisinier = @nom_cuisinier";
-                MySqlCommand deleteCmd = new MySqlCommand(query, Base_Données.Instance.DB);
+                MySqlCommand deleteCmd = new MySqlCommand(query, connexion);
                 deleteCmd.Parameters.AddWithValue("@nom_cuisinier", nom_cuisinier);
                 deleteCmd.ExecuteNonQuery();
 
@@ -85,7 +86,7 @@ namespace LivInParis.Partie_Interface
 
         private void label1_Click(object sender, EventArgs e)
         {
-            CuisinierAdmin cp = new CuisinierAdmin();
+            CuisinierAdmin cp = new CuisinierAdmin(mdp_admin, connexion);
             this.Close();
             cp.Show();
         }

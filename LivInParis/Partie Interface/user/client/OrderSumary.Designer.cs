@@ -121,7 +121,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(33, 432);
+            label5.Location = new Point(33, 436);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(198, 48);
@@ -149,7 +149,7 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // Panier
+            // OrderSumary
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -167,7 +167,7 @@
             Margin = new Padding(4, 5, 4, 5);
             MaximumSize = new Size(1133, 963);
             MinimumSize = new Size(1133, 963);
-            Name = "Panier";
+            Name = "OrderSumary";
             Text = "Panier";
             Load += Panier_Load;
             ResumeLayout(false);

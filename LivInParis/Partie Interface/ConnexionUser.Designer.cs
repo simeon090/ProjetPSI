@@ -45,6 +45,7 @@
             _text_box_connexion_id.Name = "_text_box_connexion_id";
             _text_box_connexion_id.Size = new Size(833, 31);
             _text_box_connexion_id.TabIndex = 0;
+            _text_box_connexion_id.Font = new Font("Segoe UI", 14);
             _text_box_connexion_id.TextChanged += _text_box_connexion_id_TextChanged;
             // 
             // label1
@@ -63,8 +64,9 @@
             _text_box_con.Location = new Point(153, 448);
             _text_box_con.Margin = new Padding(4, 5, 4, 5);
             _text_box_con.Name = "_text_box_con";
-            _text_box_con.PasswordChar = '$';
+            _text_box_con.PasswordChar = '*';
             _text_box_con.Size = new Size(833, 31);
+            _text_box_con.Font = new Font("Segoe UI", 14);
             _text_box_con.TabIndex = 2;
             _text_box_con.TextChanged += _text_box_con_TextChanged;
             // 

@@ -16,11 +16,11 @@ namespace LivInParis.Partie_Interface
         MySqlConnection connexion;
         string id_particulier;
         Cuisinier nouveau_cuisinier;
-        public CreateCuisinier(string id_particulier, Cuisinier nouveau_cuisinier)
+        public CreateCuisinier(string id_particulier, Cuisinier nouveau_cuisinier, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
-            connexion = Base_Données.Instance.DB;
+            this.connexion = connexion;
             this.id_particulier = id_particulier;
             this.nouveau_cuisinier = nouveau_cuisinier;
             ChargerStations();
@@ -71,7 +71,7 @@ namespace LivInParis.Partie_Interface
             cmd.Parameters.AddWithValue("@e_mail", nouveau_cuisinier.Mail);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Félicitations vous êtes maintenant cuisinier");
-            ModeCuisinier cuisinier_page = new ModeCuisinier(id_particulier, nouveau_cuisinier.telephone);
+            ModeCuisinier cuisinier_page = new ModeCuisinier(id_particulier, nouveau_cuisinier.telephone, connexion);
             this.Hide();
             cuisinier_page.ShowDialog();
         }

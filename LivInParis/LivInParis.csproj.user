@@ -13,6 +13,12 @@
     <Compile Update="Partie Interface\admin\ClientAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Partie Interface\admin\ConnexionAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Partie Interface\admin\ExportData.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Partie Interface\ConnexionUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,7 +73,7 @@
     <Compile Update="Partie Interface\user\client\ModifyClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Utilisateur.cs">
+    <Compile Update="Partie Interface\classes\Utilisateur.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

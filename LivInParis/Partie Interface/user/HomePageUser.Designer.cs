@@ -38,32 +38,35 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(123, 78);
+            label1.Location = new Point(212, 208);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(515, 45);
+            label1.Size = new Size(732, 65);
             label1.TabIndex = 0;
-            label1.Text = "Quelle mode voulez vous utiliser ? ";
+            label1.Text = "Quel mode voulez-vous utiliser ? ";
             label1.Click += label1_Click;
             // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(52, 201);
+            button1.Location = new Point(74, 335);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(687, 114);
+            button1.Size = new Size(981, 190);
             button1.TabIndex = 1;
-            button1.Text = "Mode Client ";
+            button1.Text = "Client ";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
             button2.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(52, 370);
+            button2.Location = new Point(74, 617);
+            button2.Margin = new Padding(4, 5, 4, 5);
             button2.Name = "button2";
-            button2.Size = new Size(687, 100);
+            button2.Size = new Size(981, 167);
             button2.TabIndex = 2;
-            button2.Text = "Mode Cuisinier ";
+            button2.Text = "Cuisinier ";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -71,25 +74,27 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(3, -5);
+            label2.Location = new Point(4, -8);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(42, 40);
+            label2.Size = new Size(63, 60);
             label2.TabIndex = 3;
             label2.Text = "←";
             label2.Click += label2_Click;
             // 
-            // ChoixMode
+            // HomePageUser
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 561);
+            ClientSize = new Size(1111, 907);
             Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
-            MaximumSize = new Size(800, 600);
-            MinimumSize = new Size(800, 600);
-            Name = "ChoixMode";
+            Margin = new Padding(4, 5, 4, 5);
+            MaximumSize = new Size(1133, 963);
+            MinimumSize = new Size(1133, 963);
+            Name = "HomePageUser";
             Text = "Utilisateur";
             ResumeLayout(false);
             PerformLayout();

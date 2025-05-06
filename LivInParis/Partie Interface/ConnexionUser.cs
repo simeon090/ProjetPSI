@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using LivInParis.Partie_Interface.admin;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,17 @@ namespace LivInParis
 {
     public partial class ConnexionUser : Form
     {
-        public ConnexionUser()
+        public string mdp_admin;
+        public MySqlConnection connexion; 
+        public ConnexionUser(string mdp_admin, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackgroundImage = Image.FromFile("fond.jpg");
             this.BackgroundImageLayout = ImageLayout.Stretch;
-
+            this.connexion = connexion;
             this._text_box_con.KeyDown += _text_box_con_KeyDown;
+            this.mdp_admin = mdp_admin;
+
         }
 
         private void _text_box_con_KeyDown(object? sender, KeyEventArgs e)
@@ -34,31 +39,29 @@ namespace LivInParis
         {
             string id_client = this._text_box_connexion_id.Text;
             string pwd_client = this._text_box_con.Text;
-
-            MySqlConnection connexion = Base_Données.Instance.DB;
          
-                try
-                {
-                // requete SQL pour vérifier l'existence du client
-                string query = "SELECT COUNT(*) FROM Client WHERE Identifiant_client = @IdentifiantClient AND Mot_de_passe = @MotDePasse";
+            try
+            {
+            // requete SQL pour vérifier l'existence du client
+            string query = "SELECT COUNT(*) FROM Client WHERE Identifiant_client = @IdentifiantClient AND Mot_de_passe = @MotDePasse";
 
-                MySqlCommand cmd = new MySqlCommand(query, connexion);
+            MySqlCommand cmd = new MySqlCommand(query, connexion);
 
-                cmd.Parameters.AddWithValue("@IdentifiantClient", id_client);
-                cmd.Parameters.AddWithValue("@MotDePasse", pwd_client);
+            cmd.Parameters.AddWithValue("@IdentifiantClient", id_client);
+            cmd.Parameters.AddWithValue("@MotDePasse", pwd_client);
 
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
 
-                if (count > 0)
-                {
-                    HomePageUser connexion_utilisateur = new HomePageUser(id_client);
-                    this.Hide();
-                    connexion_utilisateur.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Identifiant ou mot de passe incorrect.");
-                }
+            if (count > 0)
+            {
+                HomePageUser connexion_utilisateur = new HomePageUser(id_client, connexion);
+                this.Hide();
+                connexion_utilisateur.Show();
+            }
+            else
+            {
+                MessageBox.Show("Identifiant ou mot de passe incorrect.");
+            }
             }
             catch (Exception ex)
             {
@@ -76,7 +79,7 @@ namespace LivInParis
 
         private void _button_create_account_Click(object sender, EventArgs e)
         {
-            SignUp new_user = new SignUp();
+            SignUp new_user = new SignUp(connexion);
             this.Hide();
             new_user.ShowDialog();
             this.Close();
@@ -84,7 +87,7 @@ namespace LivInParis
 
         private void button2_Click(object sender, EventArgs e)
         {
-            HomePageAdmin admi = new HomePageAdmin();
+            ConnexionAdmin admi = new ConnexionAdmin(mdp_admin, connexion);
             this.Hide();
             admi.ShowDialog();
 

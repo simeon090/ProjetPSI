@@ -17,14 +17,16 @@ namespace LivInParis
         MySqlConnection connexion;
         public string id_particulier;
         public bool is_admin;
-        public ModifyClient(string id_particulier, bool is_admin)
+        public string mdp_admin;
+        public ModifyClient(string id_particulier, bool is_admin, MySqlConnection connexion, string mdp_admin = "")
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             this.id_particulier = id_particulier;
-            connexion = Base_Données.Instance.DB;
+            this.connexion = connexion;
             LoadClient();
             this.is_admin = is_admin;
+            this.mdp_admin = mdp_admin;
 
         }
 
@@ -89,12 +91,12 @@ namespace LivInParis
         {
             if (is_admin)
             {
-                ClientAdmin clientPage = new ClientAdmin();
+                ClientAdmin clientPage = new ClientAdmin(mdp_admin, connexion);
                 this.Hide();
                 clientPage.ShowDialog();
             } else
             {
-                HomePageClient client_page = new HomePageClient(id_particulier);
+                HomePageClient client_page = new HomePageClient(id_particulier, connexion);
                 this.Hide();
                 client_page.ShowDialog();
             }

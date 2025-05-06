@@ -17,11 +17,11 @@ namespace LivInParis
         MySqlConnection connexion;
 
         //prend une liste de mets sélectionnés
-        public OrderSumary(List<Mets> metsSelectionnes, string id_client)
+        public OrderSumary(List<Mets> metsSelectionnes, string id_client, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
-            this.connexion = Base_Données.Instance.DB;
+            this.connexion = connexion;
 
             foreach (var mets in metsSelectionnes)
             {
@@ -118,7 +118,7 @@ namespace LivInParis
 
         private void label4_Click_1(object sender, EventArgs e)
         {
-            Passer_commande commande = new Passer_commande(id_client);
+            Passer_commande commande = new Passer_commande(id_client, connexion);
             this.Hide();
             commande.ShowDialog();
         }
@@ -160,7 +160,7 @@ namespace LivInParis
             }
 
             MessageBox.Show("Bravo votre commande a été passé!");
-            HomePageClient client_page = new HomePageClient(id_client);
+            HomePageClient client_page = new HomePageClient(id_client, connexion);
             this.Hide();
             client_page.ShowDialog();
         }

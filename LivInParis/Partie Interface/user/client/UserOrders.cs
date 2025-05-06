@@ -1,4 +1,5 @@
-﻿using LivInParis.Partie_Interface.user.client;
+﻿using LivInParis.Partie_Interface.classes;
+using LivInParis.Partie_Interface.user.client;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace LivInParis.Partie_Interface
 {
@@ -14,49 +16,52 @@ namespace LivInParis.Partie_Interface
         private BindingSource bindingSource1 = new BindingSource();
         public string id_client;
         public bool is_admin;
-        public UserOrders(string id_client, bool is_admin)
+        public string mdp_admin;
+        public MySqlConnection connexion;
+        public UserOrders(string id_client, bool is_admin, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             dataGridView1.AutoGenerateColumns = true;
             this.id_client = id_client;
             label3.Text = "Commandes de l'utilisateur : " + this.id_client;
-            LoadData();
             this.is_admin = is_admin;
-
+            this.connexion = connexion;
+            LoadData();
         }
 
         void LoadData()
         {
-            List<Commande> commandes = new List<Commande>();
-
-            MySqlConnection connexion = Base_Données.Instance.DB;
-
-            if (connexion.State != ConnectionState.Open)
-                connexion.Open();
+            List<SousCommande> lignes_commandes = new List<SousCommande>();
 
             string query = @"
-            SELECT c.numéro_commande, c.telephone_cuisinier, cu.nom_cuisinier, cu.prenom_cuisinier
+            SELECT lc.nom_du_mets, lc.nationalité, lc.prix, lc.régime_alimentaire, lc.date_livraison, c.numéro_commande, c.telephone_cuisinier, cu.nom_cuisinier, cu.prenom_cuisinier
             FROM Commande c
             JOIN Cuisinier cu ON c.telephone_cuisinier = cu.telephone_cuisinier
+            JOIN lignes_commandes lc ON c.numéro_commande = lc.numéro_commande
             WHERE Identifiant_client = @Identifiant_client
             ";
 
             MySqlCommand cmd = new MySqlCommand(query, connexion);
             cmd.Parameters.AddWithValue("@Identifiant_client", this.id_client);
-            using (MySqlDataReader reader = cmd.ExecuteReader())
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
-                while (reader.Read())
-                {
-                    commandes.Add(new Commande(
-                        Convert.ToInt32(reader.GetDecimal("telephone_cuisinier")),
-                        Convert.ToInt32(reader.GetDecimal("numéro_commande")),
+                lignes_commandes.Add(
+                    new SousCommande(
+                        reader.GetInt32("numéro_commande"),
+                        reader.GetInt32("telephone_cuisinier"),
+                        reader.GetString("prenom_cuisinier"),
                         reader.GetString("nom_cuisinier"),
-                        reader.GetString("prenom_cuisinier")
-                    ));
-                }
+                        reader.GetString("nom_du_mets"),
+                        reader.GetString("nationalité"),
+                        reader.GetDecimal("prix"),
+                        reader.GetString("régime_alimentaire")
+                    )
+                );
             }
-            bindingSource1.DataSource = commandes;
+            reader.Close();
+            bindingSource1.DataSource = lignes_commandes;
             dataGridView1.DataSource = bindingSource1;
         }
 
@@ -73,15 +78,21 @@ namespace LivInParis.Partie_Interface
         {
             if (is_admin)
             {
-                ClientAdmin clientPage = new ClientAdmin();
+                ClientAdmin clientPage = new ClientAdmin(mdp_admin, connexion);
                 this.Close();
                 clientPage.ShowDialog();
-            } else
+            }
+            else
             {
-                HomePageClient client_page = new HomePageClient(id_client);
+                HomePageClient client_page = new HomePageClient(id_client, connexion);
                 this.Hide();
                 client_page.ShowDialog();
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -14,10 +14,13 @@ namespace LivInParis
 {
     public partial class SignUp : Form
     {
-        public SignUp()
+        public MySqlConnection connexion;
+        public SignUp(MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
+            this.connexion = connexion;
+
         }
 
         private void _confirm_button_Click(object sender, EventArgs e)
@@ -35,9 +38,6 @@ namespace LivInParis
                 MessageBox.Show("Erreur : Le numéro de téléphone doit être un nombre valide.");
                 return;
             }
-
-            using (MySqlConnection connexion = Base_Données.Instance.DB)
-            {
 
                 using (MySqlTransaction transaction = connexion.BeginTransaction())
                 {
@@ -64,7 +64,7 @@ namespace LivInParis
 
                         transaction.Commit();
                         MessageBox.Show("Compte créé avec succès!");
-                        HomePageUser connexion_utilisateur = new HomePageUser(id);
+                        HomePageUser connexion_utilisateur = new HomePageUser(id, connexion);
                         this.Hide();
                         connexion_utilisateur.ShowDialog();
                     }
@@ -75,21 +75,11 @@ namespace LivInParis
                         MessageBox.Show("Erreur lors de l'insertion: " + ex.Message);
                     }
                 }
-            }
-
-            Close();
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-            ConnexionUser connexion = new ConnexionUser();
-            this.Hide();
-            connexion.ShowDialog();
         }
 
         private void Créer_un_compte_Load(object sender, EventArgs e)

@@ -49,7 +49,7 @@
             // 
             // _nom_create
             // 
-            _nom_create.Location = new Point(123, 119);
+            _nom_create.Location = new Point(157, 135);
             _nom_create.Margin = new Padding(4, 5, 4, 5);
             _nom_create.Name = "_nom_create";
             _nom_create.Size = new Size(744, 31);
@@ -57,7 +57,7 @@
             // 
             // _prenom_create
             // 
-            _prenom_create.Location = new Point(119, 225);
+            _prenom_create.Location = new Point(153, 241);
             _prenom_create.Margin = new Padding(4, 5, 4, 5);
             _prenom_create.Name = "_prenom_create";
             _prenom_create.Size = new Size(747, 31);
@@ -65,7 +65,7 @@
             // 
             // _adresse_create
             // 
-            _adresse_create.Location = new Point(122, 450);
+            _adresse_create.Location = new Point(156, 466);
             _adresse_create.Margin = new Padding(4, 5, 4, 5);
             _adresse_create.Name = "_adresse_create";
             _adresse_create.Size = new Size(747, 31);
@@ -73,7 +73,7 @@
             // 
             // _tel_create
             // 
-            _tel_create.Location = new Point(120, 562);
+            _tel_create.Location = new Point(154, 578);
             _tel_create.Margin = new Padding(4, 5, 4, 5);
             _tel_create.Name = "_tel_create";
             _tel_create.Size = new Size(747, 31);
@@ -81,7 +81,7 @@
             // 
             // _id_create
             // 
-            _id_create.Location = new Point(122, 335);
+            _id_create.Location = new Point(156, 351);
             _id_create.Margin = new Padding(4, 5, 4, 5);
             _id_create.Name = "_id_create";
             _id_create.Size = new Size(747, 31);
@@ -91,7 +91,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(120, 72);
+            label1.Location = new Point(154, 88);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(78, 38);
@@ -102,7 +102,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(119, 178);
+            label2.Location = new Point(153, 194);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(114, 38);
@@ -113,7 +113,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(119, 403);
+            label3.Location = new Point(153, 419);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(115, 38);
@@ -124,7 +124,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(119, 508);
+            label4.Location = new Point(153, 524);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(145, 38);
@@ -135,7 +135,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(119, 288);
+            label6.Location = new Point(153, 304);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(142, 38);
@@ -145,7 +145,7 @@
             // 
             // _mdp_create
             // 
-            _mdp_create.Location = new Point(119, 667);
+            _mdp_create.Location = new Point(153, 687);
             _mdp_create.Margin = new Padding(4, 5, 4, 5);
             _mdp_create.Name = "_mdp_create";
             _mdp_create.Size = new Size(744, 31);
@@ -156,7 +156,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(119, 614);
+            label7.Location = new Point(153, 634);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(191, 38);
@@ -165,10 +165,10 @@
             // 
             // _confirm_button
             // 
-            _confirm_button.Location = new Point(353, 808);
+            _confirm_button.Location = new Point(353, 828);
             _confirm_button.Margin = new Padding(4, 5, 4, 5);
             _confirm_button.Name = "_confirm_button";
-            _confirm_button.Size = new Size(313, 120);
+            _confirm_button.Size = new Size(313, 65);
             _confirm_button.TabIndex = 13;
             _confirm_button.Text = "Confirmer";
             _confirm_button.UseVisualStyleBackColor = true;
@@ -178,7 +178,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(120, -3);
+            label8.Location = new Point(119, 7);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(832, 65);
@@ -195,13 +195,12 @@
             label5.Size = new Size(69, 65);
             label5.TabIndex = 15;
             label5.Text = "←";
-            label5.Click += label5_Click;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(119, 717);
+            label9.Location = new Point(153, 737);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(83, 38);
@@ -210,14 +209,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(125, 767);
+            textBox1.Location = new Point(159, 787);
             textBox1.Margin = new Padding(4, 5, 4, 5);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(744, 31);
             textBox1.TabIndex = 16;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
-            // Créer_un_compte
+            // SignUp
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -242,7 +241,7 @@
             Margin = new Padding(4, 5, 4, 5);
             MaximumSize = new Size(1133, 963);
             MinimumSize = new Size(1133, 963);
-            Name = "Créer_un_compte";
+            Name = "SignUp";
             Text = "Créer_un_compte";
             Load += Créer_un_compte_Load;
             ResumeLayout(false);

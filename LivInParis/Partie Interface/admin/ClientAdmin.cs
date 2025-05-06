@@ -18,12 +18,15 @@ namespace LivInParis
     public partial class ClientAdmin : Form
     {
         public MySqlConnection connexion;
-        public ClientAdmin()
+        public string mdp_admin;
+        public ClientAdmin(string mdp_admin, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
-            this.connexion = Base_Données.Instance.DB;
+            this.connexion = connexion;
             LoadData();
+            this.mdp_admin = mdp_admin;
+
         }
 
 
@@ -70,7 +73,7 @@ namespace LivInParis
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AddNewClient form_tu = new AddNewClient();
+            AddNewClient form_tu = new AddNewClient(mdp_admin, connexion);
             this.Close();
             form_tu.Show();
 
@@ -271,7 +274,7 @@ namespace LivInParis
 
                 if (!string.IsNullOrEmpty(id_client_interface))
                 {
-                    UserOrders form = new UserOrders(id_client_interface, true);
+                    UserOrders form = new UserOrders(id_client_interface, true, connexion);
                     this.Close();
                     form.Show();
                     LoadData();
@@ -290,7 +293,7 @@ namespace LivInParis
 
         private void label1_Click(object sender, EventArgs e)
         {
-            HomePageAdmin clientPage = new HomePageAdmin();
+            HomePageAdmin clientPage = new HomePageAdmin(mdp_admin, connexion);
             this.Close();
             clientPage.Show();
 
@@ -317,7 +320,7 @@ namespace LivInParis
 
                 if (id_particulier!=null)
                 {
-                    ModifyClient client = new ModifyClient(id_particulier, true);
+                    ModifyClient client = new ModifyClient(id_particulier, true, connexion, mdp_admin);
                     this.Hide();
                     client.ShowDialog();
                 }

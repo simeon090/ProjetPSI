@@ -17,13 +17,13 @@ namespace LivInParis.Partie_Interface
         public int tel_cuisinier;
         public MySqlConnection connexion;
         public string id_met;
-        public Modifier_un_met(string id_client, int tel_cuisinier)
+        public Modifier_un_met(string id_client, int tel_cuisinier, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             this.id_client = id_client;
             this.tel_cuisinier = tel_cuisinier;
-            this.connexion = Base_Données.Instance.DB;
+            this.connexion = connexion;
             this.id_met = "null";
             LoadDishes();
         }
@@ -90,7 +90,7 @@ namespace LivInParis.Partie_Interface
 
         private void label1_Click(object sender, EventArgs e)
         {
-            ModeCuisinier modeCuisinier = new ModeCuisinier(id_client, tel_cuisinier);
+            ModeCuisinier modeCuisinier = new ModeCuisinier(id_client, tel_cuisinier, connexion);
             this.Hide();
             modeCuisinier.ShowDialog();
         }

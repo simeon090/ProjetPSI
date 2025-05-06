@@ -43,7 +43,7 @@ namespace LivInParis
         public override string ToString()
         {
 
-            return $"{nom_mets} - {prix} € - Station: {station_métro}";
+            return nom_mets + " - "+ prix + "€ - Station: "+station_métro+ " - qty : "+quantité;
         }
 
     }

@@ -1,4 +1,6 @@
 ﻿using LivInParis.Partie_Graphe;
+using LivInParis.Partie_Interface.admin;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,18 +15,23 @@ namespace LivInParis
 {
     public partial class HomePageAdmin : Form
     {
-        public HomePageAdmin()
+        public string mdp_admin;
+        public MySqlConnection connexion;
+        public HomePageAdmin(string mdp_admin, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
+            this.mdp_admin = mdp_admin;
+            this.connexion = connexion;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ClientAdmin clientPage = new ClientAdmin();
+            ClientAdmin clientPage = new ClientAdmin(mdp_admin, connexion);
             this.Close();
             clientPage.Show();
-          
+
 
 
 
@@ -32,10 +39,10 @@ namespace LivInParis
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CuisinierAdmin cuis = new CuisinierAdmin();
+            CuisinierAdmin cuis = new CuisinierAdmin(mdp_admin, connexion);
             this.Close();
             cuis.Show();
-          
+
 
         }
 
@@ -46,7 +53,7 @@ namespace LivInParis
 
         private void button3_Click(object sender, EventArgs e)
         {
-            GrapheUtilisateur grapheUtilisateurs = new GrapheUtilisateur();
+            GrapheUtilisateur grapheUtilisateurs = new GrapheUtilisateur(connexion);
             Console.WriteLine(grapheUtilisateurs.ToString());
             grapheUtilisateurs.ColorationGraphe();
             grapheUtilisateurs.VisualiserGraphe();
@@ -54,9 +61,16 @@ namespace LivInParis
 
         private void label1_Click(object sender, EventArgs e)
         {
-            ConnexionUser connexion = new ConnexionUser();
-            this.Close();
-            connexion.ShowDialog();
+            ConnexionUser connexionUser = new ConnexionUser(mdp_admin, connexion);
+            this.Hide();
+            connexionUser.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ExportData export = new ExportData(connexion, mdp_admin);
+            this.Hide();
+            export.ShowDialog();
         }
     }
 }

@@ -38,20 +38,25 @@
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dataGridView1.RowTemplate.Height = 60;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(105, 67);
+            dataGridView1.Location = new Point(150, 112);
+            dataGridView1.Margin = new Padding(4, 5, 4, 5);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(518, 354);
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(740, 590);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(86, 9);
+            label3.Location = new Point(123, 15);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(455, 45);
+            label3.Size = new Size(686, 65);
             label3.TabIndex = 9;
             label3.Text = "Commandes de l'utilisateur : ";
             label3.Click += label3_Click;
@@ -60,21 +65,23 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 9);
+            label2.Location = new Point(17, 15);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(42, 40);
+            label2.Size = new Size(63, 60);
             label2.TabIndex = 13;
             label2.Text = "←";
             label2.Click += label2_Click;
             // 
             // UserOrders
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1143, 750);
             Controls.Add(label2);
             Controls.Add(label3);
             Controls.Add(dataGridView1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "UserOrders";
             Text = "InterfaceCommande";
             Load += InterfaceCommande_Load;

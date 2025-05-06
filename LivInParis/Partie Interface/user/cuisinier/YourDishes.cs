@@ -20,13 +20,13 @@ namespace LivInParis.Partie_Interface
         public string id_particulier;
         public int tel_cuisinier;
         public MySqlConnection connexion;
-        public YourDishes(string id_particulier, int tel_cuisinier)
+        public YourDishes(string id_particulier, int tel_cuisinier, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             this.tel_cuisinier = tel_cuisinier;
             this.id_particulier = id_particulier;
-            connexion = Base_Données.Instance.DB;
+            this.connexion = connexion;
             LoadDishes();
             LoadClients();
         }
@@ -76,14 +76,13 @@ namespace LivInParis.Partie_Interface
         {
             List<Client> clients = new List<Client>();
 
-            try
-            {
                 string query = @"
-                SELECT p.nom_particulier, p.prenom_particulier, p.adresse_particulier
+                SELECT c.Identifiant_client, p.nom_particulier, p.prenom_particulier, p.adresse_particulier
                 FROM commande c
                 JOIN client cl ON c.Identifiant_client = cl.Identifiant_client
                 JOIN particulier p ON p.Identifiant_client = cl.Identifiant_client
-                WHERE c.telephone_cuisinier = @telephone_cuisinier";
+                WHERE c.telephone_cuisinier = @telephone_cuisinier;
+                ";
 
 
                 MySqlCommand cmd = new MySqlCommand(query, connexion);
@@ -101,11 +100,8 @@ namespace LivInParis.Partie_Interface
                         new Client(nom, prenom, "Particulier", id_client, "Confidentiel")
                     );
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur : " + ex.Message);
-            }
+            reader.Close();
+  
 
             bindingSource2.DataSource = clients;
             dataGridView2.DataSource = bindingSource2;
@@ -113,7 +109,7 @@ namespace LivInParis.Partie_Interface
 
         private void label2_Click(object sender, EventArgs e)
         {
-            ModeCuisinier modeCuisinier = new ModeCuisinier(id_particulier, tel_cuisinier);
+            ModeCuisinier modeCuisinier = new ModeCuisinier(id_particulier, tel_cuisinier, connexion);
             this.Hide();
             modeCuisinier.ShowDialog();
         }

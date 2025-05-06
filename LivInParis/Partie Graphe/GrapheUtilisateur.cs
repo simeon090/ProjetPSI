@@ -10,17 +10,17 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LivInParis.Partie_Graphe
 {
-
-    internal class GrapheUtilisateur
+    public class GrapheUtilisateur
     {
         List<Utilisateur> List_Noeuds;
         List<ArcsUtilisateurs> List_Arcs;
-        MySqlConnection connexion = Base_Données.Instance.DB;
+        public MySqlConnection connexion;
 
-        public GrapheUtilisateur()
+        public GrapheUtilisateur(MySqlConnection connexion)
         {
             this.List_Noeuds = new List<Utilisateur>();
             this.List_Arcs = new List<ArcsUtilisateurs>();
+            this.connexion = connexion;
             List<Cuisinier> List_Cuisiniers = new List<Cuisinier>();
             List<Client> List_Clients = new List<Client>();
 

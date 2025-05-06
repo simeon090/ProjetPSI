@@ -14,17 +14,21 @@ namespace LivInParis
         { get; set; }
         public string id_client;
         public List<Mets> selectionMets;
+        public MySqlConnection connexion;
         public static List<string> StationsDepart { get; set; } = new List<string>();
 
 
-        public Passer_commande(string id_client)
+        public Passer_commande(string id_client, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
+            this.id_client = id_client;
+            this.connexion = connexion;
             this.selectionMets = new List<Mets>();
             ChargerStations();
             ChargerMets();
-            this.id_client = id_client;
+            
+
         }
 
         private void ChargerStations()
@@ -54,54 +58,50 @@ namespace LivInParis
 
         private void ChargerMets()
         {
-
-            using (MySqlConnection connexion = Base_Données.Instance.DB)
-            {
                 try
                 {
-                    //requête pour station + tt les champs de mets
-                    string query = @"
-                    SELECT 
-                        m.nom_mets, 
-                        m.prix,
-                        m.id_mets,
-                        m.type,
-                        m.nationalité,
-                        m.régime_alimentaire,
-                        m.telephone_cuisinier,
-                        m.quantité,
-                        c.station_métro
-                    FROM 
-                        Mets m
-                    JOIN 
-                        Cuisinier c ON m.telephone_cuisinier = c.telephone_cuisinier";
+                //requête pour station + tt les champs de mets
+                string query = @"
+                SELECT 
+                    m.nom_mets, 
+                    m.prix,
+                    m.id_mets,
+                    m.type,
+                    m.nationalité,
+                    m.régime_alimentaire,
+                    m.telephone_cuisinier,
+                    m.quantité,
+                    c.station_métro
+                FROM 
+                    Mets m
+                JOIN 
+                    Cuisinier c ON m.telephone_cuisinier = c.telephone_cuisinier";
 
 
-                    MySqlCommand cmd = new MySqlCommand(query, connexion);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                MySqlCommand cmd = new MySqlCommand(query, connexion);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        selectionMets.Add(
-                            new Mets(
-                                reader.GetString("nom_mets"),
-                                reader.GetDecimal("prix"),
-                                reader.GetInt32("id_mets").ToString(),
-                                reader.GetString("type"),
-                                reader.GetString("nationalité"),
-                                reader.GetString("régime_alimentaire"),
-                                reader.GetInt32("telephone_cuisinier"),
-                                reader.GetInt32("quantité"),
-                                reader.GetString("station_métro")
-                        )
-                     );
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
+                while (reader.Read())
                 {
-                    MessageBox.Show("Erreur : " + ex.Message);
+                    selectionMets.Add(
+                        new Mets(
+                            reader.GetString("nom_mets"),
+                            reader.GetDecimal("prix"),
+                            reader.GetInt32("id_mets").ToString(),
+                            reader.GetString("type"),
+                            reader.GetString("nationalité"),
+                            reader.GetString("régime_alimentaire"),
+                            reader.GetInt32("telephone_cuisinier"),
+                            reader.GetInt32("quantité"),
+                            reader.GetString("station_métro")
+                    )
+                    );
                 }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
             }
 
             // ListBox
@@ -165,7 +165,7 @@ namespace LivInParis
                 MessageBox.Show("Veuillez sélectionner votre station de livraison");
                 return;
             }
-            OrderSumary panier = new OrderSumary(Mets_selectionné, id_client);
+            OrderSumary panier = new OrderSumary(Mets_selectionné, id_client, connexion);
 
 
             this.Hide();
@@ -174,7 +174,7 @@ namespace LivInParis
 
         private void label1_Click(object sender, EventArgs e)
         {
-            HomePageUser utilisateur = new HomePageUser(id_client);
+            HomePageUser utilisateur = new HomePageUser(id_client, connexion);
             this.Hide();
             utilisateur.ShowDialog();
         }

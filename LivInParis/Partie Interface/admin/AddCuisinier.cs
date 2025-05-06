@@ -13,11 +13,16 @@ namespace LivInParis.Partie_Interface
 {
     public partial class AddCuisinier : Form
     {
-        public AddCuisinier()
+        public string mdp_admin;
+        public MySqlConnection connexion;
+        public AddCuisinier(string mdp_admin, MySqlConnection connexion)
         {
             this.BackColor = Color.LightBlue;
+            this.connexion = connexion;
             InitializeComponent();
             ChargerStations();
+            this.mdp_admin = mdp_admin;
+
         }
 
         private void ChargerStations()
@@ -46,7 +51,6 @@ namespace LivInParis.Partie_Interface
             string station_metro = _choix_station_commande.SelectedItem.ToString();
             string e_mail = this._mail_box.Text;
 
-            MySqlConnection connexion = Base_Données.Instance.DB;
             try
             {
                 // Requête SQL pour ajouter un cuisinier
@@ -64,7 +68,7 @@ namespace LivInParis.Partie_Interface
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cuisinier ajouté avec succès!");
-                CuisinierAdmin cuisinierPage = new CuisinierAdmin();
+                CuisinierAdmin cuisinierPage = new CuisinierAdmin(mdp_admin, connexion);
                 this.Close();
                 cuisinierPage.Show();
             }
@@ -76,7 +80,7 @@ namespace LivInParis.Partie_Interface
 
         private void label6_Click(object sender, EventArgs e)
         {
-            CuisinierAdmin cuisinierPage = new CuisinierAdmin();
+            CuisinierAdmin cuisinierPage = new CuisinierAdmin(mdp_admin, connexion);
             this.Close();
             cuisinierPage.Show();
         }

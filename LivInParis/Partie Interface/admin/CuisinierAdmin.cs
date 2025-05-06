@@ -6,13 +6,16 @@ namespace LivInParis
 {
     public partial class CuisinierAdmin : Form
     {
+        public string mdp_admin;
         public MySqlConnection connexion;
-        public CuisinierAdmin()
+        public CuisinierAdmin(string mdp_admin, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
-            connexion = Base_Données.Instance.DB;
+            this.connexion = connexion;
             dataGridView1.AutoGenerateColumns = true;
+            this.mdp_admin = mdp_admin;
+
         }
 
 
@@ -195,14 +198,14 @@ namespace LivInParis
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ModifyCuisinier modifierCuisinier = new ModifyCuisinier();
+            ModifyCuisinier modifierCuisinier = new ModifyCuisinier(mdp_admin, connexion);
             this.Close();
             modifierCuisinier.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            HomePageAdmin modesAdmin = new HomePageAdmin();
+            HomePageAdmin modesAdmin = new HomePageAdmin(mdp_admin, connexion);
             this.Close();
             modesAdmin.ShowDialog();
 
@@ -210,14 +213,14 @@ namespace LivInParis
 
         private void button5_Click(object sender, EventArgs e)
         {
-            AddCuisinier cuiniser = new AddCuisinier();
+            AddCuisinier cuiniser = new AddCuisinier(mdp_admin, connexion);
             this.Close();
             cuiniser.ShowDialog();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            DeleteCuisinier deleteCuisinier = new DeleteCuisinier();
+            DeleteCuisinier deleteCuisinier = new DeleteCuisinier(mdp_admin, connexion);
             this.Close();
             deleteCuisinier.ShowDialog();
         }

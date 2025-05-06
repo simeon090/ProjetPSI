@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Cuisiniers>
+  <Cuisinier>
+    <Nom>Dupond</Nom>
+    <Prenom>Marie</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>30 Rue de la République 75011</Adresse>
+    <Mail>Mdupond@gmail.com</Mail>
+    <Telephone>1</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>Martin</Nom>
+    <Prenom>Jean</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>12 Avenue des Champs 75008</Adresse>
+    <Mail>jmartin@gmail.com</Mail>
+    <Telephone>2</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>Lemoine</Nom>
+    <Prenom>Sophie</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>5 Place de la Concorde 75001</Adresse>
+    <Mail>slemoine@gmail.com</Mail>
+    <Telephone>3</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>Durand</Nom>
+    <Prenom>Paul</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>18 Boulevard Haussmann 75009</Adresse>
+    <Mail>pdurand@gmail.com</Mail>
+    <Telephone>4</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>Morel</Nom>
+    <Prenom>Lucie</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>45 Rue Lafayette 75010</Adresse>
+    <Mail>lmorel@gmail.com</Mail>
+    <Telephone>5</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>Bertrand</Nom>
+    <Prenom>Thomas</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>22 Rue Saint-Honoré 75001</Adresse>
+    <Mail>tbertrand@gmail.com</Mail>
+    <Telephone>6</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>Dubois</Nom>
+    <Prenom>Camille</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>9 Avenue Montaigne 75008</Adresse>
+    <Mail>cdubois@gmail.com</Mail>
+    <Telephone>7</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>Fontaine</Nom>
+    <Prenom>Nicolas</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>37 Rue de Rivoli 75004</Adresse>
+    <Mail>nfontaine@gmail.com</Mail>
+    <Telephone>8</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>Blanc</Nom>
+    <Prenom>Emma</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>14 Rue des Rosiers 75004</Adresse>
+    <Mail>eblanc@gmail.com</Mail>
+    <Telephone>9</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>Renard</Nom>
+    <Prenom>Alexandre</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>3 Boulevard Saint-Michel 75005</Adresse>
+    <Mail>arenard@gmail.com</Mail>
+    <Telephone>10</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>test</Nom>
+    <Prenom>test</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>FGH</Adresse>
+    <Mail>RTG</Mail>
+    <Telephone>5654</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>trtre</Nom>
+    <Prenom>eraze</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>re</Adresse>
+    <Mail>tre</Mail>
+    <Telephone>565434</Telephone>
+  </Cuisinier>
+  <Cuisinier>
+    <Nom>Simeonov</Nom>
+    <Prenom>Simeon</Prenom>
+    <Type>Cuisinier</Type>
+    <Adresse>43 avenue du Roule, 92000</Adresse>
+    <Mail>sim.simeonov09@gmail.com</Mail>
+    <Telephone>768012545</Telephone>
+  </Cuisinier>
+</Cuisiniers>

@@ -252,3 +252,7 @@ C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInPari
 C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.Modifier_un_met.resources
 C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.user.client.HomePageClient.resources
 C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\obj\Debug\net8.0-windows\LivInParis.ModifyClient.resources
+C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\obj\Debug\net8.0-windows\LivInParis.sourcelink.json
+C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.admin.ConnexionAdmin.resources
+C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.admin.ExportAdmin.resources

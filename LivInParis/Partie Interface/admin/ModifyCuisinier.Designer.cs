@@ -38,6 +38,7 @@
             label3 = new Label();
             label4 = new Label();
             mail_box = new Label();
+            label9 = new Label();
             SuspendLayout();
             // 
             // _modif_cuis_box
@@ -52,7 +53,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(624, 858);
+            button1.Location = new Point(458, 649);
             button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
             button1.Size = new Size(324, 123);
@@ -126,9 +127,9 @@
             label4.Location = new Point(9, 409);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(372, 32);
+            label4.Size = new Size(373, 32);
             label4.TabIndex = 8;
-            label4.Text = "station de métro la plus proche";
+            label4.Text = "Station de métro la plus proche";
             // 
             // mail_box
             // 
@@ -141,11 +142,24 @@
             mail_box.TabIndex = 9;
             mail_box.Text = "e-mail";
             // 
-            // Modifier_cuisinier
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(396, 50);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(446, 65);
+            label9.TabIndex = 19;
+            label9.Text = "Modifier un cuisinier : ";
+            label9.Click += label9_Click;
+            // 
+            // ModifyCuisinier
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1621, 1050);
+            Controls.Add(label9);
             Controls.Add(mail_box);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -157,7 +171,7 @@
             Controls.Add(button1);
             Controls.Add(_modif_cuis_box);
             Margin = new Padding(4, 5, 4, 5);
-            Name = "Modifier_cuisinier";
+            Name = "ModifyCuisinier";
             Text = "Modifier_cuisinier";
             ResumeLayout(false);
             PerformLayout();
@@ -175,5 +189,6 @@
         private Label label3;
         private Label label4;
         private Label mail_box;
+        private Label label9;
     }
 }

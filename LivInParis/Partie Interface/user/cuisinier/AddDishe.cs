@@ -16,12 +16,12 @@ namespace LivInParis.Partie_Interface
         public MySqlConnection connexion;
         public string id_client;
         public int tel_cuisinier;
-        public AddDishe(string id_client, int tel_cuisinier)
+        public AddDishe(string id_client, int tel_cuisinier, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             this.id_client = id_client;
-            this.connexion = Base_Données.Instance.DB;
+            this.connexion = connexion;
             this.tel_cuisinier = tel_cuisinier;
 
         }
@@ -62,7 +62,7 @@ namespace LivInParis.Partie_Interface
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Met ajouté avec succès!");
-                ModeCuisinier modeCuisinier = new ModeCuisinier(id_client, tel_cuisinier);
+                ModeCuisinier modeCuisinier = new ModeCuisinier(id_client, tel_cuisinier, connexion);
                 this.Hide();
                 modeCuisinier.ShowDialog();
             }
@@ -75,7 +75,7 @@ namespace LivInParis.Partie_Interface
 
         private void label8_Click(object sender, EventArgs e)
         {
-            ModeCuisinier modeCuisinier = new ModeCuisinier(id_client, tel_cuisinier);
+            ModeCuisinier modeCuisinier = new ModeCuisinier(id_client, tel_cuisinier, connexion);
             this.Hide();
             modeCuisinier.ShowDialog();
         }
@@ -101,6 +101,11 @@ namespace LivInParis.Partie_Interface
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

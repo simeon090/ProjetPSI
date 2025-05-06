@@ -18,18 +18,19 @@ namespace LivInParis
     {
         string id_particulier;
         MySqlConnection connexion;
+        string mdp_admin;
         Cuisinier nouveau_cuisinier;
-        public HomePageUser(string id_particulier)
+        public HomePageUser(string id_particulier, MySqlConnection connexion)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
-            connexion = Base_Données.Instance.DB;
+            this.connexion = connexion;
             this.id_particulier = id_particulier;        
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            HomePageClient client_page = new HomePageClient(id_particulier);
+            HomePageClient client_page = new HomePageClient(id_particulier, connexion);
             this.Hide();
             client_page.ShowDialog();
         }
@@ -73,14 +74,14 @@ namespace LivInParis
                 if (count > 0)
                 {
                     Console.WriteLine("CUISINIER EXISTE : "+tel_particulier);
-                    ModeCuisinier cuisinier_page = new ModeCuisinier(id_particulier, tel_particulier);
+                    ModeCuisinier cuisinier_page = new ModeCuisinier(id_particulier, tel_particulier, connexion);
                     this.Hide();
                     cuisinier_page.ShowDialog();
                 }
                 else
                 {
                     Console.WriteLine("CUISINIER EXISTE PAS");
-                    CreateCuisinier creation_cuisinier_page = new CreateCuisinier(id_particulier, cuisinier);
+                    CreateCuisinier creation_cuisinier_page = new CreateCuisinier(id_particulier, cuisinier, connexion);
                     this.Hide();
                     creation_cuisinier_page.ShowDialog();
                 }
@@ -93,7 +94,7 @@ namespace LivInParis
 
         private void label2_Click(object sender, EventArgs e)
         {
-            ConnexionUser connexionUser = new ConnexionUser();
+            ConnexionUser connexionUser = new ConnexionUser(mdp_admin, connexion);
             this.Hide();
             connexionUser.ShowDialog();
         }
