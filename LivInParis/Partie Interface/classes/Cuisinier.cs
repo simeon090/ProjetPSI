@@ -11,13 +11,16 @@ namespace LivInParis
         public int telephone;
         public string adresse;
         public string mail;
+        public string id_client;
 
-        public Cuisinier(string nom, string prenom, string type, string adresse, string mail, int telephone) : base(prenom, nom, type)
+        public Cuisinier(string nom, string prenom, string type, string adresse, string mail, int telephone, string id_client=null) : base(prenom, nom, type, id_client)
         {
             this.adresse = adresse;
             this.mail = mail;
             this.telephone = telephone;
             this.type = type;
+            this.id_client = id_client;
+
         }
 
         public string Prenom

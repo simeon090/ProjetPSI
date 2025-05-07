@@ -55,7 +55,7 @@ namespace LivInParis.Partie_Interface
                 cmd.Parameters.AddWithValue("@prix_met", prix);
                 cmd.Parameters.AddWithValue("@type_met", type);
                 cmd.Parameters.AddWithValue("@regime_ali", regime);
-                cmd.Parameters.AddWithValue("@tel_cuisinier", tel_cuisinier);
+                cmd.Parameters.AddWithValue("@tel_cuisinier", Convert.ToInt32(tel_cuisinier));
                 cmd.Parameters.AddWithValue("@nationalité", nationalité);
                 cmd.Parameters.AddWithValue("@quantité", Convert.ToInt32(quantité));
                 cmd.ExecuteNonQuery();

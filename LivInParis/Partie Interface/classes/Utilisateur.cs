@@ -12,13 +12,14 @@ namespace LivInParis
         public string nom;
         public string type;
         public int couleur;
-
-        public Utilisateur(string prenom, string nom, string type)
+        public string id_client;
+        public Utilisateur(string prenom, string nom, string type, string id_client)
         {
             this.nom = nom;
             this.prenom = prenom;
             this.type = type;
             this.couleur = 0;
+            this.id_client = id_client;
         }
 
         public string Prenom

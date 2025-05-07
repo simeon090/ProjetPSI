@@ -562,7 +562,8 @@
       },
       "LivInParis/1.0.0": {
         "dependencies": {
-          "MySql.Data": "9.2.0"
+          "MySql.Data": "9.2.0",
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "LivInParis.dll": {

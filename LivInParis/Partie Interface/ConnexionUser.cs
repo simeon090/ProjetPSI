@@ -79,7 +79,7 @@ namespace LivInParis
 
         private void _button_create_account_Click(object sender, EventArgs e)
         {
-            SignUp new_user = new SignUp(connexion);
+            SignUp new_user = new SignUp(connexion, mdp_admin);
             this.Hide();
             new_user.ShowDialog();
             this.Close();

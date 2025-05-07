@@ -33,7 +33,6 @@
             bindingSource1 = new BindingSource(components);
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
             button4 = new Button();
             button5 = new Button();
             label1 = new Label();
@@ -44,17 +43,20 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 2);
+            dataGridView1.Location = new Point(17, 3);
+            dataGridView1.Margin = new Padding(4, 5, 4, 5);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(809, 582);
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(1156, 970);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button1
             // 
-            button1.Location = new Point(817, 2);
+            button1.Location = new Point(1167, 3);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(349, 102);
+            button1.Size = new Size(499, 170);
             button1.TabIndex = 1;
             button1.Text = "Meilleurs cuisiniers";
             button1.UseVisualStyleBackColor = true;
@@ -62,29 +64,21 @@
             // 
             // button2
             // 
-            button2.Location = new Point(817, 110);
+            button2.Location = new Point(1167, 183);
+            button2.Margin = new Padding(4, 5, 4, 5);
             button2.Name = "button2";
-            button2.Size = new Size(349, 102);
+            button2.Size = new Size(499, 170);
             button2.TabIndex = 2;
             button2.Text = "Panier moyen ";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // button3
-            // 
-            button3.Location = new Point(817, 228);
-            button3.Name = "button3";
-            button3.Size = new Size(349, 102);
-            button3.TabIndex = 3;
-            button3.Text = "Prix moyen plats";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
             // button4
             // 
-            button4.Location = new Point(817, 350);
+            button4.Location = new Point(1167, 363);
+            button4.Margin = new Padding(4, 5, 4, 5);
             button4.Name = "button4";
-            button4.Size = new Size(349, 102);
+            button4.Size = new Size(499, 170);
             button4.TabIndex = 4;
             button4.Text = "Top clients ";
             button4.UseVisualStyleBackColor = true;
@@ -92,9 +86,10 @@
             // 
             // button5
             // 
-            button5.Location = new Point(817, 482);
+            button5.Location = new Point(1167, 543);
+            button5.Margin = new Padding(4, 5, 4, 5);
             button5.Name = "button5";
-            button5.Size = new Size(349, 102);
+            button5.Size = new Size(499, 170);
             button5.TabIndex = 5;
             button5.Text = "Dépenses clients ";
             button5.UseVisualStyleBackColor = true;
@@ -104,25 +99,26 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(2, 2);
+            label1.Location = new Point(3, 3);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(49, 45);
+            label1.Size = new Size(71, 65);
             label1.TabIndex = 8;
             label1.Text = "⭠";
             label1.Click += label1_Click;
             // 
             // StatsAdmin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1162, 582);
+            ClientSize = new Size(1660, 970);
             Controls.Add(label1);
             Controls.Add(button5);
             Controls.Add(button4);
-            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "StatsAdmin";
             Text = "Statistques";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -137,7 +133,6 @@
         private BindingSource bindingSource1;
         private Button button1;
         private Button button2;
-        private Button button3;
         private Button button4;
         private Button button5;
         private Label label1;

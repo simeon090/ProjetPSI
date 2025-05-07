@@ -256,4 +256,4 @@ C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInPari
 C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.admin.ConnexionAdmin.resources
 C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.admin.ExportData.resources
-C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.admin.Statistiques.resources
+C:\Users\simeo\Desktop\CLEAN PSI\ProjetPSI-master (2)\ProjetPSI-master\LivInParis\obj\Debug\net8.0-windows\LivInParis.Partie_Interface.admin.StatsAdmin.resources

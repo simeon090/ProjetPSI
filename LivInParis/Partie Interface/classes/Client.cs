@@ -13,7 +13,7 @@ namespace LivInParis
 
 
 
-        public Client(string nom, string prenom, string type, string identifiantClient, string motDePasse) : base(prenom, nom, type)
+        public Client(string nom, string prenom, string type, string identifiantClient, string motDePasse) : base(prenom, nom, type, identifiantClient)
         {
             this.IdentifiantClient = identifiantClient;
             this.MotDePasse = motDePasse;

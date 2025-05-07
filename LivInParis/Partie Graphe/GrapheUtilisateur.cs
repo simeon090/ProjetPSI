@@ -24,12 +24,37 @@ namespace LivInParis.Partie_Graphe
             List<Cuisinier> List_Cuisiniers = new List<Cuisinier>();
             List<Client> List_Clients = new List<Client>();
 
-            string query_client = 
+
+            string query_cuisinier = @"
+            SELECT C.*, P.Identifiant_client
+            FROM Cuisinier C
+            JOIN particulier P ON C.telephone_cuisinier = P.numéro_tel_particulier";
+            MySqlDataReader reader_cuisinier = new MySqlCommand(query_cuisinier, connexion).ExecuteReader();
+
+            while (reader_cuisinier.Read())
+            {
+                Cuisinier cuisinier = new Cuisinier(
+                    reader_cuisinier.GetString("nom_cuisinier"),
+                    reader_cuisinier.GetString("prenom_cuisinier"),
+                    "Cuisinier",
+                    reader_cuisinier.GetString("adresse_cuisinier"),
+                    reader_cuisinier.GetString("mail_cuisinier"),
+                    Convert.ToInt32(reader_cuisinier.GetDecimal("telephone_cuisinier")),
+                    reader_cuisinier.GetString("Identifiant_client")
+                );
+                this.List_Noeuds.Add(cuisinier);
+                List_Cuisiniers.Add(cuisinier);
+            }
+            reader_cuisinier.Close();
+
+
+            string query_client =
                 @"SELECT 
                     c.Identifiant_client, 
                     c.Mot_de_passe, 
                     p.nom_particulier, 
-                    p.prenom_particulier 
+                    p.prenom_particulier,
+                    p.numéro_tel_particulier
                 FROM Client c
                 JOIN Particulier p ON c.Identifiant_client = p.Identifiant_client";
 
@@ -41,30 +66,16 @@ namespace LivInParis.Partie_Graphe
                     string prenom = reader_client.GetString("prenom_particulier");
                     string identifiant = reader_client.GetString("Identifiant_client");
                     string motDePasse = reader_client.GetString("Mot_de_passe");
-                    Client client = new Client(nom, prenom, "Client", identifiant, motDePasse);
-                    this.List_Noeuds.Add(client);
-                    List_Clients.Add(client);
+                    int num_tel_particulier = reader_client.GetInt32("numéro_tel_particulier");
+                    if (!ClientEstCuisinier(num_tel_particulier, List_Cuisiniers))
+                    {
+                        Client client = new Client(nom, prenom, "Client", identifiant, motDePasse);
+                        this.List_Noeuds.Add(client);
+                        List_Clients.Add(client);
+                    }
                 }
                 reader_client.Close();
             }
-
-            string query_cuisinier = "SELECT * FROM Cuisinier";
-            MySqlDataReader reader_cuisinier = new MySqlCommand(query_cuisinier, connexion).ExecuteReader();
-
-            while (reader_cuisinier.Read())
-            {
-                Cuisinier cuisinier = new Cuisinier(
-                    reader_cuisinier.GetString("nom_cuisinier"),
-                    reader_cuisinier.GetString("prenom_cuisinier"),
-                    "Cuisinier",
-                    reader_cuisinier.GetString("adresse_cuisinier"),
-                    reader_cuisinier.GetString("mail_cuisinier"),
-                    Convert.ToInt32(reader_cuisinier.GetDecimal("telephone_cuisinier"))
-                );
-                this.List_Noeuds.Add(cuisinier);
-                List_Cuisiniers.Add(cuisinier);
-            }
-            reader_cuisinier.Close();
 
             for (int i = 0; i < List_Cuisiniers.Count; i++)
             {
@@ -80,21 +91,34 @@ namespace LivInParis.Partie_Graphe
                 {
                     while (reader_comande.Read())
                     {
-                        Client client = TrouverClientDeId(List_Clients, reader_comande.GetString("Identifiant_client"));
+                        Utilisateur client = TrouverClientDeId(reader_comande.GetString("Identifiant_client"));
                         this.List_Arcs.Add(new ArcsUtilisateurs(List_Cuisiniers[i], client));
                     }
                 }
             }
         }
 
-        public Client TrouverClientDeId(List<Client> liste, string id)
+        public bool ClientEstCuisinier(int num_tel, List<Cuisinier> cuisiniers)
         {
-            Client client = null;
-            for (int i = 0; i < liste.Count; i++)
+            bool resultat = false;
+            for(int i=0; i<cuisiniers.Count; i++)
             {
-                if (liste[i].IdentifiantClient == id)
+                if (cuisiniers[i].Telephone == num_tel)
                 {
-                    client = liste[i];
+                    resultat = true;
+                }
+            }
+            return resultat;
+        }
+
+        public Utilisateur TrouverClientDeId(string id)
+        {
+            Utilisateur client = null;
+            for (int i = 0; i < this.List_Noeuds.Count; i++)
+            {
+                if (this.List_Noeuds[i].id_client == id)
+                {
+                    client = this.List_Noeuds[i];
                 }
             }
             if (client is null)
@@ -125,13 +149,13 @@ namespace LivInParis.Partie_Graphe
             Brushes.LightBlue,
             Brushes.LightGreen,
             Brushes.LightCoral,
-            Brushes.LightSalmon,
             Brushes.LightSeaGreen,
             Brushes.LightPink,
             Brushes.LightGoldenrodYellow,
             Brushes.LightSkyBlue,
             Brushes.LightSteelBlue,
-            Brushes.LightGray
+            Brushes.LightGray,
+            Brushes.LightSalmon
         };
 
         /// <summary>
@@ -142,8 +166,8 @@ namespace LivInParis.Partie_Graphe
             // On initialise une fenètre de taille 800x600
             Form form = new Form
             {
-                Text = "Visualisation du Graphe Metro de Paris",
-                Size = new Size(1000, 800)
+                Text = "Visualisation du Graphe Cuisiniers/Clients",
+                Size = new Size(1200, 1000)
             };
             //fonction de l'extension windows.forms pour dessiner le graphique
             form.Paint += (sender, e) =>
@@ -156,7 +180,7 @@ namespace LivInParis.Partie_Graphe
                 Dictionary<Utilisateur, Point> positions = new Dictionary<Utilisateur, Point>();
                 Random rand = new Random();
                 int rayon = 30;
-                int distanceMin = 50;
+                int distanceMin = 100;
 
                 // Cette boucle positionne chaque noeud en s'assurant que les noeuds ne se supperpose pas et soient espacé de distanceMin
                 foreach (var noeud in this.List_Noeuds)

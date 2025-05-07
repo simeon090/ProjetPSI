@@ -117,9 +117,18 @@ namespace LivInParis
             string nom = textBox1.Text;
             string prenom = textBox2.Text;
             string adresse = textBox4.Text;
-            string numeroTel = textBox3.Text;
             string email = textBox5.Text;
-
+            if (!email.Contains("@"))
+            {
+                MessageBox.Show("Adresse email pas valide");
+                return;
+            }
+            int telephone;
+            if (!int.TryParse(this.textBox3.Text, out telephone))
+            {
+                MessageBox.Show("Téléphone pas valide.");
+                return;
+            }
             try
             {
                 //on met à jour à la fois le client et le particulier correspondant
@@ -139,7 +148,7 @@ namespace LivInParis
                 cmd2.Parameters.AddWithValue("@nom", nom);
                 cmd2.Parameters.AddWithValue("@prenom", prenom);
                 cmd2.Parameters.AddWithValue("@adresse", adresse);
-                cmd2.Parameters.AddWithValue("@numeroTel", Convert.ToDecimal(numeroTel));
+                cmd2.Parameters.AddWithValue("@numeroTel", Convert.ToDecimal(telephone));
                 cmd2.Parameters.AddWithValue("@email", email);
                 cmd2.Parameters.AddWithValue("@identifiant", id_particulier);
                 cmd2.ExecuteNonQuery();

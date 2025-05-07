@@ -15,12 +15,13 @@ namespace LivInParis
     public partial class SignUp : Form
     {
         public MySqlConnection connexion;
-        public SignUp(MySqlConnection connexion)
+        public string mdp_admin;
+        public SignUp(MySqlConnection connexion, string mdp_admin)
         {
             InitializeComponent();
             this.BackColor = Color.LightBlue;
             this.connexion = connexion;
-
+            this.mdp_admin = mdp_admin;
         }
 
         private void _confirm_button_Click(object sender, EventArgs e)
@@ -31,10 +32,20 @@ namespace LivInParis
             string prenom = this._prenom_create.Text;
             string adresse = this._adresse_create.Text;
             string mail = this.textBox1.Text;
+            if (!mail.Contains("@"))
+            {
+                MessageBox.Show("Adresse email pas valide");
+                return;
+            }
+            int telephone;
+            if (!int.TryParse(this._tel_create.Text, out telephone))
+            {
+                MessageBox.Show("Téléphone pas valide.");
+                return;
+            }
 
             try
             {
-                int telephone = Convert.ToInt32(this._tel_create.Text);
                 // requeete 1 
                 string queryClient = "INSERT INTO Client (Identifiant_client, Mot_de_passe) VALUES (@IdentifiantClient, @MotDePasse)";
                 MySqlCommand cmdClient = new MySqlCommand(queryClient, connexion);
@@ -83,6 +94,13 @@ namespace LivInParis
         private void _mdp_create_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            ConnexionUser connexionUser = new ConnexionUser(mdp_admin, connexion);
+            this.Hide();
+            connexionUser.ShowDialog();
         }
     }
 }

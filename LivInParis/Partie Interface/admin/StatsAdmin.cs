@@ -43,7 +43,8 @@ namespace LivInParis.Partie_Interface.admin
                       SELECT c.telephone_cuisinier, cu.nom_cuisinier, cu.prenom_cuisinier, COUNT(*) AS nombre_livraisons
                       FROM commande c
                       JOIN cuisinier cu ON c.telephone_cuisinier = cu.telephone_cuisinier
-                      GROUP BY c.telephone_cuisinier, cu.nom_cuisinier, cu.prenom_cuisinier;";
+                      GROUP BY c.telephone_cuisinier, cu.nom_cuisinier, cu.prenom_cuisinier
+                      ORDER BY nombre_livraisons DESC;";
                 MySqlCommand cmd = new MySqlCommand(requête, connexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -152,7 +153,8 @@ namespace LivInParis.Partie_Interface.admin
                 string requête_4 = @"SELECT c.Identifiant_client, SUM(lc.prix) AS total_depenses
                 FROM commande c
                 JOIN lignes_commandes lc ON c.numéro_commande = lc.numéro_commande
-                GROUP BY c.Identifiant_client";
+                GROUP BY c.Identifiant_client
+                ORDER BY total_depenses DESC;";
                 
 
                 MySqlCommand cmd = new MySqlCommand(requête_4, connexion);

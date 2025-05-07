@@ -9,9 +9,9 @@ namespace LivInParis
     public class ArcsUtilisateurs
     {
         Cuisinier cuisinier;
-        Client client;
+        Utilisateur client;
 
-        public ArcsUtilisateurs(Cuisinier cuisinier, Client client)
+        public ArcsUtilisateurs(Cuisinier cuisinier, Utilisateur client)
         {
             this.client = client;
             this.cuisinier = cuisinier;
@@ -22,7 +22,7 @@ namespace LivInParis
             get { return this.cuisinier; }
         }
 
-        public Client Client
+        public Utilisateur Client
         {
             get { return this.client; }
         }
